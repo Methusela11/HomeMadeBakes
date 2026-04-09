@@ -34,7 +34,26 @@ namespace RmeksBakeryAPI.Data
                 Description = "Special graduation cake", 
                 Price = 3500, 
                 ImageUrl = "https://via.placeholder.com/300" 
+            },
+            new Product 
+            { 
+                Id = 4, 
+                Name = "Anniversary Cake", 
+                Category = "Anniversary", 
+                Description = "Special anniversary cake", 
+                Price = 5500, 
+                ImageUrl = "https://via.placeholder.com/300" 
+            },
+            new Product 
+            { 
+                Id = 5, 
+                Name = "Custom Cake", 
+                Category = "Custom", 
+                Description = "Special custom cake", 
+                Price = 5000, 
+                ImageUrl = "https://via.placeholder.com/300" 
             }
+
         };
 
         public static List<Order> Orders = new List<Order>();
