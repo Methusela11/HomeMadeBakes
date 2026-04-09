@@ -38,7 +38,6 @@ export default function BakeryLanding() {
             </button>
           </div>
 
-          {/* Title */}
           <h1 className="text-5xl font-bold leading-tight text-green-900">
             We{" "}
             <span className="text-orange-500 underline decoration-4">
@@ -55,7 +54,6 @@ export default function BakeryLanding() {
             We bake Anniversary cakes, Graduation cakes, Birthday cakes, Wedding cakes and Custom cakes.
           </p>
 
-          {/* Buttons */}
           <div className="flex gap-4 mt-6">
             <button className="bg-orange-500 text-white px-6 py-3 rounded-lg shadow">
               Read More
@@ -67,7 +65,6 @@ export default function BakeryLanding() {
           </div>
         </div>
 
-        {/* RIGHT IMAGE */}
         <div className="flex-1 relative mt-10 md:mt-0">
           <div className="bg-[#e9d7c3] rounded-3xl p-6 w-fit mx-auto">
             <img
@@ -77,7 +74,6 @@ export default function BakeryLanding() {
             />
           </div>
 
-          {/* Floating decorations */}
           <img
             src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c"
             className="w-12 absolute top-0 right-10 rotate-12"
@@ -86,10 +82,8 @@ export default function BakeryLanding() {
         </div>
       </div>
 
-      {/* 🍪 CATEGORY SECTION */}
       <div className="grid md:grid-cols-4 gap-6 px-12 mt-16 items-center">
 
-        {/* Cupcake */}
         <div className="flex items-center gap-4">
           <img
             src="https://images.unsplash.com/photo-1586985289906-406988974504"
@@ -102,7 +96,6 @@ export default function BakeryLanding() {
           </div>
         </div>
 
-        {/* Cake */}
         <div className="text-center">
           <div className="bg-orange-100 p-4 rounded-full w-fit mx-auto">
             🍰
@@ -113,7 +106,6 @@ export default function BakeryLanding() {
           </p>
         </div>
 
-        {/* Cookies */}
         <div className="text-center">
           <div className="bg-orange-100 p-4 rounded-full w-fit mx-auto">
             🍪
@@ -124,7 +116,6 @@ export default function BakeryLanding() {
           </p>
         </div>
 
-        {/* Bread */}
         <div className="text-center">
           <div className="bg-orange-100 p-4 rounded-full w-fit mx-auto">
             🍞
