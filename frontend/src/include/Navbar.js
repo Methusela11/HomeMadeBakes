@@ -8,12 +8,10 @@ export default function Navbar() {
   const handleClose = () => setIsOpen(false);
 
   return (
-    <nav className="flex justify-between items-center px-6 md:px-12 py-6 bg-white shadow-md relative">
-      {/* LOGO */}
+    <nav className="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-6 md:px-12 py-6 bg-white shadow-md">
       <Link to="/" className="text-2xl font-bold cursor-pointer">
         <span className="text-orange-500">RMEKS </span>Bakery
       </Link>
-
       {/* DESKTOP MENU */}
       <ul className="hidden md:flex gap-8 text-gray-700">
         <li>
@@ -21,11 +19,7 @@ export default function Navbar() {
             Home
           </Link>
         </li>
-        <li>
-          <Link to="/about" className="hover:text-orange-500">
-            About
-          </Link>
-        </li>
+
         <li>
           <Link to="/menu" className="hover:text-orange-500">
             Menu
@@ -46,8 +40,12 @@ export default function Navbar() {
             Contact
           </Link>
         </li>
+        <li>
+          <Link to="/about" className="hover:text-orange-500">
+            About
+          </Link>
+        </li>
       </ul>
-
       {/* RIGHT SIDE */}
       <div className="flex items-center gap-4">
         <div className="hidden md:flex items-center gap-2 text-sm cursor-pointer">
@@ -63,15 +61,10 @@ export default function Navbar() {
         </button>
       </div>
 
-      {/* MOBILE MENU */}
       {isOpen && (
         <ul className="absolute top-20 left-0 w-full bg-white shadow-md flex flex-col items-center gap-6 py-6 md:hidden text-gray-700 z-50">
           <li onClick={handleClose}>
             <Link to="/">Home</Link>
-          </li>
-
-          <li onClick={handleClose}>
-            <Link to="/about">About</Link>
           </li>
 
           <li onClick={handleClose}>
@@ -88,6 +81,9 @@ export default function Navbar() {
 
           <li onClick={handleClose}>
             <Link to="/contact">Contact</Link>
+          </li>
+          <li onClick={handleClose}>
+            <Link to="/about">About</Link>
           </li>
 
           <li className="flex items-center gap-2 cursor-pointer">

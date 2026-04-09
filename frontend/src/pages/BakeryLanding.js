@@ -7,7 +7,7 @@ import getrudeImage from "../assets/images/chefs/getrude.png";
 
 export default function BakeryLanding() {
   return (
-    <div className="min-h-screen font-sans">
+    <div className="min-h-screen font-sans pt-24">
       <div className="flex flex-col md:flex-row items-center px-6 md:px-12 mt-10">
         <div className="flex-1">
           <div className="flex items-center gap-2 text-gray-600 mb-4">
