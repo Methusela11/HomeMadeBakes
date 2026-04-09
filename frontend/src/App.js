@@ -31,27 +31,31 @@ export default function BakeryLanding() {
           
           {/* Watch video */}
           <div className="flex items-center gap-2 text-gray-600 mb-4">
-            <div className="bg-orange-500 text-white p-2 rounded-full">
+            <div className="bg-red-500 text-white p-2 rounded-full">
               <FaPlay size={10} />
             </div>
-            <span>Watch Video</span>
+            <button 
+            // className="bg-orange-500 text-white px-6 py-3 rounded-lg shadow"
+            >
+              Watch Video
+            </button>
           </div>
 
           {/* Title */}
           <h1 className="text-5xl font-bold leading-tight text-green-900">
-            The Ideal{" "}
+            We{" "}
             <span className="text-orange-500 underline decoration-4">
-              Prepared
+              Bake
             </span>
             <br />
-            Cake Regular!
+            You Celebrate!
           </h1>
-
-          {/* Description */}
+          
           <p className="text-gray-600 mt-6 max-w-md">
-            These cakes are made with butter or another fat, like vegetable
-            shortening. The common way is to mix the fat and sugar, then add
-            eggs, and then add flour.
+          <h2>
+            Tell Us Your Dream Cake, We’ll Make It Happen.
+          </h2>
+            We bake Anniversary cakes, Graduation cakes, Birthday cakes, Wedding cakes and Custom cakes.
           </p>
 
           {/* Buttons */}
