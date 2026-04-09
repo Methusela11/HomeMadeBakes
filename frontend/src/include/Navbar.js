@@ -1,24 +1,54 @@
 import { useState } from "react";
 import { FaUser, FaBars, FaTimes } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
-  return (
-    <nav className="flex justify-between items-center px-6 md:px-12 py-6 bg-white shadow-md">
-      <h1 className="text-2xl font-bold">
-        <span className="text-orange-500">RMEKS </span>Bakery
-      </h1>
+  const handleClose = () => setIsOpen(false);
 
+  return (
+    <nav className="flex justify-between items-center px-6 md:px-12 py-6 bg-white shadow-md relative">
+      {/* LOGO */}
+      <Link to="/" className="text-2xl font-bold cursor-pointer">
+        <span className="text-orange-500">RMEKS </span>Bakery
+      </Link>
+
+      {/* DESKTOP MENU */}
       <ul className="hidden md:flex gap-8 text-gray-700">
-        <li className="cursor-pointer hover:text-orange-500">Home</li>
-        <li className="cursor-pointer hover:text-orange-500">About</li>
-        <li className="cursor-pointer hover:text-orange-500">Menu</li>
-        <li className="cursor-pointer hover:text-orange-500">Reservation</li>
-        <li className="cursor-pointer hover:text-orange-500">Order</li>
-        <li className="cursor-pointer hover:text-orange-500">Contact</li>
+        <li>
+          <Link to="/" className="hover:text-orange-500">
+            Home
+          </Link>
+        </li>
+        <li>
+          <Link to="/about" className="hover:text-orange-500">
+            About
+          </Link>
+        </li>
+        <li>
+          <Link to="/menu" className="hover:text-orange-500">
+            Menu
+          </Link>
+        </li>
+        <li>
+          <Link to="/reservation" className="hover:text-orange-500">
+            Reservation
+          </Link>
+        </li>
+        <li>
+          <Link to="/order" className="hover:text-orange-500">
+            Order
+          </Link>
+        </li>
+        <li>
+          <Link to="/contact" className="hover:text-orange-500">
+            Contact
+          </Link>
+        </li>
       </ul>
 
+      {/* RIGHT SIDE */}
       <div className="flex items-center gap-4">
         <div className="hidden md:flex items-center gap-2 text-sm cursor-pointer">
           <FaUser />
@@ -33,15 +63,34 @@ export default function Navbar() {
         </button>
       </div>
 
+      {/* MOBILE MENU */}
       {isOpen && (
-        <ul className="absolute top-20 left-0 w-full bg-white shadow-md flex flex-col items-center gap-6 py-6 md:hidden text-gray-700">
-          <li>Home</li>
-          <li>About</li>
-          <li>Menu</li>
-          <li>Reservation</li>
-          <li>Order</li>
-          <li>Contact</li>
-          <li className="flex items-center gap-2">
+        <ul className="absolute top-20 left-0 w-full bg-white shadow-md flex flex-col items-center gap-6 py-6 md:hidden text-gray-700 z-50">
+          <li onClick={handleClose}>
+            <Link to="/">Home</Link>
+          </li>
+
+          <li onClick={handleClose}>
+            <Link to="/about">About</Link>
+          </li>
+
+          <li onClick={handleClose}>
+            <Link to="/menu">Menu</Link>
+          </li>
+
+          <li onClick={handleClose}>
+            <Link to="/reservation">Reservation</Link>
+          </li>
+
+          <li onClick={handleClose}>
+            <Link to="/order">Order</Link>
+          </li>
+
+          <li onClick={handleClose}>
+            <Link to="/contact">Contact</Link>
+          </li>
+
+          <li className="flex items-center gap-2 cursor-pointer">
             <FaUser />
             My Account
           </li>
