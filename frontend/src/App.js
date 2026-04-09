@@ -11,10 +11,8 @@ export default function BakeryLanding() {
     <div className="bg-[#f6f6f6] min-h-screen font-sans">
       <Navbar />
 
-      {/* HERO SECTION */}
       <div className="flex flex-col md:flex-row items-center px-6 md:px-12 mt-10">
         <div className="flex-1">
-          {/* Watch Video */}
           <div className="flex items-center gap-2 text-gray-600 mb-4">
             <button className="flex items-center gap-2 border border-gray-400 text-green-900 px-6 py-3 rounded-lg shadow">
               <div className="bg-red-500 text-white p-2 rounded-full flex items-center justify-center">
@@ -24,7 +22,6 @@ export default function BakeryLanding() {
             </button>
           </div>
 
-          {/* Heading */}
           <h1 className="text-4xl md:text-5xl font-bold leading-tight text-green-900">
             We{" "}
             <span className="text-orange-500 underline decoration-4">Bake</span>
@@ -32,7 +29,6 @@ export default function BakeryLanding() {
             You Celebrate!
           </h1>
 
-          {/* Text */}
           <p className="text-gray-600 mt-6 max-w-md">
             <span className="font-semibold block mb-2">
               Tell Us Your Dream Cake, We'll Make It Happen.
@@ -41,7 +37,6 @@ export default function BakeryLanding() {
             cakes and Custom cakes.
           </p>
 
-          {/* Buttons */}
           <div className="flex gap-4 mt-6">
             <button className="bg-orange-500 text-white px-6 py-3 rounded-lg shadow">
               Read More
@@ -53,7 +48,6 @@ export default function BakeryLanding() {
           </div>
         </div>
 
-        {/* RIGHT IMAGE SECTION */}
         <div className="flex-1 relative mt-10 md:mt-0">
           <div className="bg-[#eee1d1] rounded-3xl p-6 w-fit mx-auto">
             <div className="flex gap-4 items-end">
@@ -77,7 +71,6 @@ export default function BakeryLanding() {
         </div>
       </div>
 
-      {/* PRODUCTS */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 px-6 md:px-12 mt-16 items-center">
         <div className="flex items-center gap-4">
           <img src={chocolateCake} alt="Chocolate cake" className="w-24" />
