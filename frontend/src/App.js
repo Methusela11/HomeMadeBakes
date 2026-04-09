@@ -86,7 +86,7 @@ export default function BakeryLanding() {
 
         <div className="flex items-center gap-4">
           <img
-            src="https://images.unsplash.com/photo-1586985289906-406988974504"
+            src="assets/images/cakes/1.png"
             className="w-24"
             alt=""
           />
