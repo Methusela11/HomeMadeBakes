@@ -26,18 +26,15 @@ export default function BakeryLanding() {
 
       <div className="flex flex-col md:flex-row items-center px-12 mt-10">
 
-        {/* LEFT */}
         <div className="flex-1">
-          
-          {/* Watch video */}
+ 
           <div className="flex items-center gap-2 text-gray-600 mb-4">
-            <div className="bg-red-500 text-white p-2 rounded-full">
-              <FaPlay size={10} />
-            </div>
-            <button 
-            // className="bg-orange-500 text-white px-6 py-3 rounded-lg shadow"
-            >
-              Watch Video
+            <button className="flex items-center gap-2 border border-gray-400 text-green-900 px-6 py-3 rounded-lg shadow">
+              <div className="bg-red-500 text-white p-2 rounded-full flex items-center justify-center">
+                <FaPlay size={10} />
+              </div>
+              <span>Watch Video</span>
+              
             </button>
           </div>
 
@@ -53,7 +50,7 @@ export default function BakeryLanding() {
           
           <p className="text-gray-600 mt-6 max-w-md">
           <h2>
-            Tell Us Your Dream Cake, We’ll Make It Happen.
+            Tell Us Your Dream Cake, We'll Make It Happen.
           </h2>
             We bake Anniversary cakes, Graduation cakes, Birthday cakes, Wedding cakes and Custom cakes.
           </p>
