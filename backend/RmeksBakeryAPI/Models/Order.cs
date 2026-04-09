@@ -4,9 +4,10 @@ namespace RmeksBakeryAPI.Models
     {
         public int Id { get; set; }
         public int ProductId { get; set; }
-        public string CustomerName { get; set; }
-        public string Phone { get; set; }
-        public string Location { get; set; }
-        public string Message { get; set; }
+
+        public required string CustomerName { get; set; }
+        public required string Phone { get; set; }
+        public required string Location { get; set; }
+        public required string Message { get; set; }
     }
 }
