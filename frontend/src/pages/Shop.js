@@ -5,20 +5,34 @@ export default function Shop() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("https://8d54-41-220-233-110.ngrok-free.app/api/products/")
-      .then((res) => res.json())
-      .then((data) => {
-        setProducts(data);
+    const loadProducts = async () => {
+      try {
+        const res = await fetch(
+          "https://8d54-41-220-233-110.ngrok-free.app/api/products/",
+        );
+
+        const data = await res.json();
+
+        console.log("PRODUCTS:", data);
+
+        if (Array.isArray(data)) {
+          setProducts(data);
+        } else {
+          setProducts([]);
+        }
+      } catch (err) {
+        console.log("Fetch error:", err);
+        setProducts([]);
+      } finally {
         setLoading(false);
-      })
-      .catch((err) => {
-        console.log("Error fetching products:", err);
-        setLoading(false);
-      });
+      }
+    };
+
+    loadProducts();
   }, []);
 
   if (loading) {
-    return <div className="pt-24 text-center text-xl">Loading products...</div>;
+    return <div className="pt-32 text-center text-xl">Loading products...</div>;
   }
 
   return (
