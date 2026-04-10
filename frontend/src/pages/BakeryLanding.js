@@ -36,9 +36,16 @@ export default function BakeryLanding() {
 
   useEffect(() => {
     fetch("https://8d54-41-220-233-110.ngrok-free.app/api/products/")
-      .then((res) => res.json())
-      .then((data) => setProducts(data))
-      .catch((err) => console.log(err));
+      .then(async (res) => {
+        const data = await res.json();
+
+        console.log("API RESPONSE:", data); // 🔥 DEBUG
+
+        setProducts(Array.isArray(data) ? data : []);
+      })
+      .catch((err) => {
+        console.log("FETCH ERROR:", err);
+      });
   }, []);
 
   return (
@@ -119,7 +126,7 @@ export default function BakeryLanding() {
               className="bg-gray-200 rounded-lg p-4 text-center hover:shadow-lg transition"
             >
               <img
-                alt="{product.name}"
+                alt={product.name}
                 src={`https://8d54-41-220-233-110.ngrok-free.app${product.image}`}
                 className="w-40 h-40 object-contain mx-auto"
               />
