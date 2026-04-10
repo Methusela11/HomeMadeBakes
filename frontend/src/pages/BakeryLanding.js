@@ -6,9 +6,9 @@ import cakeImage from "../assets/images/cakes/1.png";
 import cookiesImage from "../assets/images/cookies/11.png";
 import breadImage from "../assets/images/bread/11.png";
 import chocolatesImage from "../assets/images/chocolates/111.png";
-import getrudeImage from "../assets/images/chefs/getrude.png";
-import getrude1Image from "../assets/images/chefs/getrude1.png";
-import getrude2Image from "../assets/images/chefs/getrude2.png";
+import getrudeImage from "../assets/images/chefs/chef1.png";
+import getrude1Image from "../assets/images/chefs/chef2.png";
+import getrude2Image from "../assets/images/chefs/chef1.png";
 
 export default function BakeryLanding() {
   const [showVideo, setShowVideo] = useState(false);
@@ -92,17 +92,17 @@ export default function BakeryLanding() {
               <img
                 src={getrudeImage}
                 alt="Chef1"
-                className="w-[120px] rounded-2xl rotate-[-3deg]"
+                className="w-[120px] rounded-2xl rotate-[-3deg] hover:scale-125 transition"
               />
               <img
                 src={getrude1Image}
                 alt="Chef2"
-                className="w-[140px] rounded-2xl rotate-[2deg]"
+                className="w-[140px] rounded-2xl rotate-[2deg] hover:scale-125 transition"
               />
               <img
                 alt="Chef3"
                 src={getrude2Image}
-                className="w-[120px] rounded-2xl rotate-[5deg]"
+                className="w-[120px] rounded-2xl rotate-[5deg] hover:scale-125 transition"
               />
             </div>
           </div>

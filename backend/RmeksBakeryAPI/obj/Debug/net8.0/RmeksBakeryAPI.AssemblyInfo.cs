@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("RmeksBakeryAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f3257d0c766cbaebc172969524d5781acd733623")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+55d849854e9b219ebe3b6019701cb4187bba266d")]
 [assembly: System.Reflection.AssemblyProductAttribute("RmeksBakeryAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("RmeksBakeryAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
