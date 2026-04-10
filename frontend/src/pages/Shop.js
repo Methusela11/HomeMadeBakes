@@ -4,7 +4,7 @@ export default function Shop() {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    fetch("http://127.0.0.1:8000/api/products/")
+    fetch("https://8d54-41-220-233-110.ngrok-free.app/api/products/")
       .then((res) => res.json())
       .then((data) => setProducts(data))
       .catch((err) => console.log("Error fetching products:", err));
