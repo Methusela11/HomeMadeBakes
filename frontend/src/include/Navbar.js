@@ -2,6 +2,8 @@ import { useState } from "react";
 import { FaUser, FaBars, FaTimes } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
+import logo from "../assets/images/logo/RB.png";
+
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -10,7 +12,12 @@ export default function Navbar() {
   return (
     <nav className="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-6 md:px-12 py-6 bg-white shadow-md">
       <Link to="/" className="text-2xl font-bold cursor-pointer">
-        <span className="text-orange-500">RMEKS </span>Bakery
+        <img
+          src={logo}
+          alt="Chef portrait"
+          className="w-[130px] rounded-2xl object-cover transition-transform duration-300 hover:scale-105"
+        />
+        {/* <span className="text-orange-500">RMEKS </span>Bakery */}
       </Link>
       {/* DESKTOP MENU */}
       <ul className="hidden md:flex gap-8 text-gray-700">

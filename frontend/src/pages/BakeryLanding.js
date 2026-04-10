@@ -1,13 +1,17 @@
 import { FaPlay } from "react-icons/fa";
+import { Link } from "react-router-dom";
+
 import chocolateCake from "../assets/images/cakes/c11.png";
 import cakeImage from "../assets/images/cakes/1.png";
 import cookiesImage from "../assets/images/cookies/11.png";
 import breadImage from "../assets/images/bread/11.png";
 import getrudeImage from "../assets/images/chefs/getrude.png";
+import getrude1Image from "../assets/images/chefs/getrude1.png";
+import getrude2Image from "../assets/images/chefs/getrude2.png";
 
 export default function BakeryLanding() {
   return (
-    <div className="min-h-screen font-sans pt-24">
+    <div className="min-h-screen font-sans pt-28">
       <div className="flex flex-col md:flex-row items-center px-6 md:px-12 mt-10">
         <div className="flex-1">
           <div className="flex items-center gap-2 text-gray-600 mb-4">
@@ -20,8 +24,7 @@ export default function BakeryLanding() {
           </div>
 
           <h1 className="text-4xl md:text-5xl font-bold leading-tight text-green-900">
-            We{" "}
-            <span className="text-orange-500 underline decoration-4">Bake</span>
+            We <span className="text-orange-500">Bake</span>
             <br />
             You Celebrate!
           </h1>
@@ -35,12 +38,22 @@ export default function BakeryLanding() {
           </p>
 
           <div className="flex gap-4 mt-6">
-            <button className="bg-orange-500 text-white px-6 py-3 rounded-lg shadow">
-              Read More
+            <button className="bg-orange-500 font-bold text-white px-6 py-3 rounded-lg shadow">
+              <Link
+                to="/contact"
+                className="hover:text-gray-800 hover:font-bold transition-all duration-200"
+              >
+                Get in Touch?
+              </Link>
             </button>
 
             <button className="border border-gray-400 px-6 py-3 rounded-lg">
-              Order Now
+              <Link
+                to="/order"
+                className="hover:text-orange-500 hover:font-bold transition-all duration-200"
+              >
+                Order Now
+              </Link>
             </button>
           </div>
         </div>
@@ -54,12 +67,12 @@ export default function BakeryLanding() {
                 className="w-[120px] rounded-2xl rotate-[-3deg] hover:scale-110 transition"
               />
               <img
-                src={getrudeImage}
+                src={getrude1Image}
                 alt="Chef portrait"
                 className="w-[140px] rounded-2xl rotate-[2deg] hover:scale-110 transition"
               />
               <img
-                src={getrudeImage}
+                src={getrude2Image}
                 alt="Chef portrait"
                 className="w-[120px] rounded-2xl rotate-[5deg] hover:scale-110 transition"
               />
