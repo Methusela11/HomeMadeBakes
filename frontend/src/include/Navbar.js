@@ -15,11 +15,10 @@ export default function Navbar() {
         <img
           src={logo}
           alt="Chef portrait"
-          className="w-[130px] rounded-2xl object-cover transition-transform duration-300 hover:scale-105"
+          className="w-[110px] rounded-2xl object-cover transition-transform duration-300 hover:scale-125"
         />
-        {/* <span className="text-orange-500">RMEKS </span>Bakery */}
       </Link>
-      {/* DESKTOP MENU */}
+
       <ul className="hidden md:flex gap-8 text-gray-700">
         <li>
           <Link to="/" className="hover:text-orange-500">
@@ -34,7 +33,7 @@ export default function Navbar() {
         </li>
         <li>
           <Link to="/reservation" className="hover:text-orange-500">
-            Reservation
+            Shop
           </Link>
         </li>
         <li>
@@ -79,7 +78,7 @@ export default function Navbar() {
           </li>
 
           <li onClick={handleClose}>
-            <Link to="/reservation">Reservation</Link>
+            <Link to="/reservation">Shop</Link>
           </li>
 
           <li onClick={handleClose}>
