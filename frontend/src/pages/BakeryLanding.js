@@ -52,6 +52,29 @@ export default function BakeryLanding() {
   }, [products]);
 
   useEffect(() => {
+    const container = document.querySelector(".snap-x");
+
+    const handleScroll = () => {
+      const slides = document.querySelectorAll("[data-index]");
+
+      slides.forEach((_, index) => {
+        const element = slides[index];
+        if (!element) return;
+
+        const rect = element.getBoundingClientRect();
+
+        if (rect.left >= -100 && rect.left <= 100) {
+          setCurrentIndex(index);
+        }
+      });
+    };
+
+    container?.addEventListener("scroll", handleScroll);
+
+    return () => container?.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
     const loadProducts = async () => {
       try {
         const res = await fetch(
@@ -163,7 +186,7 @@ export default function BakeryLanding() {
         ) : (
           <>
             {/* SLIDER */}
-            <div className="overflow-x-auto scroll-smooth snap-x snap-mandatory">
+            <div className="bg-orange-50 overflow-x-auto scroll-smooth snap-x snap-mandatory">
               <div
                 className="flex transition-transform duration-700 ease-in-out"
                 style={{
