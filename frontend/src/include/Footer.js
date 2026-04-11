@@ -12,7 +12,7 @@ import logo from "../assets/images/logo/RB.png";
 
 export default function Footer() {
   return (
-    <footer className=" bg-orange-100 text-black mt-20">
+    <footer className=" bg-orange-100 text-green-900 mt-20">
       <div className="max-w-7xl mx-auto px-6 md:px-12 py-12">
         {/* TOP SECTION */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10">
@@ -25,7 +25,7 @@ export default function Footer() {
                 className="w-[110px] rounded-2xl object-cover transition-transform duration-300 hover:scale-125"
               />
             </Link>
-            <p className="text-black text-sm leading-relaxed">
+            <p className="text-gray-600 text-sm leading-relaxed pt-5">
               We bake fresh cakes, cookies, bread, and chocolates daily. Your
               happiness is our recipe.
             </p>
@@ -41,22 +41,22 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link to="/menu" className="hover:text-orange-400">
+                <Link to="/menu" className="hover:text-green-900">
                   Menu
                 </Link>
               </li>
               <li>
-                <Link to="/shop" className="hover:text-orange-400">
+                <Link to="/shop" className="hover:text-green-900">
                   Shop
                 </Link>
               </li>
               <li>
-                <Link to="/order" className="hover:text-orange-400">
+                <Link to="/order" className="hover:text-green-900">
                   Order
                 </Link>
               </li>
               <li>
-                <Link to="/contact" className="hover:text-orange-400">
+                <Link to="/contact" className="hover:text-green-900">
                   Contact
                 </Link>
               </li>
@@ -74,7 +74,7 @@ export default function Footer() {
                 <FaPhone /> +254 110 440 006 / +254 746 688 304
               </li>
               <li className="flex items-center gap-2">
-                <FaEnvelope /> rmeksbakert@gmail.com
+                <FaEnvelope /> rmeksbakery@gmail.com
               </li>
             </ul>
           </div>

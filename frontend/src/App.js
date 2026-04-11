@@ -13,10 +13,10 @@ import Contact from "./pages/Contact";
 export default function App() {
   return (
     <div className="min-h-screen flex flex-col overflow-x-hidden">
-      {/* NAVBAR ALWAYS ON TOP */}
+      {/* NAVBAR */}
       <Navbar />
 
-      {/* PAGE CONTENT */}
+      {/* MAIN CONTENT PUSHES FOOTER DOWN */}
       <main className="flex-1">
         <Routes>
           <Route path="/" element={<BakeryLanding />} />
@@ -28,6 +28,7 @@ export default function App() {
         </Routes>
       </main>
 
+      {/* FOOTER ALWAYS AT BOTTOM */}
       <Footer />
     </div>
   );
