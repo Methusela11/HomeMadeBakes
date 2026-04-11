@@ -124,7 +124,7 @@ export default function Contact() {
 
           <div className="space-y-3 text-gray-700">
             <p>
-              📍 <strong>Location:</strong> Kilifi, Kenya
+              <strong>Location:</strong> Kilifi, Kenya
             </p>
 
             <p>
@@ -136,7 +136,7 @@ export default function Contact() {
             </p>
 
             <p>
-              📧 <strong>Email:</strong> soenkilifi@gmail.com
+              <strong>Email:</strong> soenkilifi@gmail.com
             </p>
 
             <p>
