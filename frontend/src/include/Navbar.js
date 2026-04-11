@@ -87,7 +87,7 @@ export default function Navbar() {
       </div>
 
       {isOpen && (
-        <ul className="absolute top-20 left-0 w-full bg-white shadow-lg flex flex-col items-center gap-5 py-6 md:hidden text-gray-700 z-50">
+        <ul className="absolute top-20 left-0 w-full bg-white shadow-lg flex flex-col items-center gap-5 py-6 md:hidden text-gray-800 z-50">
           {[
             { to: "/", label: "Home", icon: <FaHome />, end: true },
             { to: "/menu", label: "Menu", icon: <FaUtensils /> },
