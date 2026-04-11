@@ -208,7 +208,7 @@ export default function BakeryLanding() {
                     <div
                       key={product.id}
                       className="min-w-full flex justify-center snap-center"
-                      onClick={() => setCurrentIndex(index)}
+                      onClick={() => setCurrentIndex(index)} // optional sync
                     >
                       <div className="bg-orange-50 rounded-lg p-4 text-center w-[250px] sm:w-[300px] hover:shadow-lg transition">
                         <img
@@ -282,28 +282,20 @@ export default function BakeryLanding() {
       {/* VIDEO MODAL */}
       {showVideo && (
         <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50">
-          <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50">
+          <div className="bg-white rounded-xl w-[95%] max-w-3xl p-2 sm:p-2 relative">
             <button
               onClick={() => setShowVideo(false)}
               className="absolute right-1 top-0 text-xl"
             >
               ✕
             </button>
-            <div className=" rounded-xl w-[95%] max-w-2xl p-1 sm:p-2 relative">
-              <button
-                onClick={() => setShowVideo(false)}
-                className="absolute right-1 top-0 text-xl"
-              >
-                ✕
-              </button>
 
-              <iframe
-                className="w-full h-[220px] sm:h-[400px] rounded-lg"
-                src="https://www.youtube.com/embed/EYXQmbZNhy8"
-                title="Bakery video"
-                allowFullScreen
-              />
-            </div>
+            <iframe
+              className="w-full h-[220px] sm:h-[400px] rounded-lg"
+              src="https://www.youtube.com/embed/EYXQmbZNhy8"
+              title="Bakery video"
+              allowFullScreen
+            />
           </div>
         </div>
       )}
