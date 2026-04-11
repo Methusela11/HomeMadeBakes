@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 import cakeImage from "../assets/images/cakes/1.png";
+import cupCakeImage from "../assets/images/cupcakes/1.png";
 import cookiesImage from "../assets/images/cookies/11.png";
 import breadImage from "../assets/images/bread/11.png";
 import chocolatesImage from "../assets/images/chocolates/111.png";
@@ -14,12 +15,18 @@ import getrude2Image from "../assets/images/chefs/chef1.png";
 export default function BakeryLanding() {
   const [showVideo, setShowVideo] = useState(false);
   const [products, setProducts] = useState([]);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   const categories = [
     {
       name: "Cakes",
       image: cakeImage,
       desc: "Delicious cakes for every occasion",
+    },
+    {
+      name: "Cupcakes",
+      image: cupCakeImage,
+      desc: "Delicious Cupcakes for every occasion",
     },
     {
       name: "Cookies",
@@ -33,6 +40,16 @@ export default function BakeryLanding() {
       desc: "Sweet handcrafted chocolate treats",
     },
   ];
+
+  useEffect(() => {
+    if (products.length === 0) return;
+
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev === products.length - 1 ? 0 : prev + 1));
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [products]);
 
   useEffect(() => {
     const loadProducts = async () => {
@@ -144,37 +161,60 @@ export default function BakeryLanding() {
         {products.length === 0 ? (
           <p className="text-center text-gray-500">No products found</p>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-            {Array.isArray(products) &&
-              products.map((product) => {
-                const imageUrl = product.image
-                  ? product.image.startsWith("http")
-                    ? product.image
-                    : `https://b422-41-220-233-110.ngrok-free.app${product.image}`
-                  : "/placeholder.png";
+          <>
+            {/* SLIDER */}
+            <div className="overflow-hidden">
+              <div
+                className="flex transition-transform duration-700 ease-in-out"
+                style={{
+                  transform: `translateX(-${currentIndex * 100}%)`,
+                }}
+              >
+                {products.map((product) => {
+                  const imageUrl = product.image
+                    ? product.image.startsWith("http")
+                      ? product.image
+                      : `https://b422-41-220-233-110.ngrok-free.app${product.image}`
+                    : "/placeholder.png";
 
-                return (
-                  <div
-                    key={product.id}
-                    className="bg-gray-200 rounded-lg p-3 sm:p-4 text-center hover:shadow-lg transition"
-                  >
-                    <img
-                      src={imageUrl}
-                      alt={product.name}
-                      className="w-28 h-28 sm:w-40 sm:h-40 object-contain mx-auto"
-                    />
+                  return (
+                    <div
+                      key={product.id}
+                      className="min-w-full flex justify-center"
+                    >
+                      <div className="bg-gray-200 rounded-lg p-4 text-center w-[250px] sm:w-[300px] hover:shadow-lg transition">
+                        <img
+                          src={imageUrl}
+                          alt={product.name}
+                          className="w-32 h-32 sm:w-40 sm:h-40 object-contain mx-auto"
+                        />
 
-                    <h3 className="font-semibold mt-3 text-green-900">
-                      {product.name}
-                    </h3>
+                        <h3 className="font-semibold mt-3 text-green-900">
+                          {product.name}
+                        </h3>
 
-                    <p className="text-blue-700 text-sm">
-                      From {product.price} KES
-                    </p>
-                  </div>
-                );
-              })}
-          </div>
+                        <p className="text-blue-700 text-sm">
+                          From {product.price} KES
+                        </p>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+            {/* DOTS */}
+            <div className="flex justify-center mt-6 gap-2">
+              {products.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentIndex(index)}
+                  className={`w-2.5 h-2.5 rounded-full transition ${
+                    currentIndex === index ? "bg-orange-500 w-4" : "bg-gray-400"
+                  }`}
+                />
+              ))}
+            </div>
+          </>
         )}
       </div>
 
