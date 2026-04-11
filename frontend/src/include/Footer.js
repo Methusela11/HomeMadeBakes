@@ -35,7 +35,9 @@ export default function Footer() {
 
           {/* QUICK LINKS */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
+            <h3 className="text-lg font-semibold mb-4 text-green-900">
+              Quick Links
+            </h3>
 
             <ul className="space-y-2 text-gray-500 text-sm">
               <li>
@@ -68,7 +70,9 @@ export default function Footer() {
 
           {/* CONTACT */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Contact</h3>
+            <h3 className="text-lg font-semibold mb-4 text-green-900">
+              Contact
+            </h3>
             <ul className="space-y-3 text-gray-500 text-sm">
               <li className="flex items-center gap-2">
                 <FaMapMarkerAlt /> Kilifi, Kenya
@@ -84,7 +88,9 @@ export default function Footer() {
 
           {/* SOCIAL */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Follow Us</h3>
+            <h3 className="text-lg font-semibold mb-4 text-green-900">
+              Follow Us
+            </h3>
             <div className="flex gap-4 text-xl text-gray-500">
               <a
                 href="https://facebook.com"
