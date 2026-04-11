@@ -1,7 +1,7 @@
 import { useState } from "react";
-import whatsappIcon from "../assets/images/icons/whatsapp-t.png";
-import closeIcon from "../assets/images/icons/close-t.png";
-import agentLogo from "../assets/images/logos/kentainerss-logo.png";
+import whatsappIcon from "../assets/images/icons/whatsapp.png";
+import closeIcon from "../assets/images/icons/close.png";
+import agentLogo from "../assets/images/logo/RB.png";
 
 export default function Whatsapp() {
   const [isOpen, setIsOpen] = useState(false);
@@ -15,7 +15,7 @@ export default function Whatsapp() {
       {/* FLOATING ICON */}
       <div
         onClick={toggleChat}
-        className="fixed bottom-6 right-6 w-14 h-14 bg-[#1f3c88] rounded-full flex items-center justify-center cursor-pointer z-[9999] shadow-lg"
+        className="fixed bottom-6 right-6 w-14 h-14 bg-white rounded-full flex items-center justify-center cursor-pointer z-[9999] shadow-lg"
       >
         <img
           src={isOpen ? closeIcon : whatsappIcon}
@@ -28,7 +28,7 @@ export default function Whatsapp() {
       {isOpen && (
         <div className="fixed bottom-24 right-6 w-[340px] bg-white rounded-xl shadow-2xl z-[9999] font-sans overflow-hidden">
           {/* HEADER */}
-          <div className="bg-[#1f3c88] text-white p-4">
+          <div className="bg-orange-100 text-black p-4">
             <div className="flex items-center gap-2">
               <img src={whatsappIcon} alt="icon" className="w-6 h-6" />
               <h4 className="font-semibold text-base">Start a Conversation</h4>
@@ -48,7 +48,7 @@ export default function Whatsapp() {
               href="https://wa.me/254762120373"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-3 bg-gray-100 p-3 rounded-lg hover:bg-gray-200 transition"
+              className="flex items-center gap-3 bg-orange-50 p-3 rounded-lg hover:bg-orange-200 transition"
             >
               <img
                 src={agentLogo}

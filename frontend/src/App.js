@@ -1,7 +1,8 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 
 import Navbar from "./include/Navbar";
 import Footer from "./include/Footer";
+import Whatsapp from "./include/Whatsapp";
 
 import BakeryLanding from "./pages/BakeryLanding";
 import About from "./pages/About";
@@ -11,6 +12,7 @@ import Order from "./pages/Order";
 import Contact from "./pages/Contact";
 
 export default function App() {
+  const location = useLocation();
   return (
     <div className="min-h-screen flex flex-col overflow-x-hidden">
       {/* NAVBAR */}
@@ -30,6 +32,9 @@ export default function App() {
 
       {/* FOOTER ALWAYS AT BOTTOM */}
       <Footer />
+
+      {/* ✅ WhatsApp only on homepage */}
+      {location.pathname === "/" && <Whatsapp />}
     </div>
   );
 }
