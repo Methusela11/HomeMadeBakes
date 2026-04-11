@@ -116,19 +116,18 @@ export default function BakeryLanding() {
       <div className="flex flex-col md:flex-row items-center gap-10 px-4 sm:px-6 md:px-12 mt-10">
         {/* LEFT */}
         <div className="flex-1 text-center md:text-left">
-          <button
-            onClick={() => setShowVideo(true)}
-            className="flex items-center gap-2 border border-gray-400 text-green-900 px-6 py-3 rounded-lg shadow mb-4 hover:scale-105 transition hover:font-bold"
-          >
-            <div className="bg-red-500 text-white p-2 rounded-full">
-              <FaPlay size={10} />
-            </div>
-            Watch Video
-          </button>
-
-          <h1 className="text-4xl md:text-5xl font-bold text-green-900">
+          <h1 className="text-4xl md:text-5xl font-bold text-green-900 pt-0">
             We <span className="text-orange-500">Bake,</span> You Celebrate!
           </h1>
+
+          <div className="flex justify-center md:justify-start pt-5">
+            <button className="flex items-center gap-2 border border-gray-400 text-green-900 px-6 py-3 rounded-lg shadow mb-4 hover:scale-105 transition hover:font-bold">
+              <div className="bg-red-500 text-white p-2 rounded-full">
+                <FaPlay size={10} />
+              </div>
+              Watch Video
+            </button>
+          </div>
 
           <p className="text-gray-800 mt-6 max-w-md">
             <span className="font-semibold block mb-2">
@@ -186,7 +185,7 @@ export default function BakeryLanding() {
         ) : (
           <>
             {/* SLIDER */}
-            <div className="bg-orange-50 overflow-x-auto scroll-smooth snap-x snap-mandatory">
+            <div className="overflow-x-auto scroll-smooth snap-x snap-mandatory">
               <div
                 className="flex transition-transform duration-700 ease-in-out"
                 style={{
@@ -206,7 +205,7 @@ export default function BakeryLanding() {
                       className="min-w-full flex justify-center snap-center"
                       onClick={() => setCurrentIndex(index)} // optional sync
                     >
-                      <div className="bg-gray-200 rounded-lg p-4 text-center w-[250px] sm:w-[300px] hover:shadow-lg transition">
+                      <div className="bg-orange-50 rounded-lg p-4 text-center w-[250px] sm:w-[300px] hover:shadow-lg transition">
                         <img
                           src={imageUrl}
                           alt={product.name}
