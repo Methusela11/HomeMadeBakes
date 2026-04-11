@@ -146,7 +146,7 @@ export default function Footer() {
 
         {/* BOTTOM */}
         <div className="border-t border-green-700 mt-10 pt-6 text-center text-sm text-gray-500">
-          © {new Date().getFullYear()} Sweet Bakery. All rights reserved.
+          © {new Date().getFullYear()} RMEKS Bakery. All rights reserved.
         </div>
       </div>
     </footer>

@@ -50,7 +50,7 @@ export default function Contact() {
   };
 
   return (
-    <div className="min-h-screen font-sans pt-32 px-6 md:px-12 bg-orange-50">
+    <div className="min-h-[80vh] font-sans pt-32 px-6 md:px-10 bg-white">
       <h1 className="text-3xl font-bold text-green-900 mb-10 text-center">
         Contact Us
       </h1>
@@ -59,7 +59,7 @@ export default function Contact() {
         {/* FORM */}
         <form
           onSubmit={sendEmail}
-          className="bg-white p-6 rounded-xl shadow-md"
+          className="bg-orange-50 p-6 rounded-xl shadow-md"
         >
           <input
             type="text"
@@ -91,13 +91,15 @@ export default function Contact() {
             required
           />
 
-          <button
-            type="submit"
-            disabled={loading}
-            className="bg-green-900 text-white px-6 py-3 rounded-lg w-full hover:bg-green-800 transition disabled:opacity-50"
-          >
-            {loading ? "Sending..." : "Send Message"}
-          </button>
+          <div className="flex justify-center">
+            <button
+              type="submit"
+              disabled={loading}
+              className="text-green-900 border border-gray-400 px-6 py-3 rounded-lg hover:font-bold hover:scale-105 transition"
+            >
+              {loading ? "Sending..." : "Send Message"}
+            </button>
+          </div>
 
           {success && (
             <p className="text-green-600 mt-3 font-semibold">
@@ -113,7 +115,7 @@ export default function Contact() {
         </form>
 
         {/* CONTACT INFO */}
-        <div className="bg-white p-6 rounded-xl shadow-md">
+        <div className="bg-orange-50 p-6 rounded-xl shadow-md">
           <h2 className="text-xl font-bold mb-4 text-green-900">
             Get in Touch
           </h2>
