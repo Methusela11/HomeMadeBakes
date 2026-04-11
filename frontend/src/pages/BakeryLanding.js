@@ -282,7 +282,7 @@ export default function BakeryLanding() {
       {/* VIDEO MODAL */}
       {showVideo && (
         <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50">
-          <div className="bg-white rounded-xl w-[95%] max-w-3xl p-2 sm:p-2 relative">
+          <div className="bg-white rounded-xl w-[95%] max-w-2xl p-2 sm:p-2 relative">
             <button
               onClick={() => setShowVideo(false)}
               className="absolute right-1 top-0 text-xl"
