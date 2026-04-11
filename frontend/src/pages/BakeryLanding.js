@@ -38,16 +38,27 @@ export default function BakeryLanding() {
     fetch("https://b422-41-220-233-110.ngrok-free.app/api/products/")
       .then((res) => res.json())
       .then((data) => {
-        console.log("RAW DATA:", data);
-
-        // ✅ handle both array and paginated response
         const productsArray = Array.isArray(data) ? data : data.results;
-
         setProducts(productsArray || []);
       })
       .catch((err) => {
         console.log("FETCH ERROR:", err);
-        setProducts([]);
+
+        // ✅ fallback demo data (so UI always shows something)
+        setProducts([
+          {
+            id: 1,
+            name: "Chocolate Cake",
+            price: 1500,
+            image: "/placeholder.png",
+          },
+          {
+            id: 2,
+            name: "Vanilla Cookies",
+            price: 300,
+            image: "/placeholder.png",
+          },
+        ]);
       });
   }, []);
 
@@ -127,9 +138,11 @@ export default function BakeryLanding() {
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
             {products.map((product) => {
-              const imageUrl = product.image?.startsWith("http")
-                ? product.image
-                : `https://b422-41-220-233-110.ngrok-free.app${product.image}`;
+              const imageUrl = product.image
+                ? product.image.startsWith("http")
+                  ? product.image
+                  : `https://b422-41-220-233-110.ngrok-free.app${product.image}`
+                : "/placeholder.png";
 
               return (
                 <div
