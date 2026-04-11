@@ -162,15 +162,15 @@ export default function Contact() {
 
         <div className="w-full h-80 md:h-96 rounded-xl overflow-hidden shadow-lg">
           <iframe
-            title="Company Location"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d...YOUR_MAP_EMBED_LINK..."
+            title="Malindi Map"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15955.5!2d40.0985648!3d-3.2065795!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x18158fa8aba15693%3A0xcbebf1008265d79d!2sMalindi!5e0!3m2!1sen!2ske!4v0000000000"
             width="100%"
-            height="100%"
+            height="320"
             style={{ border: 0 }}
             allowFullScreen=""
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
-          ></iframe>
+          />
         </div>
       </div>
     </div>
