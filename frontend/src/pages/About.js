@@ -5,7 +5,7 @@ import getrude2Image from "../assets/images/chefs/chef1.png";
 
 export default function About() {
   return (
-    <div className="min-h-screen bg-[#fffaf5] pt-38 font-sans">
+    <div className="min-h-screen bg-white pt-38 font-sans">
       {/* HERO */}
       <section className="pt-32 text-center px-6">
         <div className="text-green-900">
