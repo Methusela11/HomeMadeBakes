@@ -8,7 +8,7 @@ export default function Shop() {
     const loadProducts = async () => {
       try {
         const res = await fetch(
-          "https://8d54-41-220-233-110.ngrok-free.app/api/products/",
+          "https://b422-41-220-233-110.ngrok-free.app/api/products/",
         );
 
         const data = await res.json();
@@ -50,7 +50,7 @@ export default function Shop() {
             >
               {/* IMAGE */}
               <img
-                src={`https://8d54-41-220-233-110.ngrok-free.app${product.image}`}
+                src={`https://b422-41-220-233-110.ngrok-free.app${product.image}`}
                 alt={product.name}
                 className="w-full h-48 object-cover rounded-md"
               />
