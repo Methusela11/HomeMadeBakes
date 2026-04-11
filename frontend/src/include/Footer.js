@@ -34,7 +34,7 @@ export default function Footer() {
           {/* QUICK LINKS */}
           <div>
             <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
-            <ul className="space-y-2 text-gray-200 text-sm">
+            <ul className="space-y-2 text-black text-sm">
               <li>
                 <Link to="/" className="hover:text-orange-400">
                   Home
