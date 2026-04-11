@@ -21,40 +21,43 @@ export default function Navbar() {
 
       <ul className="hidden md:flex gap-8 text-gray-700">
         <li>
-          <Link to="/" className="hover:text-orange-500">
+          <Link to="/" className="hover:text-orange-500 hover:font-bold">
             Home
           </Link>
         </li>
 
         <li>
-          <Link to="/menu" className="hover:text-orange-500">
+          <Link to="/menu" className="hover:text-orange-500 hover:font-bold">
             Menu
           </Link>
         </li>
         <li>
-          <Link to="/reservation" className="hover:text-orange-500">
+          <Link
+            to="/reservation"
+            className="hover:text-orange-500 hover:font-bold"
+          >
             Shop
           </Link>
         </li>
         <li>
-          <Link to="/order" className="hover:text-orange-500">
+          <Link to="/order" className="hover:text-orange-500 hover:font-bold">
             Order
           </Link>
         </li>
         <li>
-          <Link to="/contact" className="hover:text-orange-500">
+          <Link to="/contact" className="hover:text-orange-500 hover:font-bold">
             Contact
           </Link>
         </li>
         <li>
-          <Link to="/about" className="hover:text-orange-500">
+          <Link to="/about" className="hover:text-orange-500 hover:font-bold">
             About
           </Link>
         </li>
       </ul>
       {/* RIGHT SIDE */}
       <div className="flex items-center gap-4">
-        <div className="hidden md:flex items-center gap-2 text-sm cursor-pointer">
+        <div className="hidden md:flex items-center gap-2 text-sm cursor-pointer hover:text-orange-500 hover:font-bold">
           <FaUser />
           <span>My Account</span>
         </div>
