@@ -10,6 +10,7 @@ export default function Contact() {
 
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
+  const [error, setError] = useState(false);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -18,39 +19,47 @@ export default function Contact() {
   const sendEmail = (e) => {
     e.preventDefault();
     setLoading(true);
+    setSuccess(false);
+    setError(false);
 
     emailjs
       .send(
-        "service_6h4agxr",
-        "YOUR_TEMPLATE_ID",
+        process.env.REACT_APP_EMAILJS_SERVICE_ID,
+        process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
         {
           from_name: formData.name,
           from_email: formData.email,
           message: formData.message,
           to_email: "soenkilifi@gmail.com",
         },
-        "YOUR_PUBLIC_KEY",
+        process.env.REACT_APP_EMAILJS_PUBLIC_KEY,
       )
       .then(() => {
         setSuccess(true);
         setFormData({ name: "", email: "", message: "" });
+
+        setTimeout(() => setSuccess(false), 4000);
       })
       .catch((err) => {
         console.log(err);
-        alert("Failed to send message");
+        setError(true);
+
+        setTimeout(() => setError(false), 4000);
       })
       .finally(() => setLoading(false));
   };
 
   return (
-    <div className="min-h-screen font-sans pt-24 px-6 md:px-12">
-      <h1 className="text-3xl font-bold text-green-900 mb-10">Contact Us</h1>
+    <div className="min-h-screen font-sans pt-24 px-6 md:px-12 bg-orange-50">
+      <h1 className="text-3xl font-bold text-green-900 mb-10 text-center">
+        Contact Us
+      </h1>
 
-      <div className="grid md:grid-cols-2 gap-10">
+      <div className="grid md:grid-cols-2 gap-10 max-w-6xl mx-auto">
         {/* FORM */}
         <form
           onSubmit={sendEmail}
-          className="bg-orange-50 p-6 rounded-xl shadow-md"
+          className="bg-white p-6 rounded-xl shadow-md"
         >
           <input
             type="text"
@@ -84,13 +93,22 @@ export default function Contact() {
 
           <button
             type="submit"
-            className="bg-green-900 text-white px-6 py-3 rounded-lg w-full hover:bg-green-800 transition"
+            disabled={loading}
+            className="bg-green-900 text-white px-6 py-3 rounded-lg w-full hover:bg-green-800 transition disabled:opacity-50"
           >
             {loading ? "Sending..." : "Send Message"}
           </button>
 
           {success && (
-            <p className="text-green-600 mt-3">Message sent successfully ✅</p>
+            <p className="text-green-600 mt-3 font-semibold">
+              Message sent successfully ✅
+            </p>
+          )}
+
+          {error && (
+            <p className="text-red-600 mt-3 font-semibold">
+              Failed to send message ❌
+            </p>
           )}
         </form>
 
