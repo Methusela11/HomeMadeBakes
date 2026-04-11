@@ -154,6 +154,25 @@ export default function Contact() {
           </div>
         </div>
       </div>
+
+      <div className="max-w-6xl mx-auto mt-10 bg-orange-50 p-6 rounded-xl shadow-md">
+        <h2 className="text-xl font-bold text-green-900 mb-4 text-center">
+          Our Location
+        </h2>
+
+        <div className="w-full h-80 md:h-96 rounded-xl overflow-hidden shadow-lg">
+          <iframe
+            title="Company Location"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d...YOUR_MAP_EMBED_LINK..."
+            width="100%"
+            height="100%"
+            style={{ border: 0 }}
+            allowFullScreen=""
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+      </div>
     </div>
   );
 }
