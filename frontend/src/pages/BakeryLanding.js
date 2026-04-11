@@ -296,7 +296,7 @@ export default function BakeryLanding() {
             >
               ✕ Close
             </button>
-            <div className="bg-black p-1 sm:p-1 rounded-2xl shadow-2xl">
+            <div className="bg-orange-300 p-1 sm:p-1 rounded-2xl shadow-2xl">
               {/* VIDEO CONTAINER (16:9 aspect ratio) */}
               <div className="w-full aspect-video bg-black rounded-xl overflow-hidden shadow-2xl">
                 <iframe
