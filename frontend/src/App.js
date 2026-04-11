@@ -2,6 +2,7 @@
 import { Routes, Route } from "react-router-dom";
 
 import Navbar from "./include/Navbar";
+import Footer from "./include/Footer";
 import BakeryLanding from "./pages/BakeryLanding";
 import About from "./pages/About";
 import Menu from "./pages/Menu";
@@ -29,6 +30,7 @@ export default function App() {
             <>
               <Navbar />
               <About />
+              <Footer />
             </>
           }
         />
@@ -39,6 +41,7 @@ export default function App() {
             <>
               <Navbar />
               <Menu />
+              <Footer />
             </>
           }
         />
@@ -49,6 +52,7 @@ export default function App() {
             <>
               <Navbar />
               <Shop />
+              <Footer />
             </>
           }
         />
@@ -59,6 +63,7 @@ export default function App() {
             <>
               <Navbar />
               <Order />
+              <Footer />
             </>
           }
         />
@@ -69,6 +74,7 @@ export default function App() {
             <>
               <Navbar />
               <Contact />
+              <Footer />
             </>
           }
         />
