@@ -283,7 +283,7 @@ export default function BakeryLanding() {
       {showVideo && (
         <div
           className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4"
-          onClick={() => setShowVideo(false)}
+          //   onClick={() => setShowVideo(false)}
         >
           <div
             className="relative w-full max-w-5xl"
@@ -292,7 +292,7 @@ export default function BakeryLanding() {
             {/* CLOSE BUTTON */}
             <button
               onClick={() => setShowVideo(false)}
-              className="absolute -top-12 right-0 bg-white text-black px-4 py-1 rounded-full shadow-md hover:bg-red-500 hover:text-white transition font-bold"
+              className="absolute -top-12 right-0 bg-white text-black px-4 py-1 rounded-full shadow-md hover:bg-orange-500 hover:text-white transition font-bold"
             >
               ✕ Close
             </button>
