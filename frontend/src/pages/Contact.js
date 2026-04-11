@@ -50,7 +50,7 @@ export default function Contact() {
   };
 
   return (
-    <div className="min-h-screen font-sans pt-28 px-6 md:px-12 bg-orange-50">
+    <div className="min-h-screen font-sans pt-32 px-6 md:px-12 bg-orange-50">
       <h1 className="text-3xl font-bold text-green-900 mb-10 text-center">
         Contact Us
       </h1>
