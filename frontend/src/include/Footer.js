@@ -25,7 +25,7 @@ export default function Footer() {
                 className="w-[110px] rounded-2xl object-cover transition-transform duration-300 hover:scale-125"
               />
             </Link>
-            <p className="text-gray-200 text-sm leading-relaxed">
+            <p className="text-black text-sm leading-relaxed">
               We bake fresh cakes, cookies, bread, and chocolates daily. Your
               happiness is our recipe.
             </p>
