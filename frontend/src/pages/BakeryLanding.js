@@ -176,7 +176,7 @@ export default function BakeryLanding() {
       </div>
 
       <div className="px-6 md:px-12 mt-20">
-        <h1 className="text-3xl md:text-4xl font-bold text-green-900 mb-10">
+        <h1 className="text-2xl md:text-3xl font-bold text-green-900 mb-10">
           Latest Products
         </h1>
 
@@ -243,7 +243,7 @@ export default function BakeryLanding() {
       </div>
 
       <div className="px-6 md:px-12 mt-20">
-        <h1 className="text-3xl md:text-4xl font-bold text-green-900 mb-10">
+        <h1 className="text-2xl md:text-3xl font-bold text-green-900 mb-10">
           Our Products Categories
         </h1>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
