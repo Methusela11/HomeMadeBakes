@@ -282,7 +282,7 @@ export default function BakeryLanding() {
       {/* VIDEO MODAL */}
       {showVideo && (
         <div
-          className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4"
+          className="fixed inset-0 bg-black/90 flex items-center justify-center z-50 p-4"
           //   onClick={() => setShowVideo(false)}
         >
           <div
@@ -296,16 +296,17 @@ export default function BakeryLanding() {
             >
               ✕ Close
             </button>
-
-            {/* VIDEO CONTAINER (16:9 aspect ratio) */}
-            <div className="w-full aspect-video bg-black rounded-xl overflow-hidden shadow-2xl">
-              <iframe
-                className="w-full h-full"
-                src="https://www.youtube.com/embed/EYXQmbZNhy8?autoplay=1"
-                title="Bakery video"
-                allow="autoplay; encrypted-media"
-                allowFullScreen
-              />
+            <div className="bg-black p-1 sm:p-1 rounded-2xl shadow-2xl">
+              {/* VIDEO CONTAINER (16:9 aspect ratio) */}
+              <div className="w-full aspect-video bg-black rounded-xl overflow-hidden shadow-2xl">
+                <iframe
+                  className="w-full h-full"
+                  src="https://www.youtube.com/embed/EYXQmbZNhy8?autoplay=1"
+                  title="Bakery video"
+                  allow="autoplay; encrypted-media"
+                  allowFullScreen
+                />
+              </div>
             </div>
           </div>
         </div>
