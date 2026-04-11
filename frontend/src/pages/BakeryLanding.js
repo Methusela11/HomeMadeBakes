@@ -113,7 +113,7 @@ export default function BakeryLanding() {
   }, []);
 
   return (
-    <div className="min-h-screen font-sans pt-24 pb-32">
+    <div className="min-h-screen font-sans pt-24">
       {/* HERO */}
       <div className="flex flex-col md:flex-row items-center gap-10 px-4 sm:px-6 md:px-12 mt-10">
         {/* LEFT */}
