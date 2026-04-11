@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { FaUser, FaBars, FaTimes } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 import logo from "../assets/images/logo/RB.png";
 
@@ -8,6 +8,13 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleClose = () => setIsOpen(false);
+
+  const navLinkClass = ({ isActive }) =>
+    `transition duration-300 ${
+      isActive
+        ? "text-orange-500 font-bold drop-shadow-[0_0_10px_rgba(255,115,0,0.9)]"
+        : "hover:text-orange-500 hover:font-bold"
+    }`;
 
   return (
     <nav className="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-6 md:px-12 py-6 bg-white shadow-md">
@@ -21,38 +28,39 @@ export default function Navbar() {
 
       <ul className="hidden md:flex gap-8 text-gray-700">
         <li>
-          <Link to="/" className="hover:text-orange-500 hover:font-bold">
+          <NavLink to="/" end className={navLinkClass}>
             Home
-          </Link>
+          </NavLink>
         </li>
 
         <li>
-          <Link to="/menu" className="hover:text-orange-500 hover:font-bold">
+          <NavLink to="/menu" className={navLinkClass}>
             Menu
-          </Link>
+          </NavLink>
         </li>
+
         <li>
-          <Link
-            to="/reservation"
-            className="hover:text-orange-500 hover:font-bold"
-          >
+          <NavLink to="/reservation" className={navLinkClass}>
             Shop
-          </Link>
+          </NavLink>
         </li>
+
         <li>
-          <Link to="/order" className="hover:text-orange-500 hover:font-bold">
+          <NavLink to="/order" className={navLinkClass}>
             Order
-          </Link>
+          </NavLink>
         </li>
+
         <li>
-          <Link to="/contact" className="hover:text-orange-500 hover:font-bold">
+          <NavLink to="/contact" className={navLinkClass}>
             Contact
-          </Link>
+          </NavLink>
         </li>
+
         <li>
-          <Link to="/about" className="hover:text-orange-500 hover:font-bold">
+          <NavLink to="/about" className={navLinkClass}>
             About
-          </Link>
+          </NavLink>
         </li>
       </ul>
       {/* RIGHT SIDE */}
@@ -73,26 +81,39 @@ export default function Navbar() {
       {isOpen && (
         <ul className="absolute top-20 left-0 w-full bg-white shadow-md flex flex-col items-center gap-6 py-6 md:hidden text-gray-700 z-50">
           <li onClick={handleClose}>
-            <Link to="/">Home</Link>
+            <NavLink to="/" end className={navLinkClass}>
+              Home
+            </NavLink>
           </li>
 
           <li onClick={handleClose}>
-            <Link to="/menu">Menu</Link>
+            <NavLink to="/menu" className={navLinkClass}>
+              Menu
+            </NavLink>
           </li>
 
           <li onClick={handleClose}>
-            <Link to="/reservation">Shop</Link>
+            <NavLink to="/reservation" className={navLinkClass}>
+              Shop
+            </NavLink>
           </li>
 
           <li onClick={handleClose}>
-            <Link to="/order">Order</Link>
+            <NavLink to="/order" className={navLinkClass}>
+              Order
+            </NavLink>
           </li>
 
           <li onClick={handleClose}>
-            <Link to="/contact">Contact</Link>
+            <NavLink to="/contact" className={navLinkClass}>
+              Contact
+            </NavLink>
           </li>
+
           <li onClick={handleClose}>
-            <Link to="/about">About</Link>
+            <NavLink to="/about" className={navLinkClass}>
+              About
+            </NavLink>
           </li>
 
           <li className="flex items-center gap-2 cursor-pointer">
