@@ -34,7 +34,7 @@ export default function Footer() {
           {/* QUICK LINKS */}
           <div>
             <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
-            <ul className="space-y-2 text-black text-sm">
+            <ul className="space-y-2 text-gray-500 text-sm">
               <li>
                 <Link to="/" className="hover:text-orange-400">
                   Home
@@ -66,7 +66,7 @@ export default function Footer() {
           {/* CONTACT */}
           <div>
             <h3 className="text-lg font-semibold mb-4">Contact</h3>
-            <ul className="space-y-3 text-gray-200 text-sm">
+            <ul className="space-y-3 text-gray-500 text-sm">
               <li className="flex items-center gap-2">
                 <FaMapMarkerAlt /> Nairobi, Kenya
               </li>
@@ -111,14 +111,14 @@ export default function Footer() {
               </a>
             </div>
 
-            <p className="text-sm text-gray-300 mt-4">
+            <p className="text-sm text-gray-500 mt-4">
               Freshly baked happiness every day 🍰
             </p>
           </div>
         </div>
 
         {/* BOTTOM */}
-        <div className="border-t border-green-700 mt-10 pt-6 text-center text-sm text-gray-300">
+        <div className="border-t border-green-700 mt-10 pt-6 text-center text-sm text-gray-500">
           © {new Date().getFullYear()} Sweet Bakery. All rights reserved.
         </div>
       </div>
