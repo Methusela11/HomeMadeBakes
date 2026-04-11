@@ -12,7 +12,7 @@ import logo from "../assets/images/logo/RB.png";
 
 export default function Footer() {
   return (
-    <footer className="bg-orange-50 text-black mt-20">
+    <footer className="bg-orange-80 text-black mt-20">
       <div className="max-w-7xl mx-auto px-6 md:px-12 py-12">
         {/* TOP SECTION */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10">
@@ -68,13 +68,13 @@ export default function Footer() {
             <h3 className="text-lg font-semibold mb-4">Contact</h3>
             <ul className="space-y-3 text-gray-500 text-sm">
               <li className="flex items-center gap-2">
-                <FaMapMarkerAlt /> Nairobi, Kenya
+                <FaMapMarkerAlt /> Kilifi, Kenya
               </li>
               <li className="flex items-center gap-2">
                 <FaPhone /> +254 110 440 006 / +254 746 688 304
               </li>
               <li className="flex items-center gap-2">
-                <FaEnvelope /> bakery@email.com
+                <FaEnvelope /> rmeksbakert@gmail.com
               </li>
             </ul>
           </div>
