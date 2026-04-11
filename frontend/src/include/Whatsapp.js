@@ -15,7 +15,7 @@ export default function Whatsapp() {
       {/* FLOATING ICON */}
       <div
         onClick={toggleChat}
-        className="fixed bottom-6 right-6 w-16 h-16 bg-white rounded-full flex items-center justify-center cursor-pointer z-[9999] shadow-lg"
+        className="fixed bottom-28 sm:bottom-6 right-6 w-16 h-16 bg-white rounded-full flex items-center justify-center cursor-pointer z-[9999] shadow-lg"
       >
         <img
           src={isOpen ? closeIcon : whatsappIcon}
@@ -45,7 +45,7 @@ export default function Whatsapp() {
             </small>
 
             <a
-              href="https://wa.me/254762120373"
+              href="https://wa.me/254780667707"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-3 bg-orange-50 p-3 rounded-lg hover:bg-orange-200 transition"
