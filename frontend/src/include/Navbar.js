@@ -1,6 +1,14 @@
 import { useState } from "react";
 import { FaUser, FaBars, FaTimes } from "react-icons/fa";
 import { Link, NavLink } from "react-router-dom";
+import {
+  FaHome,
+  FaUtensils,
+  FaShoppingBag,
+  FaShoppingCart,
+  FaEnvelope,
+  FaInfoCircle,
+} from "react-icons/fa";
 
 import logo from "../assets/images/logo/RB.png";
 
@@ -81,20 +89,24 @@ export default function Navbar() {
       {isOpen && (
         <ul className="absolute top-20 left-0 w-full bg-white shadow-lg flex flex-col items-center gap-5 py-6 md:hidden text-gray-700 z-50">
           {[
-            { to: "/", label: "Home", end: true },
-            { to: "/menu", label: "Menu" },
-            { to: "/shop", label: "Shop" },
-            { to: "/order", label: "Order" },
-            { to: "/contact", label: "Contact" },
-            { to: "/about", label: "About" },
+            { to: "/", label: "Home", icon: <FaHome />, end: true },
+            { to: "/menu", label: "Menu", icon: <FaUtensils /> },
+            { to: "/shop", label: "Shop", icon: <FaShoppingBag /> },
+            { to: "/order", label: "Order", icon: <FaShoppingCart /> },
+            { to: "/contact", label: "Contact", icon: <FaEnvelope /> },
+            { to: "/about", label: "About", icon: <FaInfoCircle /> },
           ].map((item, i) => (
             <li key={i} onClick={handleClose}>
               <NavLink to={item.to} end={item.end} className={navLinkClass}>
-                {item.label}
+                <span className="flex items-center gap-2">
+                  {item.icon}
+                  {item.label}
+                </span>
               </NavLink>
             </li>
           ))}
 
+          {/* My Account */}
           <li className="flex items-center gap-2 cursor-pointer hover:text-orange-500">
             <FaUser />
             My Account
