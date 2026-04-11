@@ -40,7 +40,7 @@ export default function Navbar() {
         </li>
 
         <li>
-          <NavLink to="/reservation" className={navLinkClass}>
+          <NavLink to="/shop" className={navLinkClass}>
             Shop
           </NavLink>
         </li>

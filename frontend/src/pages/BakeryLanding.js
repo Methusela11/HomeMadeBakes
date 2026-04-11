@@ -35,16 +35,21 @@ export default function BakeryLanding() {
   ];
 
   useEffect(() => {
-    fetch("https://b422-41-220-233-110.ngrok-free.app/api/products/")
-      .then((res) => res.json())
-      .then((data) => {
-        const productsArray = Array.isArray(data) ? data : data.results;
-        setProducts(productsArray || []);
-      })
-      .catch((err) => {
+    const loadProducts = async () => {
+      try {
+        const res = await fetch(
+          "https://b422-41-220-233-110.ngrok-free.app/api/products/",
+        );
+
+        const data = await res.json();
+
+        const productsArray = Array.isArray(data) ? data : data?.results || [];
+
+        setProducts(productsArray);
+      } catch (err) {
         console.log("FETCH ERROR:", err);
 
-        // ✅ fallback demo data (so UI always shows something)
+        // ✅ fallback demo data
         setProducts([
           {
             id: 1,
@@ -59,7 +64,10 @@ export default function BakeryLanding() {
             image: "/placeholder.png",
           },
         ]);
-      });
+      }
+    };
+
+    loadProducts();
   }, []);
 
   return (
@@ -137,34 +145,35 @@ export default function BakeryLanding() {
           <p className="text-center text-gray-500">No products found</p>
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
-            {products.map((product) => {
-              const imageUrl = product.image
-                ? product.image.startsWith("http")
-                  ? product.image
-                  : `https://b422-41-220-233-110.ngrok-free.app${product.image}`
-                : "/placeholder.png";
+            {Array.isArray(products) &&
+              products.map((product) => {
+                const imageUrl = product.image
+                  ? product.image.startsWith("http")
+                    ? product.image
+                    : `https://b422-41-220-233-110.ngrok-free.app${product.image}`
+                  : "/placeholder.png";
 
-              return (
-                <div
-                  key={product.id}
-                  className="bg-gray-200 rounded-lg p-4 text-center hover:shadow-lg transition"
-                >
-                  <img
-                    src={imageUrl}
-                    alt={product.name}
-                    className="w-40 h-40 object-contain mx-auto"
-                  />
+                return (
+                  <div
+                    key={product.id}
+                    className="bg-gray-200 rounded-lg p-4 text-center hover:shadow-lg transition"
+                  >
+                    <img
+                      src={imageUrl}
+                      alt={product.name}
+                      className="w-40 h-40 object-contain mx-auto"
+                    />
 
-                  <h3 className="font-semibold mt-3 text-green-900">
-                    {product.name}
-                  </h3>
+                    <h3 className="font-semibold mt-3 text-green-900">
+                      {product.name}
+                    </h3>
 
-                  <p className="text-blue-700 text-sm">
-                    From {product.price} KES
-                  </p>
-                </div>
-              );
-            })}
+                    <p className="text-blue-700 text-sm">
+                      From {product.price} KES
+                    </p>
+                  </div>
+                );
+              })}
           </div>
         )}
       </div>

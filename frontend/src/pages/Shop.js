@@ -17,6 +17,8 @@ export default function Shop() {
 
         if (Array.isArray(data)) {
           setProducts(data);
+        } else if (data.results) {
+          setProducts(data.results);
         } else {
           setProducts([]);
         }
@@ -50,7 +52,13 @@ export default function Shop() {
             >
               {/* IMAGE */}
               <img
-                src={`https://b422-41-220-233-110.ngrok-free.app${product.image}`}
+                src={
+                  product.image
+                    ? product.image.startsWith("http")
+                      ? product.image
+                      : `https://b422-41-220-233-110.ngrok-free.app${product.image}`
+                    : "/placeholder.png"
+                }
                 alt={product.name}
                 className="w-full h-48 object-cover rounded-md"
               />
