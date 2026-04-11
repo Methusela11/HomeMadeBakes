@@ -61,6 +61,13 @@ export default function Contact() {
           onSubmit={sendEmail}
           className="bg-orange-50 p-6 rounded-xl shadow-md"
         >
+          <h2 className="text-xl font-bold mb-4 text-green-900">
+            Fill in the Form.
+          </h2>
+          <p className="mb-4 text-gray-600">
+            Have a question or need assistance? Reach out by email, phone, or
+            the form below we’re here to help you every step of the way.
+          </p>
           <input
             type="text"
             name="name"
