@@ -71,7 +71,7 @@ export default function Footer() {
                 <FaMapMarkerAlt /> Nairobi, Kenya
               </li>
               <li className="flex items-center gap-2">
-                <FaPhone /> +254 700 000 000
+                <FaPhone /> +254 110 440 006 / +254 746 688 304
               </li>
               <li className="flex items-center gap-2">
                 <FaEnvelope /> bakery@email.com
