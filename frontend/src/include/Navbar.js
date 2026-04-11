@@ -12,7 +12,7 @@ export default function Navbar() {
   const navLinkClass = ({ isActive }) =>
     `transition duration-300 ${
       isActive
-        ? "text-orange-500 font-bold drop-shadow-[0_0_10px_rgba(255,115,0,0.9)]"
+        ? "text-orange-500 font-bold drop-shadow-[0_0_8px_rgba(255,115,0,0.9)] "
         : "hover:text-orange-500 hover:font-bold"
     }`;
 

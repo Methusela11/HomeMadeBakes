@@ -59,7 +59,7 @@ export default function BakeryLanding() {
         <div className="flex-1">
           <button
             onClick={() => setShowVideo(true)}
-            className="flex items-center gap-2 border border-gray-400 text-green-900 px-6 py-3 rounded-lg shadow mb-4"
+            className="flex items-center gap-2 border border-gray-400 text-green-900 px-6 py-3 rounded-lg shadow mb-4 hover:scale-105 transition hover:font-bold"
           >
             <div className="bg-red-500 text-white p-2 rounded-full">
               <FaPlay size={10} />
@@ -81,14 +81,14 @@ export default function BakeryLanding() {
           <div className="flex gap-4 mt-6">
             <Link
               to="/contact"
-              className="bg-orange-500 text-white px-6 py-3 rounded-lg font-bold"
+              className="bg-orange-500 text-white px-6 py-3 rounded-lg font-bold hover:text-gray-800 hover:scale-105 transition"
             >
               Get in Touch?
             </Link>
 
             <Link
               to="/order"
-              className="border border-gray-400 px-6 py-3 rounded-lg"
+              className="border border-gray-400 px-6 py-3 rounded-lg hover:font-bold hover:text-orange-500 hover:scale-105 transition"
             >
               Order Now
             </Link>
@@ -101,17 +101,17 @@ export default function BakeryLanding() {
             <img
               alt="chef"
               src={getrudeImage}
-              className="w-[120px] rounded-2xl rotate-[-3deg]"
+              className="w-[120px] rounded-2xl rotate-[-3deg] hover:scale-125 transition"
             />
             <img
               alt="chef"
               src={getrude1Image}
-              className="w-[140px] rounded-2xl rotate-[2deg]"
+              className="w-[140px] rounded-2xl rotate-[2deg] hover:scale-125 transition"
             />
             <img
               alt="chef"
               src={getrude2Image}
-              className="w-[120px] rounded-2xl rotate-[5deg]"
+              className="w-[120px] rounded-2xl rotate-[5deg] hover:scale-125 transition"
             />
           </div>
         </div>
@@ -156,25 +156,34 @@ export default function BakeryLanding() {
         )}
       </div>
 
-      {/* CATEGORIES */}
-      <div className="px-6 md:px-12 mt-16">
+      <div className="px-6 md:px-12 mt-20">
         <h1 className="text-3xl md:text-4xl font-bold text-green-900 mb-10">
-          Our Product Categories
+          Our Products Categories
         </h1>
-
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
           {categories.map((item, i) => (
-            <div key={i} className="text-center">
-              <div className="bg-orange-100 p-4 rounded-full w-fit mx-auto">
-                <img
-                  src={item.image}
-                  alt={item.name}
-                  className="w-36 h-36 object-cover rounded-full hover:scale-110 transition"
-                />
+            <Link
+              to="/shop"
+              state={{ category: item.name }}
+              key={i}
+              className="group cursor-pointer"
+            >
+              <div className="bg-orange-50 rounded-2xl shadow-md transition duration-300 p-6 text-center border border-gray-100 hover:border-green-900">
+                <div className="bg-orange-100 p-4 rounded-full w-fit mx-auto mb-4">
+                  <img
+                    src={item.image}
+                    alt={item.name}
+                    className="w-32 h-32 object-cover rounded-full transition-transform duration-300 group-hover:scale-105"
+                  />
+                </div>
+
+                <h4 className="font-semibold mt-2 group-hover:text-orange-500 transition">
+                  {item.name}
+                </h4>
+
+                <p className="text-sm text-gray-500">{item.desc}</p>
               </div>
-              <h4 className="font-semibold mt-2">{item.name}</h4>
-              <p className="text-sm text-gray-500">{item.desc}</p>
-            </div>
+            </Link>
           ))}
         </div>
       </div>
@@ -185,7 +194,7 @@ export default function BakeryLanding() {
           <div className="bg-white rounded-xl w-[90%] max-w-3xl p-4 relative">
             <button
               onClick={() => setShowVideo(false)}
-              className="absolute right-2 top-2 text-xl"
+              className="absolute right-1 top-0 text-xl"
             >
               ✕
             </button>

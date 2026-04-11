@@ -5,7 +5,7 @@ import Navbar from "./include/Navbar";
 import BakeryLanding from "./pages/BakeryLanding";
 import About from "./pages/About";
 import Menu from "./pages/Menu";
-import Reservation from "./pages/Shop";
+import Shop from "./pages/Shop";
 import Order from "./pages/Order";
 import Contact from "./pages/Contact";
 
@@ -43,11 +43,11 @@ export default function App() {
       />
 
       <Route
-        path="/reservation"
+        path="/shop"
         element={
           <>
             <Navbar />
-            <Reservation />
+            <Shop />
           </>
         }
       />
