@@ -281,21 +281,33 @@ export default function BakeryLanding() {
 
       {/* VIDEO MODAL */}
       {showVideo && (
-        <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50">
-          <div className="bg-white rounded-xl w-[95%] max-w-1xl p-1 sm:p-1 relative">
+        <div
+          className="fixed inset-0 bg-black/70 flex items-center justify-center z-50"
+          onClick={() => setShowVideo(false)} // 👈 outside click closes
+        >
+          {/* Wrapper (for positioning button above video) */}
+          <div
+            className="relative flex flex-col items-end"
+            onClick={(e) => e.stopPropagation()} // 👈 prevent inside click closing
+          >
+            {/* CLOSE BUTTON (above video) */}
             <button
               onClick={() => setShowVideo(false)}
-              className="absolute right-1 top-0 text-xl"
+              className="mb-2 bg-white text-black px-3 py-1 rounded-full shadow-md hover:bg-red-500 hover:text-white transition font-bold"
             >
-              ✕
+              ✕ Close
             </button>
 
-            <iframe
-              className="w-full h-[220px] sm:h-[400px] rounded-lg"
-              src="https://www.youtube.com/embed/EYXQmbZNhy8"
-              title="Bakery video"
-              allowFullScreen
-            />
+            {/* VIDEO */}
+            <div className="bg-white rounded-xl w-[95%] max-w-3xl p-1">
+              <iframe
+                className="w-full h-[220px] sm:h-[400px] rounded-lg"
+                src="https://www.youtube.com/embed/EYXQmbZNhy8?autoplay=1"
+                title="Bakery video"
+                allow="autoplay; encrypted-media"
+                allowFullScreen
+              />
+            </div>
           </div>
         </div>
       )}
