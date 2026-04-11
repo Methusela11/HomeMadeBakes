@@ -15,12 +15,12 @@ export default function Whatsapp() {
       {/* FLOATING ICON */}
       <div
         onClick={toggleChat}
-        className="fixed bottom-6 right-6 w-14 h-14 bg-white rounded-full flex items-center justify-center cursor-pointer z-[9999] shadow-lg"
+        className="fixed bottom-6 right-6 w-16 h-16 bg-white rounded-full flex items-center justify-center cursor-pointer z-[9999] shadow-lg"
       >
         <img
           src={isOpen ? closeIcon : whatsappIcon}
           alt="WhatsApp"
-          className="w-[50px] h-[50px]"
+          className="w-full h-full object-cover"
         />
       </div>
 
