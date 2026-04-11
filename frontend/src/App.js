@@ -11,66 +11,68 @@ import Contact from "./pages/Contact";
 
 export default function App() {
   return (
-    <Routes>
-      <Route
-        path="/"
-        element={
-          <>
-            <Navbar />
-            <BakeryLanding />
-          </>
-        }
-      />
+    <div className="overflow-x-hidden">
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <>
+              <Navbar />
+              <BakeryLanding />
+            </>
+          }
+        />
 
-      <Route
-        path="/about"
-        element={
-          <>
-            <Navbar />
-            <About />
-          </>
-        }
-      />
+        <Route
+          path="/about"
+          element={
+            <>
+              <Navbar />
+              <About />
+            </>
+          }
+        />
 
-      <Route
-        path="/menu"
-        element={
-          <>
-            <Navbar />
-            <Menu />
-          </>
-        }
-      />
+        <Route
+          path="/menu"
+          element={
+            <>
+              <Navbar />
+              <Menu />
+            </>
+          }
+        />
 
-      <Route
-        path="/shop"
-        element={
-          <>
-            <Navbar />
-            <Shop />
-          </>
-        }
-      />
+        <Route
+          path="/shop"
+          element={
+            <>
+              <Navbar />
+              <Shop />
+            </>
+          }
+        />
 
-      <Route
-        path="/order"
-        element={
-          <>
-            <Navbar />
-            <Order />
-          </>
-        }
-      />
+        <Route
+          path="/order"
+          element={
+            <>
+              <Navbar />
+              <Order />
+            </>
+          }
+        />
 
-      <Route
-        path="/contact"
-        element={
-          <>
-            <Navbar />
-            <Contact />
-          </>
-        }
-      />
-    </Routes>
+        <Route
+          path="/contact"
+          element={
+            <>
+              <Navbar />
+              <Contact />
+            </>
+          }
+        />
+      </Routes>
+    </div>
   );
 }

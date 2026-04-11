@@ -12,7 +12,7 @@ export default function Navbar() {
   const navLinkClass = ({ isActive }) =>
     `transition duration-300 ${
       isActive
-        ? "text-orange-500 font-bold drop-shadow-[0_0_8px_rgba(255,115,0,0.9)] "
+        ? "text-orange-500 font-bold drop-shadow-[0_0_8px_rgba(255,115,0,0.9)]"
         : "hover:text-orange-500 hover:font-bold"
     }`;
 
@@ -79,44 +79,23 @@ export default function Navbar() {
       </div>
 
       {isOpen && (
-        <ul className="absolute top-20 left-0 w-full bg-white shadow-md flex flex-col items-center gap-6 py-6 md:hidden text-gray-700 z-50">
-          <li onClick={handleClose}>
-            <NavLink to="/" end className={navLinkClass}>
-              Home
-            </NavLink>
-          </li>
+        <ul className="absolute top-20 left-0 w-full bg-white shadow-lg flex flex-col items-center gap-5 py-6 md:hidden text-gray-700 z-50">
+          {[
+            { to: "/", label: "Home", end: true },
+            { to: "/menu", label: "Menu" },
+            { to: "/shop", label: "Shop" },
+            { to: "/order", label: "Order" },
+            { to: "/contact", label: "Contact" },
+            { to: "/about", label: "About" },
+          ].map((item, i) => (
+            <li key={i} onClick={handleClose}>
+              <NavLink to={item.to} end={item.end} className={navLinkClass}>
+                {item.label}
+              </NavLink>
+            </li>
+          ))}
 
-          <li onClick={handleClose}>
-            <NavLink to="/menu" className={navLinkClass}>
-              Menu
-            </NavLink>
-          </li>
-
-          <li onClick={handleClose}>
-            <NavLink to="/reservation" className={navLinkClass}>
-              Shop
-            </NavLink>
-          </li>
-
-          <li onClick={handleClose}>
-            <NavLink to="/order" className={navLinkClass}>
-              Order
-            </NavLink>
-          </li>
-
-          <li onClick={handleClose}>
-            <NavLink to="/contact" className={navLinkClass}>
-              Contact
-            </NavLink>
-          </li>
-
-          <li onClick={handleClose}>
-            <NavLink to="/about" className={navLinkClass}>
-              About
-            </NavLink>
-          </li>
-
-          <li className="flex items-center gap-2 cursor-pointer">
+          <li className="flex items-center gap-2 cursor-pointer hover:text-orange-500">
             <FaUser />
             My Account
           </li>
