@@ -120,14 +120,15 @@ export default function BakeryLanding() {
             We <span className="text-orange-500">Bake,</span> You Celebrate!
           </h1>
 
-          <div className="flex justify-center md:justify-start pt-1 mt-0">
-            <button className="flex items-center gap-2 border border-gray-400 text-green-900 px-6 py-3 rounded-lg shadow mb-4 hover:scale-105 transition hover:font-bold">
-              <div className="bg-red-500 text-white p-2 rounded-full">
-                <FaPlay size={10} />
-              </div>
-              Watch Video
-            </button>
-          </div>
+          <button
+            onClick={() => setShowVideo(true)}
+            className="flex items-center gap-2 border border-gray-400 text-green-900 px-6 py-3 rounded-lg shadow mb-4 hover:scale-105 transition hover:font-bold"
+          >
+            <div className="bg-red-500 text-white p-2 rounded-full">
+              <FaPlay size={10} />
+            </div>
+            Watch Video
+          </button>
 
           <p className="text-gray-800 mt-0 max-w-md pt-0">
             <span className="font-semibold block mb-2">
