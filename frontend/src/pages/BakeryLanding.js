@@ -163,14 +163,14 @@ export default function BakeryLanding() {
         ) : (
           <>
             {/* SLIDER */}
-            <div className="overflow-hidden">
+            <div className="overflow-x-auto scroll-smooth snap-x snap-mandatory">
               <div
                 className="flex transition-transform duration-700 ease-in-out"
                 style={{
                   transform: `translateX(-${currentIndex * 100}%)`,
                 }}
               >
-                {products.map((product) => {
+                {products.map((product, index) => {
                   const imageUrl = product.image
                     ? product.image.startsWith("http")
                       ? product.image
@@ -180,7 +180,8 @@ export default function BakeryLanding() {
                   return (
                     <div
                       key={product.id}
-                      className="min-w-full flex justify-center"
+                      className="min-w-full flex justify-center snap-center"
+                      onClick={() => setCurrentIndex(index)} // optional sync
                     >
                       <div className="bg-gray-200 rounded-lg p-4 text-center w-[250px] sm:w-[300px] hover:shadow-lg transition">
                         <img
@@ -202,6 +203,7 @@ export default function BakeryLanding() {
                 })}
               </div>
             </div>
+
             {/* DOTS */}
             <div className="flex justify-center mt-6 gap-2">
               {products.map((_, index) => (
