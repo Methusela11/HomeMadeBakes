@@ -3,6 +3,7 @@ from django.db import models
 class Product(models.Model):
     CATEGORY_CHOICES = [
         ('cakes', 'Cakes'),
+        ('cupcakes', 'Cupcakes'),
         ('cookies', 'Cookies'),
         ('breads', 'Breads'),
         ('chocolates', 'Chocolates'),
