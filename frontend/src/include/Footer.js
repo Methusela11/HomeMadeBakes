@@ -8,17 +8,23 @@ import {
   FaEnvelope,
 } from "react-icons/fa";
 
+import logo from "../assets/images/logo/RB.png";
+
 export default function Footer() {
   return (
-    <footer className="bg-green-900 text-white mt-20">
+    <footer className="bg-orange-50 text-white mt-20">
       <div className="max-w-7xl mx-auto px-6 md:px-12 py-12">
         {/* TOP SECTION */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10">
           {/* BRAND */}
           <div>
-            <h2 className="text-2xl font-bold text-orange-400 mb-4">
-              Sweet Bakery
-            </h2>
+            <Link to="/" className="text-2xl font-bold cursor-pointer">
+              <img
+                src={logo}
+                alt="Chef portrait"
+                className="w-[110px] rounded-2xl object-cover transition-transform duration-300 hover:scale-125"
+              />
+            </Link>
             <p className="text-gray-200 text-sm leading-relaxed">
               We bake fresh cakes, cookies, bread, and chocolates daily. Your
               happiness is our recipe.
