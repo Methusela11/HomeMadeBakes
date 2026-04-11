@@ -123,7 +123,7 @@ export default function BakeryLanding() {
           <div className="flex justify-center md:justify-start pt-1 mt-0">
             <button
               onClick={() => setShowVideo(true)}
-              className="flex items-center gap-3 border border-gray-300 text-green-900 px-6 py-3 rounded-lg shadow-sm bg-white hover:bg-orange-50 hover:scale-105 transition duration-300 group"
+              className="flex items-center gap-3 border border-gray-300 text-green-900 px-6 py-3 rounded-lg shadow-sm bg-white hover:font-bold hover:scale-105 transition duration-300 group"
             >
               <div className="bg-red-500 text-white p-2 rounded-full group-hover:scale-110 transition">
                 <FaPlay size={10} />
@@ -282,7 +282,7 @@ export default function BakeryLanding() {
       {/* VIDEO MODAL */}
       {showVideo && (
         <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50">
-          <div className="bg-white rounded-xl w-[95%] max-w-3xl p-3 sm:p-4 relative">
+          <div className=" rounded-xl w-[95%] max-w-3xl p-3 sm:p-4 relative">
             <button
               onClick={() => setShowVideo(false)}
               className="absolute right-1 top-0 text-xl"
