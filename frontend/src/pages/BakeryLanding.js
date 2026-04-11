@@ -282,26 +282,25 @@ export default function BakeryLanding() {
       {/* VIDEO MODAL */}
       {showVideo && (
         <div
-          className="fixed inset-0 bg-black/70 flex items-center justify-center z-50"
-          onClick={() => setShowVideo(false)} // 👈 outside click closes
+          className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4"
+          onClick={() => setShowVideo(false)}
         >
-          {/* Wrapper (for positioning button above video) */}
           <div
-            className="relative flex flex-col items-end"
-            onClick={(e) => e.stopPropagation()} // 👈 prevent inside click closing
+            className="relative w-full max-w-5xl"
+            onClick={(e) => e.stopPropagation()}
           >
-            {/* CLOSE BUTTON (above video) */}
+            {/* CLOSE BUTTON */}
             <button
               onClick={() => setShowVideo(false)}
-              className="mb-2 bg-white text-black px-3 py-1 rounded-full shadow-md hover:bg-red-500 hover:text-white transition font-bold"
+              className="absolute -top-12 right-0 bg-white text-black px-4 py-1 rounded-full shadow-md hover:bg-red-500 hover:text-white transition font-bold"
             >
               ✕ Close
             </button>
 
-            {/* VIDEO */}
-            <div className="bg-white rounded-xl w-[95%] max-w-3xl p-1">
+            {/* VIDEO CONTAINER (16:9 aspect ratio) */}
+            <div className="w-full aspect-video bg-black rounded-xl overflow-hidden shadow-2xl">
               <iframe
-                className="w-full h-[220px] sm:h-[400px] rounded-lg"
+                className="w-full h-full"
                 src="https://www.youtube.com/embed/EYXQmbZNhy8?autoplay=1"
                 title="Bakery video"
                 allow="autoplay; encrypted-media"
