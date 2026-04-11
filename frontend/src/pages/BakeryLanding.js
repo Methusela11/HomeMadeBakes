@@ -120,7 +120,7 @@ export default function BakeryLanding() {
             We <span className="text-orange-500">Bake,</span> You Celebrate!
           </h1>
 
-          <div className="flex justify-center md:justify-start pt-1 mt-0">
+          <div className="flex justify-center md:justify-start pt-1 mt-0 pb-2">
             <button
               onClick={() => setShowVideo(true)}
               className="flex items-center gap-3 border border-gray-300 text-green-900 px-6 py-3 rounded-lg shadow-sm bg-white hover:font-bold hover:scale-105 transition duration-300 group"
