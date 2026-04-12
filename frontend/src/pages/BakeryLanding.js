@@ -159,9 +159,11 @@ export default function BakeryLanding() {
         </div>
 
         {/* RIGHT */}
-        <div className="flex-1 mt-10 md:mt-0">
-          <div className=" bg-[#eee1d1] rounded-3xl p-4 sm:p-6 flex justify-center items-center gap-4 w-full max-w-[100%] sm:max-w-[650px] lg:max-w-[900px] h-[160px] sm:h-[180px] lg:h-[250px] mx-auto">
-            {" "}
+        <div className="flex-1 mt-3 md:mt-0">
+          <h1 className="text-2xl md:text-3xl font-bold text-green-900 mb-10">
+            Our Chefs
+          </h1>
+          <div className=" bg-[#eee1d1] rounded-3xl p-1 sm:p-2 flex justify-center items-center gap-1 w-full max-w-[100%] sm:max-w-[650px] lg:max-w-[900px] h-[160px] sm:h-[180px] lg:h-[250px] mx-auto">
             <img
               alt="chef"
               src={getrudeImage}
@@ -181,7 +183,7 @@ export default function BakeryLanding() {
         </div>
       </div>
 
-      <div className="px-6 md:px-12 mt-20">
+      <div className="px-6 md:px-12 mt-10">
         <h1 className="text-2xl md:text-3xl font-bold text-green-900 mb-10">
           Latest Products
         </h1>

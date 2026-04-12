@@ -108,7 +108,7 @@ export default function About() {
 
         <Link
           to="/shop"
-          className="bg-orange-500 text-white px-6 py-3 rounded-lg font-bold hover:scale-105 transition"
+          className="bg-orange-500 text-white px-6 py-3 rounded-lg font-bold hover:scale-105 transition hover:text-green-900"
         >
           Explore Our Products
         </Link>
