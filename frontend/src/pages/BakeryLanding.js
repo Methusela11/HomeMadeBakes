@@ -8,7 +8,7 @@ import cookiesImage from "../assets/images/cookies/11.png";
 import breadImage from "../assets/images/bread/11.png";
 import chocolatesImage from "../assets/images/chocolates/111.png";
 
-import getrudeImage from "../assets/images/chefs/chef1.png";
+import getrudeImage from "../assets/images/chefs/chef3.png";
 import getrude1Image from "../assets/images/chefs/chef2.png";
 import getrude2Image from "../assets/images/chefs/chef1.png";
 
