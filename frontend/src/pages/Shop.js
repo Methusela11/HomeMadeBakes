@@ -63,7 +63,7 @@ export default function Shop() {
   }, [selectedCategory, products]);
 
   return (
-    <div className="min-h-screen pt-28 px-6 bg-gray-50">
+    <div className="min-h-screen pt-32 px-6 bg-gray-50">
       {/* TITLE */}
       <h1 className="text-3xl font-bold text-green-900 mb-6">
         {selectedCategory
@@ -85,7 +85,7 @@ export default function Shop() {
               <img
                 src={cat.image}
                 alt={cat.name}
-                className="w-16 h-16 mx-auto object-cover rounded-full mb-2"
+                className=" w-24 h-24 mx-auto object-cover rounded-full mb-2"
               />
             )}
             <p className="font-semibold text-green-900">{cat.label}</p>
@@ -93,12 +93,14 @@ export default function Shop() {
         ))}
       </div>
       {selectedCategory && (
-        <button
-          onClick={() => setSelectedCategory(null)}
-          className="bg-orange-500 text-white px-6 py-3 rounded-lg font-bold hover:scale-110 transition hover:text-green-900"
-        >
-          Show All Products
-        </button>
+        <div className="flex flex-col sm:flex-row gap-4 mt-6 justify-center md:justify-start">
+          <button
+            onClick={() => setSelectedCategory(null)}
+            className="bg-orange-500 text-white px-6 py-3 rounded-lg font-bold hover:scale-110 transition hover:text-green-900"
+          >
+            Show All Products
+          </button>
+        </div>
       )}
 
       <h1 className="text-3xl font-bold text-green-900 mb-6 pt-4">
