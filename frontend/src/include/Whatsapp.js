@@ -1,7 +1,7 @@
 import { useState } from "react";
 import whatsappIcon from "../assets/images/icons/whatsapp.png";
 import closeIcon from "../assets/images/icons/close.png";
-import agentLogo from "../assets/images/logo/RB.png";
+import logo from "../assets/images/logo/RB.png";
 
 export default function Whatsapp() {
   const [isOpen, setIsOpen] = useState(false);
@@ -26,7 +26,7 @@ export default function Whatsapp() {
 
       {/* CHAT BOX */}
       {isOpen && (
-        <div className="fixed bottom-40 sm:bottom-32 right-2 sm:right-6 left-2 sm:left-auto w-auto sm:w-[340px] max-w-[95%] bg-white rounded-xl shadow-2xl z-[9999] font-sans overflow-hidden">
+        <div className="fixed bottom-40 sm:bottom-32 right-2 sm:right-6 left-2 sm:left-auto w-auto sm:w-[340px] max-w-[95%] bg-black/90 rounded-xl shadow-2xl z-[9999] font-sans overflow-hidden">
           {/* HEADER */}
           <div className="bg-orange-100 text-black p-4">
             <div className="flex items-center gap-2">
@@ -53,7 +53,7 @@ export default function Whatsapp() {
               className="flex items-center gap-3 bg-orange-50 p-3 rounded-lg hover:bg-orange-200 transition"
             >
               <img
-                src={agentLogo}
+                src={logo}
                 alt="agent"
                 className="w-10 h-10 rounded-full"
               />
