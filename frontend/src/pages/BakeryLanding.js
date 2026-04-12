@@ -88,40 +88,11 @@ export default function BakeryLanding() {
         </div>
 
         {/* RIGHT */}
-        <div className="flex-1 mt-3 md:mt-0 flex flex-col items-center">
+        <div className="flex-1 md:mt-0 flex flex-col items-center">
           <h1 className="text-2xl md:text-3xl font-bold text-green-900 mb-2">
             Our Chefs
           </h1>
-          <div
-            className="
-    bg-[#eee1d1]
-    rounded-3xl
-
-    px-1 sm:px-4 md:px-6
-    py-2
-
-    flex
-    justify-center
-    items-end
-
-    gap-2
-    sm:gap-6
-    md:gap-8
-
-    w-[98vw]
-    sm:w-full
-
-    max-w-[1200px]
-    mx-auto
-
-    min-h-[200px]
-    sm:min-h-[280px]
-    lg:min-h-[340px]
-
-    overflow-hidden
-  "
-          >
-            {" "}
+          <div className="  bg-[#eee1d1] rounded-3xl px-1 sm:px-4 md:px-6 py-2 flex justify-center items-end gap-2 sm:gap-6 md:gap-8 w-[98vw] sm:w-full max-w-[1200px] mx-auto min-h-[200px] sm:min-h-[280px] lg:min-h-[340px] overflow-hidden ">
             <img
               alt="chef"
               src={chef3Image}
