@@ -1,6 +1,6 @@
 import { FaPlay } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import cakeImage from "../assets/images/cakes/1.png";
 import cupCakeImage from "../assets/images/cupcakes/1.png";
@@ -14,8 +14,6 @@ import getrude2Image from "../assets/images/chefs/chef1.png";
 
 export default function BakeryLanding() {
   const [showVideo, setShowVideo] = useState(false);
-  const [products, setProducts] = useState([]);
-  const [currentIndex, setCurrentIndex] = useState(0);
 
   const categories = [
     {
@@ -40,111 +38,6 @@ export default function BakeryLanding() {
       desc: "Sweet handcrafted chocolate treats",
     },
   ];
-
-  useEffect(() => {
-    if (products.length === 0) return;
-
-    const interval = setInterval(() => {
-      setCurrentIndex((prev) => (prev === products.length - 1 ? 0 : prev + 1));
-    }, 5000);
-
-    return () => clearInterval(interval);
-  }, [products]);
-
-  useEffect(() => {
-    const container = document.querySelector(".snap-x");
-
-    const handleScroll = () => {
-      const slides = document.querySelectorAll("[data-index]");
-
-      slides.forEach((_, index) => {
-        const element = slides[index];
-        if (!element) return;
-
-        const rect = element.getBoundingClientRect();
-
-        if (rect.left >= -100 && rect.left <= 100) {
-          setCurrentIndex(index);
-        }
-      });
-    };
-
-    container?.addEventListener("scroll", handleScroll);
-
-    return () => container?.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  useEffect(() => {
-    const loadProducts = async () => {
-      try {
-        const res = await fetch(
-          "https://b422-41-220-233-110.ngrok-free.app/api/products/",
-        );
-
-        const data = await res.json();
-
-        const productsArray = Array.isArray(data) ? data : data?.results || [];
-
-        setProducts(productsArray);
-      } catch (err) {
-        console.log("FETCH ERROR:", err);
-
-        // ✅ fallback demo data
-        setProducts([
-          {
-            id: 1,
-            name: "Chocolate Cake",
-            price: 1500,
-            image: "/placeholder.png",
-          },
-          {
-            id: 2,
-            name: "Vanilla Cookies",
-            price: 300,
-            image: "/placeholder.png",
-          },
-          {
-            id: 3,
-            name: "Strawberry Cake",
-            price: 1500,
-            image: "/placeholder.png",
-          },
-          {
-            id: 4,
-            name: "Banana Cookies",
-            price: 300,
-            image: "/placeholder.png",
-          },
-          {
-            id: 5,
-            name: "Vine Cake",
-            price: 1500,
-            image: "/placeholder.png",
-          },
-          {
-            id: 6,
-            name: "Watermelon Cookies",
-            price: 300,
-            image: "/placeholder.png",
-          },
-          {
-            id: 7,
-            name: "Men Cake",
-            price: 1500,
-            image: "/placeholder.png",
-          },
-          {
-            id: 8,
-            name: "Yams Cookies",
-            price: 300,
-            image: "/placeholder.png",
-          },
-        ]);
-      }
-    };
-
-    loadProducts();
-  }, []);
 
   return (
     <div className="min-h-screen font-sans pt-24">
@@ -199,94 +92,28 @@ export default function BakeryLanding() {
           <h1 className="text-2xl md:text-3xl font-bold text-green-900 mb-2">
             Our Chefs
           </h1>
-          <div className=" bg-[#eee1d1] rounded-3xl p-1 sm:p-2 flex justify-center items-center gap-1 w-full max-w-[100%] sm:max-w-[650px] lg:max-w-[900px] h-[160px] sm:h-[180px] lg:h-[250px] mx-auto">
+          <div className=" bg-[#eee1d1] rounded-3xl p-4 flex justify-center items-center gap-4 w-full max-w-[1100px] h-[260px] sm:h-[320px] lg:h-[360px] mx-auto">
+            {" "}
             <img
               alt="chef"
               src={getrudeImage}
-              className="w-[90px] sm:w-[110px] rounded-2xl rotate-[-3deg] hover:scale-125 transition"
+              className=" w-[130px] sm:w-[160px] lg:w-[190px] rounded-2xl rotate-[-3deg] hover:scale-125 transition"
             />
             <img
               alt="chef"
               src={getrude1Image}
-              className="w-[90px] sm:w-[110px] rounded-2xl rotate-[2deg] hover:scale-125 transition"
+              className=" w-[130px] sm:w-[160px] lg:w-[190px] rounded-2xl rotate-[-3deg] hover:scale-125 transition"
             />
             <img
               alt="chef"
               src={getrude2Image}
-              className="w-[90px] sm:w-[110px] rounded-2xl rotate-[5deg] hover:scale-125 transition"
+              className=" w-[130px] sm:w-[160px] lg:w-[190px] rounded-2xl rotate-[-3deg] hover:scale-125 transition"
             />
           </div>
         </div>
       </div>
 
-      <div className="px-6 md:px-12 mt-8 flex flex-col items-center">
-        <h1 className="text-2xl md:text-3xl font-bold text-green-900 mb-2">
-          Latest Products
-        </h1>
-
-        {products.length === 0 ? (
-          <p className="text-center text-gray-500">No products found</p>
-        ) : (
-          <>
-            {/* SLIDER */}
-            <div className="overflow-x-auto scroll-smooth snap-x snap-mandatory">
-              <div
-                className="flex transition-transform duration-700 ease-in-out"
-                style={{
-                  transform: `translateX(-${currentIndex * 100}%)`,
-                }}
-              >
-                {products.map((product, index) => {
-                  const imageUrl = product.image
-                    ? product.image.startsWith("http")
-                      ? product.image
-                      : `https://b422-41-220-233-110.ngrok-free.app${product.image}`
-                    : "/placeholder.png";
-
-                  return (
-                    <div
-                      key={product.id}
-                      className="min-w-full flex justify-center snap-center"
-                      onClick={() => setCurrentIndex(index)} // optional sync
-                    >
-                      <div className="bg-orange-50 rounded-lg p-4 text-center w-[250px] sm:w-[300px] hover:shadow-lg transition">
-                        <img
-                          src={imageUrl}
-                          alt={product.name}
-                          className="w-32 h-32 sm:w-40 sm:h-40 object-contain mx-auto"
-                        />
-
-                        <h3 className="font-semibold mt-3 text-green-900">
-                          {product.name}
-                        </h3>
-
-                        <p className="text-blue-700 text-sm">
-                          From {product.price} KES
-                        </p>
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-
-            {/* DOTS */}
-            <div className="flex justify-center mt-6 gap-2">
-              {products.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentIndex(index)}
-                  className={`w-2.5 h-2.5 rounded-full transition ${
-                    currentIndex === index ? "bg-orange-500 w-4" : "bg-gray-400"
-                  }`}
-                />
-              ))}
-            </div>
-          </>
-        )}
-      </div>
-
-      <div className="px-6 md:px-12 mt-10 flex flex-col items-center">
+      <div className="px-6 md:px-12 mt-10">
         <h1 className="text-2xl md:text-3xl font-bold text-green-900 mb-10">
           Our Products Categories
         </h1>
