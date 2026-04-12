@@ -135,7 +135,7 @@ export default function BakeryLanding() {
                   />
                 </div>
 
-                <h4 className="font-semibold mt-2 group-hover:text-orange-500 transition">
+                <h4 className="text-green-900 font-semibold mt-2 group-hover:text-orange-500 hover:font-bold transition">
                   {item.name}
                 </h4>
 

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import whatsappIcon from "../assets/images/icons/whatsapp.png";
 import closeIcon from "../assets/images/icons/close.png";
-import logo from "../assets/images/logo/RB.png";
+import logo from "../assets/images/logo/RMB.png";
 
 export default function Whatsapp() {
   const [isOpen, setIsOpen] = useState(false);

@@ -10,7 +10,7 @@ import {
   FaInfoCircle,
 } from "react-icons/fa";
 
-import logo from "../assets/images/logo/RB.png";
+import logo from "../assets/images/logo/RMB.png";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);

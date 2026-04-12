@@ -8,9 +8,10 @@ import {
   FaEnvelope,
   FaLinkedin,
   FaWhatsapp,
+  FaTelegram,
 } from "react-icons/fa";
 
-import logo from "../assets/images/logo/RB.png";
+import logo from "../assets/images/logo/RMB.png";
 
 export default function Footer() {
   return (
@@ -111,7 +112,7 @@ export default function Footer() {
               </a>
 
               <a
-                href="https://whatsapp.com"
+                href="https://wa.me/254780667707"
                 target="_blank"
                 rel="noreferrer"
                 className="hover:text-green-900"
@@ -135,6 +136,15 @@ export default function Footer() {
                 className="hover:text-green-900"
               >
                 <FaTwitter />
+              </a>
+
+              <a
+                href="https://telegram.com"
+                target="_blank"
+                rel="noreferrer"
+                className="hover:text-green-900"
+              >
+                <FaTelegram />
               </a>
             </div>
 
