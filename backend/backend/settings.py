@@ -34,6 +34,7 @@ BASE_URL = "https://34cf-41-220-233-110.ngrok-free.app"
 ALLOWED_HOSTS = [
     "127.0.0.1",
     "localhost",
+    "10.106.0.4",
     ".ngrok-free.app",
     ".ngrok.io",
 ]

@@ -19,7 +19,7 @@ export default function Shop() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const API_URL = "https://25d0-41-220-233-110.ngrok-free.app/api/products/";
+  const API_URL = "http://10.106.0.4:8000/api/products/";
 
   const categories = [
     { name: "All" },
