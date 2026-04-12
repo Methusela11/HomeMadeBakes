@@ -15,7 +15,7 @@ export default function Whatsapp() {
       {/* FLOATING ICON */}
       <div
         onClick={toggleChat}
-        className="fixed bottom-28 sm:bottom-6 right-6 w-16 h-16 bg-white rounded-full flex items-center justify-center cursor-pointer z-[9999] shadow-lg"
+        className="fixed bottom-28 sm:bottom-20 right-4 sm:right-6 w-16 h-16 bg-white rounded-full flex items-center justify-center cursor-pointer z-[9999] shadow-lg"
       >
         <img
           src={isOpen ? closeIcon : whatsappIcon}
@@ -26,27 +26,14 @@ export default function Whatsapp() {
 
       {/* CHAT BOX */}
       {isOpen && (
-        <div
-          className="
-  fixed 
-  bottom-32 sm:bottom-24 
-  right-2 sm:right-6 
-  left-2 sm:left-auto 
-  w-auto sm:w-[340px] 
-  max-w-[95%] 
-  bg-white 
-  rounded-xl 
-  shadow-2xl 
-  z-[9999] 
-  font-sans 
-  overflow-hidden
-"
-        >
+        <div className="fixed bottom-44 sm:bottom-32 right-2 sm:right-6 left-2 sm:left-auto w-auto sm:w-[340px] max-w-[95%] bg-white rounded-xl shadow-2xl z-[9999] font-sans overflow-hidden">
           {/* HEADER */}
           <div className="bg-orange-100 text-black p-4">
             <div className="flex items-center gap-2">
               <img src={whatsappIcon} alt="icon" className="w-6 h-6" />
-              <h4 className="font-semibold text-base">Start a Conversation</h4>
+              <h4 className="font-semibold text-base text-green-900">
+                Start a Conversation
+              </h4>
             </div>
             <p className="text-sm mt-2 opacity-90">
               Hi! Click below to chat with us on WhatsApp
