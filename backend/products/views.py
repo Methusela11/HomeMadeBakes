@@ -1,17 +1,11 @@
 from rest_framework import generics
 from .models import Product
 from .serializers import ProductSerializer
-from django.http import JsonResponse
+from django.utils.decorators import method_decorator
+from django.views.decorators.csrf import csrf_exempt
 
-def home(request):
-    return JsonResponse({
-        "message": "Welcome to RMEKS Bakery API",
-        "endpoints": {
-            "products": "/api/products/",
-            "admin": "/admin/"
-        }
-    })
 
+@method_decorator(csrf_exempt, name='dispatch')
 class ProductListView(generics.ListAPIView):
     serializer_class = ProductSerializer
 

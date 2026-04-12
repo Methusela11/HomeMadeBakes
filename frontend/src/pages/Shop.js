@@ -5,48 +5,76 @@ export default function Shop() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  const API_URL = "http://127.0.0.1:8000/api/products/";
+
   useEffect(() => {
-    fetch("https://4516-41-220-233-110.ngrok-free.app/api/products/")
-      .then(async (res) => {
-        console.log("STATUS:", res.status);
+    const load = async () => {
+      try {
+        const res = await fetch(API_URL);
 
-        if (!res.ok) {
-          throw new Error("HTTP Error " + res.status);
+        const text = await res.text();
+
+        try {
+          const data = JSON.parse(text);
+          setProducts(Array.isArray(data) ? data : []);
+        } catch {
+          throw new Error("API did not return JSON (ngrok blocked)");
         }
-
-        return res.json();
-      })
-      .then((data) => {
-        console.log("DATA:", data);
-        setProducts(data);
-      })
-      .catch((err) => {
-        console.error("FETCH ERROR:", err.message);
+      } catch (err) {
+        console.error(err);
         setError(err.message);
-      })
-      .finally(() => setLoading(false));
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    load();
   }, []);
 
   return (
-    <div className="min-h-screen pt-28 px-6">
+    <div className="min-h-screen pt-28 px-6 bg-gray-50">
       <h1 className="text-3xl font-bold text-green-900 mb-6">
-        Our Bakery Shop
+        Explore Our Products
       </h1>
 
-      {loading && <p>Loading...</p>}
-      {error && <p className="text-red-600">{error}</p>}
+      {/* LOADING */}
+      {loading && (
+        <p className="text-green-900 font-semibold">Loading products...</p>
+      )}
 
+      {/* ERROR */}
+      {error && (
+        <div className="bg-red-100 text-red-700 p-3 rounded mb-4">{error}</div>
+      )}
+
+      {/* EMPTY STATE */}
+      {!loading && !error && products.length === 0 && (
+        <p className="text-gray-500">No products found.</p>
+      )}
+
+      {/* PRODUCTS GRID */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {products.map((p) => (
-          <div key={p.id} className="shadow rounded-xl p-4 bg-white">
+          <div
+            key={p.id}
+            className="shadow-md rounded-xl p-4 bg-white hover:shadow-lg transition"
+          >
             <img
-              src={p.image}
+              src={p.image || "https://via.placeholder.com/300"}
               alt={p.name}
               className="h-48 w-full object-cover rounded-lg"
+              onError={(e) => {
+                e.target.src = "https://via.placeholder.com/300";
+              }}
             />
-            <h2 className="font-bold mt-2">{p.name}</h2>
-            <p>{p.description}</p>
-            <p className="text-orange-600 font-bold">KES {p.price}</p>
+
+            <h2 className="font-bold mt-2 text-green-900">{p.name}</h2>
+
+            <p className="text-sm text-gray-600">
+              {p.description || "No description"}
+            </p>
+
+            <p className="text-orange-600 font-bold mt-2">KES {p.price}</p>
           </div>
         ))}
       </div>
