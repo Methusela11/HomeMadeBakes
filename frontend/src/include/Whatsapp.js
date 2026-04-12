@@ -6,6 +6,8 @@ import logo from "../assets/images/logo/RMB.png";
 export default function Whatsapp() {
   const [isOpen, setIsOpen] = useState(false);
 
+  const message = encodeURIComponent("Hello, RMEKS Bakery");
+
   const toggleChat = () => {
     setIsOpen((prev) => !prev);
   };
@@ -55,7 +57,7 @@ export default function Whatsapp() {
             </small>
 
             <a
-              href="https://wa.me/254780667707"
+              href={`https://wa.me/254780667707?text=${message}`}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-3 bg-orange-50 p-3 rounded-lg hover:bg-orange-200 transition"
