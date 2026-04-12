@@ -13,7 +13,7 @@ export default function Shop() {
   const [products, setProducts] = useState([]);
   const [filtered, setFiltered] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState(
-    location.state?.category || "All",
+    location.state?.category || null,
   );
 
   const [loading, setLoading] = useState(true);
@@ -22,7 +22,6 @@ export default function Shop() {
   const API_URL = "http://10.106.0.4:8000/api/products/";
 
   const categories = [
-    { name: "All" },
     { name: "Cakes", image: cakeImage },
     { name: "Cupcakes", image: cupCakeImage },
     { name: "Cookies", image: cookiesImage },
@@ -50,10 +49,9 @@ export default function Shop() {
     load();
   }, []);
 
-  // FILTER LOGIC
   useEffect(() => {
-    if (selectedCategory === "All") {
-      setFiltered(products);
+    if (!selectedCategory) {
+      setFiltered(products); // ✅ show all by default
     } else {
       const filteredData = products.filter(
         (p) => p.category.toLowerCase() === selectedCategory.toLowerCase(),
@@ -66,7 +64,7 @@ export default function Shop() {
     <div className="min-h-screen pt-28 px-6 bg-gray-50">
       {/* TITLE */}
       <h1 className="text-3xl font-bold text-green-900 mb-6">
-        Explore Our Products
+        Explore Our Products via Categories
       </h1>
 
       {/* CATEGORY SECTION */}
@@ -75,12 +73,7 @@ export default function Shop() {
           <div
             key={i}
             onClick={() => setSelectedCategory(cat.name)}
-            className={`cursor-pointer rounded-xl p-3 text-center shadow-sm border transition 
-              ${
-                selectedCategory === cat.name
-                  ? "bg-orange-500 text-white"
-                  : "bg-white hover:shadow-md"
-              }`}
+            className={`cursor-pointer rounded-xl p-3 text-center shadow-sm border transition ${selectedCategory === cat.name ? "bg-orange-500 text-white" : "bg-white hover:shadow-md"}`}
           >
             {cat.image && (
               <img
@@ -93,6 +86,14 @@ export default function Shop() {
           </div>
         ))}
       </div>
+      {selectedCategory && (
+        <button
+          onClick={() => setSelectedCategory(null)}
+          className="mb-6 px-4 py-2 bg-gray-200 rounded-lg hover:bg-orange-500 hover:text-white transition"
+        >
+          Show All Products
+        </button>
+      )}
 
       {/* LOADING */}
       {loading && (
@@ -105,12 +106,15 @@ export default function Shop() {
       )}
 
       {/* EMPTY STATE */}
-      {!loading && !error && filtered.length === 0 && (
+      {!loading && !error && filtered.length === 0 && selectedCategory && (
         <p className="text-gray-500 text-lg">
           No products in{" "}
           <span className="font-bold text-orange-500">{selectedCategory}</span>
         </p>
       )}
+      <h1 className="text-3xl font-bold text-green-900 mb-6">
+        Explore All Our Products here{" "}
+      </h1>
 
       {/* PRODUCTS GRID */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
