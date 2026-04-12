@@ -70,7 +70,7 @@ export default function BakeryLanding() {
             Tell Us Your Dream Cake, We'll Make It Happen.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 mt-6 justify-center md:justify-start">
+          <div className="flex flex-row sm:flex-row gap-4 mt-6 justify-center md:justify-start">
             <Link
               to="/contact"
               className="bg-orange-500 text-white px-6 py-3 rounded-lg font-bold hover:text-gray-800 hover:scale-105 transition"
@@ -161,7 +161,7 @@ export default function BakeryLanding() {
             >
               ✕ Close
             </button>
-            <div className="bg-orange-300 p-1 sm:p-1 rounded-2xl shadow-2xl">
+            <div className="bg-green-900 p-1 sm:p-1 rounded-2xl shadow-2xl">
               {/* VIDEO CONTAINER (16:9 aspect ratio) */}
               <div className="w-full aspect-video bg-black rounded-xl overflow-hidden shadow-2xl">
                 <iframe
