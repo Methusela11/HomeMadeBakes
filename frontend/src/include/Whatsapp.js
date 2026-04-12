@@ -15,7 +15,7 @@ export default function Whatsapp() {
       {/* FLOATING ICON */}
       <div
         onClick={toggleChat}
-        className="fixed bottom-28 sm:bottom-20 right-4 sm:right-6 w-16 h-16 bg-white rounded-full flex items-center justify-center cursor-pointer z-[9999] shadow-lg"
+        className="fixed bottom-20 sm:bottom-20 right-4 sm:right-6 w-16 h-16 bg-white rounded-full flex items-center justify-center cursor-pointer z-[9999] shadow-lg"
       >
         <img
           src={isOpen ? closeIcon : whatsappIcon}
@@ -26,7 +26,7 @@ export default function Whatsapp() {
 
       {/* CHAT BOX */}
       {isOpen && (
-        <div className="fixed bottom-44 sm:bottom-32 right-2 sm:right-6 left-2 sm:left-auto w-auto sm:w-[340px] max-w-[95%] bg-white rounded-xl shadow-2xl z-[9999] font-sans overflow-hidden">
+        <div className="fixed bottom-40 sm:bottom-32 right-2 sm:right-6 left-2 sm:left-auto w-auto sm:w-[340px] max-w-[95%] bg-white rounded-xl shadow-2xl z-[9999] font-sans overflow-hidden">
           {/* HEADER */}
           <div className="bg-orange-100 text-black p-4">
             <div className="flex items-center gap-2">
