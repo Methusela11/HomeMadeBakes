@@ -96,19 +96,17 @@ export default function BakeryLanding() {
             <img
               alt="chef"
               src={chef3Image}
-              className=" w-[70px] sm:w-[130px] md:w-[150px] lg:w-[180px] object-contain rounded-2xl rotate-[-4deg] transition duration-300 hover:scale-125
-  "
+              className=" w-[70px] sm:w-[130px] md:w-[150px] lg:w-[180px] object-contain rounded-2xl rotate-[-4deg] transition duration-300 hover:scale-150"
             />
             <img
               alt="chef"
               src={chef2Image}
-              className="w-[100px] sm:w-[150px] md:w-[170px] lg:w-[200px] object-contain rounded-2xl scale-105 transition duration-300 hover:scale-110
-  "
+              className="w-[100px] sm:w-[150px] md:w-[170px] lg:w-[200px] object-contain rounded-2xl scale-105 transition duration-300 hover:scale-125"
             />
             <img
               alt="chef"
               src={chef1Image}
-              className=" w-[70px] sm:w-[130px] md:w-[150px] lg:w-[180px] object-contain rounded-2xl rotate-[4deg] transition duration-300 hover:scale-150  "
+              className=" w-[70px] sm:w-[130px] md:w-[150px] lg:w-[180px] object-contain rounded-2xl rotate-[4deg] transition duration-300 hover:scale-150"
             />
           </div>
         </div>
