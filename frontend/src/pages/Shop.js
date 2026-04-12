@@ -95,11 +95,19 @@ export default function Shop() {
       {selectedCategory && (
         <button
           onClick={() => setSelectedCategory(null)}
-          className="mb-6 px-4 py-2 bg-gray-200 rounded-lg hover:bg-orange-500 hover:text-white transition"
+          className="bg-orange-500 text-white px-6 py-3 rounded-lg font-bold hover:scale-110 transition hover:text-green-900"
         >
           Show All Products
         </button>
       )}
+
+      <h1 className="text-3xl font-bold text-green-900 mb-6 pt-4">
+        {selectedCategory
+          ? `Explore ${
+              categories.find((c) => c.name === selectedCategory)?.label
+            } Category`
+          : "Explore All Our Products"}
+      </h1>
 
       {/* LOADING */}
       {loading && (
@@ -120,9 +128,6 @@ export default function Shop() {
           </span>
         </p>
       )}
-      <h1 className="text-3xl font-bold text-green-900 mb-6">
-        Explore All Our Products here{" "}
-      </h1>
 
       {/* PRODUCTS GRID */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
