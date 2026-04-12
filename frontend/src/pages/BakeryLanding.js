@@ -108,7 +108,7 @@ export default function BakeryLanding() {
             <img
               alt="chef"
               src={chef1Image}
-              className=" w-[70px] sm:w-[130px] md:w-[150px] lg:w-[180px] object-contain rounded-2xl rotate-[4deg] transition duration-300 hover:scale-125 "
+              className=" w-[70px] sm:w-[130px] md:w-[150px] lg:w-[180px] object-contain rounded-2xl rotate-[4deg] transition duration-300 hover:scale-150  "
             />
           </div>
         </div>
