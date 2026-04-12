@@ -107,7 +107,7 @@ export default function BakeryLanding() {
             <img
               alt="chef"
               src={getrude2Image}
-              className=" w-[120px] sm:w-[160px] lg:w-[190px] rounded-2xl rotate-[-3deg] hover:scale-125 transition"
+              className=" w-[100px] sm:w-[160px] lg:w-[190px] rounded-2xl rotate-[-3deg] hover:scale-125 transition"
             />
           </div>
         </div>
