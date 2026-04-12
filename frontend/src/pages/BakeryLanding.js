@@ -160,7 +160,8 @@ export default function BakeryLanding() {
 
         {/* RIGHT */}
         <div className="flex-1 mt-10 md:mt-0">
-          <div className="bg-[#eee1d1] rounded-3xl p-4 flex flex-wrap justify-center gap-3 max-w-[320px] md:max-w-none mx-auto">
+          <div className=" bg-[#eee1d1] rounded-3xl p-4 sm:p-6 flex justify-center items-center gap-4 w-full max-w-[100%] sm:max-w-[650px] lg:max-w-[900px] h-[160px] sm:h-[180px] lg:h-[250px] mx-auto">
+            {" "}
             <img
               alt="chef"
               src={getrudeImage}
