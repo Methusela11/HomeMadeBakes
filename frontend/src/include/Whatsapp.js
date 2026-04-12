@@ -26,7 +26,22 @@ export default function Whatsapp() {
 
       {/* CHAT BOX */}
       {isOpen && (
-        <div className="fixed bottom-24 right-6 w-[340px] bg-white rounded-xl shadow-2xl z-[9999] font-sans overflow-hidden">
+        <div
+          className="
+  fixed 
+  bottom-32 sm:bottom-24 
+  right-2 sm:right-6 
+  left-2 sm:left-auto 
+  w-auto sm:w-[340px] 
+  max-w-[95%] 
+  bg-white 
+  rounded-xl 
+  shadow-2xl 
+  z-[9999] 
+  font-sans 
+  overflow-hidden
+"
+        >
           {/* HEADER */}
           <div className="bg-orange-100 text-black p-4">
             <div className="flex items-center gap-2">
