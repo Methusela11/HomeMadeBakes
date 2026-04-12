@@ -65,7 +65,7 @@ export default function Shop() {
   return (
     <div className="min-h-screen pt-32 px-6 bg-white">
       {/* TITLE */}
-      <h1 className="text-3xl font-bold text-green-900 mb-6">Shop</h1>
+      {/* <h1 className="text-3xl font-bold text-green-900 mb-6">Shop</h1> */}
       <h1 className="text-2xl font-bold text-green-900 mb-6">
         {selectedCategory
           ? `Showing ${

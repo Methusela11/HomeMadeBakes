@@ -25,15 +25,15 @@ export default function Navbar() {
     }`;
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-6 md:px-12 py-6 bg-white shadow-md">
+    <nav className="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-4 md:px-12 py-3 md:py-5 bg-white shadow-md transition-all duration-300">
+      {" "}
       <Link to="/" className="text-2xl font-bold cursor-pointer">
         <img
           src={logo}
           alt="Chef portrait"
-          className="w-[110px] rounded-2xl object-cover transition-transform duration-300 hover:scale-125"
+          className="w-[80px] md:w-[110px] rounded-2xl object-cover transition-transform duration-300 hover:scale-125"
         />
       </Link>
-
       <ul className="hidden md:flex gap-8 text-gray-700">
         <li>
           <NavLink to="/" end className={navLinkClass}>
@@ -85,9 +85,9 @@ export default function Navbar() {
           {isOpen ? <FaTimes /> : <FaBars />}
         </button>
       </div>
-
       {isOpen && (
-        <ul className="absolute top-20 left-0 w-full bg-white shadow-lg flex flex-col items-center gap-5 py-6 md:hidden text-gray-800 z-50">
+        <ul className="absolute top-16 md:top-20 left-0 w-full bg-white shadow-lg flex flex-col items-center gap-4 py-5 md:hidden text-gray-800 z-50">
+          {" "}
           {[
             { to: "/", label: "Home", icon: <FaHome />, end: true },
             { to: "/menu", label: "Menu", icon: <FaUtensils /> },
@@ -98,14 +98,14 @@ export default function Navbar() {
           ].map((item, i) => (
             <li key={i} onClick={handleClose}>
               <NavLink to={item.to} end={item.end} className={navLinkClass}>
-                <span className="flex items-center gap-2">
+                <span className="flex items-center gap-3 text-lg">
+                  {" "}
                   {item.icon}
                   {item.label}
                 </span>
               </NavLink>
             </li>
           ))}
-
           {/* My Account */}
           <li className="flex items-center gap-2 cursor-pointer hover:text-orange-500">
             <FaUser />
