@@ -103,6 +103,42 @@ export default function BakeryLanding() {
             price: 300,
             image: "/placeholder.png",
           },
+          {
+            id: 3,
+            name: "Strawberry Cake",
+            price: 1500,
+            image: "/placeholder.png",
+          },
+          {
+            id: 4,
+            name: "Banana Cookies",
+            price: 300,
+            image: "/placeholder.png",
+          },
+          {
+            id: 5,
+            name: "Vine Cake",
+            price: 1500,
+            image: "/placeholder.png",
+          },
+          {
+            id: 6,
+            name: "Watermelon Cookies",
+            price: 300,
+            image: "/placeholder.png",
+          },
+          {
+            id: 7,
+            name: "Men Cake",
+            price: 1500,
+            image: "/placeholder.png",
+          },
+          {
+            id: 8,
+            name: "Yams Cookies",
+            price: 300,
+            image: "/placeholder.png",
+          },
         ]);
       }
     };
@@ -159,8 +195,8 @@ export default function BakeryLanding() {
         </div>
 
         {/* RIGHT */}
-        <div className="flex-1 mt-3 md:mt-0">
-          <h1 className="text-2xl md:text-3xl font-bold text-green-900 mb-10">
+        <div className="flex-1 mt-3 md:mt-0 flex flex-col items-center">
+          <h1 className="text-2xl md:text-3xl font-bold text-green-900 mb-2">
             Our Chefs
           </h1>
           <div className=" bg-[#eee1d1] rounded-3xl p-1 sm:p-2 flex justify-center items-center gap-1 w-full max-w-[100%] sm:max-w-[650px] lg:max-w-[900px] h-[160px] sm:h-[180px] lg:h-[250px] mx-auto">
@@ -183,8 +219,8 @@ export default function BakeryLanding() {
         </div>
       </div>
 
-      <div className="px-6 md:px-12 mt-10">
-        <h1 className="text-2xl md:text-3xl font-bold text-green-900 mb-10">
+      <div className="px-6 md:px-12 mt-8 flex flex-col items-center">
+        <h1 className="text-2xl md:text-3xl font-bold text-green-900 mb-2">
           Latest Products
         </h1>
 
@@ -250,7 +286,7 @@ export default function BakeryLanding() {
         )}
       </div>
 
-      <div className="px-6 md:px-12 mt-20">
+      <div className="px-6 md:px-12 mt-10 flex flex-col items-center">
         <h1 className="text-2xl md:text-3xl font-bold text-green-900 mb-10">
           Our Products Categories
         </h1>
