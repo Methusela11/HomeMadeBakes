@@ -38,20 +38,20 @@ export default function Whatsapp() {
           {/* HEADER */}
           <div className="bg-orange-100 text-black p-4">
             <div className="flex items-center gap-2">
-              <img src={whatsappIcon} alt="icon" className="w-6 h-6" />
+              <img src={whatsappIcon} alt="icon" className=" w-8 h-8" />
               <h4 className="font-semibold text-base text-green-900">
                 Start a Conversation
               </h4>
             </div>
-            <p className="text-sm mt-2 opacity-90">
-              Hi! Click below to chat with us on WhatsApp
+            <p className="text-gray-600 text-sm mt-2 opacity-90">
+              Orders made easier, message us on WhatsApp!
             </p>
           </div>
 
           {/* BODY */}
           <div className="p-4">
             <small className="text-gray-500 text-xs block mb-3">
-              The team typically replies in a few minutes.
+              Our Agent typically replies instantly 24/7.
             </small>
 
             <a
@@ -60,12 +60,14 @@ export default function Whatsapp() {
               rel="noopener noreferrer"
               className="flex items-center gap-3 bg-orange-50 p-3 rounded-lg hover:bg-orange-200 transition"
             >
-              <img src={logo} alt="agent" className="w-10 h-10 rounded-full" />
+              <img src={logo} alt="agent" className=" w-14 h-12 rounded-full" />
 
               <div>
-                <strong className="block text-sm">Sales Agent Support</strong>
-                <span className="text-xs text-gray-600">
-                  Need Help? Chat with us
+                <strong className="text-green-900 block text-sm">
+                  RMEKS Bakery Support Agent
+                </strong>
+                <span className="text-xs text-gray-700">
+                  Cake & delivery help? Chat with us!
                 </span>
               </div>
             </a>

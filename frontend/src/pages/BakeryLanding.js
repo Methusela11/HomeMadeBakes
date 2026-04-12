@@ -159,7 +159,7 @@ export default function BakeryLanding() {
             {/* CLOSE BUTTON */}
             <button
               onClick={() => setShowVideo(false)}
-              className="absolute -top-12 right-0 bg-white text-black px-4 py-1 rounded-full shadow-md hover:bg-orange-500 hover:text-white transition font-bold"
+              className="absolute -top-12 right-0 bg-white text-black px-4 py-1 rounded-full shadow-md hover:bg-orange-600 hover:text-white transition font-bold"
             >
               ✕ Close
             </button>
