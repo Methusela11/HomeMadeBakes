@@ -8,9 +8,9 @@ import cookiesImage from "../assets/images/cookies/11.png";
 import breadImage from "../assets/images/bread/11.png";
 import chocolatesImage from "../assets/images/chocolates/111.png";
 
-import getrudeImage from "../assets/images/chefs/chef3.png";
-import getrude1Image from "../assets/images/chefs/chef2.png";
-import getrude2Image from "../assets/images/chefs/chef1.png";
+import chef3Image from "../assets/images/chefs/chef3.png";
+import chef2Image from "../assets/images/chefs/chef2.png";
+import chef1Image from "../assets/images/chefs/chef1.png";
 
 export default function BakeryLanding() {
   const [showVideo, setShowVideo] = useState(false);
@@ -96,25 +96,25 @@ export default function BakeryLanding() {
             {" "}
             <img
               alt="chef"
-              src={getrudeImage}
-              className=" w-[120px] sm:w-[160px] lg:w-[190px] rounded-2xl rotate-[-3deg] hover:scale-125 transition"
+              src={chef3Image}
+              className=" w-[90px] sm:w-[160px] lg:w-[190px] rounded-2xl rotate-[-3deg] hover:scale-125 transition"
             />
             <img
               alt="chef"
-              src={getrude1Image}
+              src={chef2Image}
               className=" w-[130px] sm:w-[160px] lg:w-[190px] rounded-2xl rotate-[-3deg] hover:scale-125 transition"
             />
             <img
               alt="chef"
-              src={getrude2Image}
-              className=" w-[100px] sm:w-[160px] lg:w-[190px] rounded-2xl rotate-[-3deg] hover:scale-125 transition"
+              src={chef1Image}
+              className=" w-[90px] sm:w-[160px] lg:w-[190px] rounded-2xl rotate-[-3deg] hover:scale-125 transition"
             />
           </div>
         </div>
       </div>
 
       <div className="px-6 md:px-12 mt-10">
-        <h1 className="text-2xl md:text-3xl font-bold text-green-900 mb-0">
+        <h1 className="text-2xl md:text-3xl font-bold text-green-900 mb-2">
           Our Products Categories
         </h1>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
