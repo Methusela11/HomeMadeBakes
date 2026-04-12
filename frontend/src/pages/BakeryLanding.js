@@ -18,26 +18,31 @@ export default function BakeryLanding() {
 
   const categories = [
     {
-      name: "Cakes",
+      name: "cakes",
       image: cakeImage,
       label: "Cakes",
       desc: "Delicious cakes for every occasion",
     },
     {
-      name: "Cupcakes",
+      name: "cupcakes",
       label: "Cupcakes",
       image: cupCakeImage,
       desc: "Delicious Cupcakes for every occasion",
     },
     {
-      name: "Cookies",
+      name: "cookies",
       image: cookiesImage,
       label: "Cookies",
       desc: "Crunchy cookies with rich ingredients",
     },
-    { name: "Bread", image: breadImage, desc: "Freshly baked bread every day" },
     {
-      name: "Chocolates",
+      name: "bread",
+      image: breadImage,
+      label: "Bread",
+      desc: "Freshly baked bread every day",
+    },
+    {
+      name: "chocolates",
       image: chocolatesImage,
       label: "Chocolates",
       desc: "Sweet handcrafted chocolate treats",
