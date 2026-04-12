@@ -72,17 +72,16 @@ export default function BakeryLanding() {
 
           <div className="flex flex-col sm:flex-row gap-4 mt-6 justify-center md:justify-start">
             <Link
-              to="/contact"
-              className="bg-orange-500 text-white px-6 py-3 rounded-lg font-bold hover:text-gray-800 hover:scale-105 transition"
-            >
-              Get in Touch?
-            </Link>
-
-            <Link
               to="/order"
               className="border border-gray-400 px-6 py-3 rounded-lg hover:font-bold hover:text-orange-500 hover:scale-105 transition"
             >
-              Order Now
+              Get in Touch?
+            </Link>
+            <Link
+              to="/contact"
+              className="bg-orange-500 text-white px-6 py-3 rounded-lg font-bold hover:text-gray-800 hover:scale-105 transition"
+            >
+              Explore Our Products
             </Link>
           </div>
         </div>
