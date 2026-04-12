@@ -6,6 +6,7 @@ import cupCakeImage from "../assets/images/cupcakes/1.png";
 import cookiesImage from "../assets/images/cookies/11.png";
 import breadImage from "../assets/images/bread/11.png";
 import chocolatesImage from "../assets/images/chocolates/111.png";
+import specialImage from "../assets/images/special/11.png";
 
 export default function Shop() {
   const location = useLocation();
@@ -22,11 +23,12 @@ export default function Shop() {
   const API_URL = "http://10.106.0.4:8000/api/products/";
 
   const categories = [
-    { name: "Cakes", image: cakeImage },
-    { name: "Cupcakes", image: cupCakeImage },
-    { name: "Cookies", image: cookiesImage },
-    { name: "Bread", image: breadImage },
-    { name: "Chocolate", image: chocolatesImage },
+    { name: "Cakes", image: cakeImage, label: "Cakes" },
+    { name: "Cupcakes", image: cupCakeImage, label: "CupCakes" },
+    { name: "Cookies", image: cookiesImage, label: "Cookies" },
+    { name: "Bread", image: breadImage, label: "Breads" },
+    { name: "Chocolate", image: chocolatesImage, label: "Chocolates" },
+    { name: "special", image: specialImage, label: "Special Products" },
   ];
 
   // FETCH PRODUCTS
@@ -54,7 +56,7 @@ export default function Shop() {
       setFiltered(products); // ✅ show all by default
     } else {
       const filteredData = products.filter(
-        (p) => p.category.toLowerCase() === selectedCategory.toLowerCase(),
+        (p) => p.category === selectedCategory,
       );
       setFiltered(filteredData);
     }
@@ -73,7 +75,7 @@ export default function Shop() {
           <div
             key={i}
             onClick={() => setSelectedCategory(cat.name)}
-            className={`cursor-pointer rounded-xl p-3 text-center shadow-sm border transition ${selectedCategory === cat.name ? "bg-orange-500 text-white" : "bg-white hover:shadow-md"}`}
+            className={`cursor-pointer rounded-xl p-3 text-center shadow-sm border transition border-gray-300 hover:border-green-900 ${selectedCategory === cat.name ? "bg-orange-200 text-white" : "bg-white hover:shadow-md"}`}
           >
             {cat.image && (
               <img
@@ -82,7 +84,7 @@ export default function Shop() {
                 className="w-16 h-16 mx-auto object-cover rounded-full mb-2"
               />
             )}
-            <p className="font-semibold">{cat.name}</p>
+            <p className="font-semibold text-green-900">{cat.label}</p>
           </div>
         ))}
       </div>
@@ -109,7 +111,9 @@ export default function Shop() {
       {!loading && !error && filtered.length === 0 && selectedCategory && (
         <p className="text-gray-500 text-lg">
           No products in{" "}
-          <span className="font-bold text-orange-500">{selectedCategory}</span>
+          <span className="font-bold text-orange-500">
+            {categories.find((c) => c.name === selectedCategory)?.label}
+          </span>
         </p>
       )}
       <h1 className="text-3xl font-bold text-green-900 mb-6">

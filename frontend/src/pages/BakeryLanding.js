@@ -7,6 +7,7 @@ import cupCakeImage from "../assets/images/cupcakes/1.png";
 import cookiesImage from "../assets/images/cookies/11.png";
 import breadImage from "../assets/images/bread/11.png";
 import chocolatesImage from "../assets/images/chocolates/111.png";
+import specialImage from "../assets/images/special/11.png";
 
 import chef3Image from "../assets/images/chefs/chef3.png";
 import chef2Image from "../assets/images/chefs/chef2.png";
@@ -19,23 +20,33 @@ export default function BakeryLanding() {
     {
       name: "Cakes",
       image: cakeImage,
+      label: "Cakes",
       desc: "Delicious cakes for every occasion",
     },
     {
       name: "Cupcakes",
+      label: "Cupcakes",
       image: cupCakeImage,
       desc: "Delicious Cupcakes for every occasion",
     },
     {
       name: "Cookies",
       image: cookiesImage,
+      label: "Cookies",
       desc: "Crunchy cookies with rich ingredients",
     },
     { name: "Bread", image: breadImage, desc: "Freshly baked bread every day" },
     {
       name: "Chocolates",
       image: chocolatesImage,
+      label: "Chocolates",
       desc: "Sweet handcrafted chocolate treats",
+    },
+    {
+      name: "special",
+      image: specialImage,
+      label: "Special Products",
+      desc: "Exclusive & custom bakery creations",
     },
   ];
 
@@ -133,7 +144,7 @@ export default function BakeryLanding() {
                 </div>
 
                 <h4 className="text-green-900 font-semibold mt-2 group-hover:text-orange-500 hover:font-bold transition">
-                  {item.name}
+                  {item.label}
                 </h4>
 
                 <p className="text-sm text-gray-500">{item.desc}</p>
