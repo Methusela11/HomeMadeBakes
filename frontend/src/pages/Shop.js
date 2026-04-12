@@ -63,9 +63,10 @@ export default function Shop() {
   }, [selectedCategory, products]);
 
   return (
-    <div className="min-h-screen pt-32 px-6 bg-gray-50">
+    <div className="min-h-screen pt-32 px-6 bg-white">
       {/* TITLE */}
-      <h1 className="text-3xl font-bold text-green-900 mb-6">
+      <h1 className="text-3xl font-bold text-green-900 mb-6">Shop</h1>
+      <h1 className="text-2xl font-bold text-green-900 mb-6">
         {selectedCategory
           ? `Showing ${
               categories.find((c) => c.name === selectedCategory)?.label
@@ -103,7 +104,7 @@ export default function Shop() {
         </div>
       )}
 
-      <h1 className="text-3xl font-bold text-green-900 mb-6 pt-4">
+      <h1 className="text-2xl font-bold text-green-900 mb-6 pt-4">
         {selectedCategory
           ? `Explore ${
               categories.find((c) => c.name === selectedCategory)?.label
@@ -124,9 +125,10 @@ export default function Shop() {
       {/* EMPTY STATE */}
       {!loading && !error && filtered.length === 0 && selectedCategory && (
         <p className="text-gray-500 text-lg">
-          No products in{" "}
-          <span className="font-bold text-orange-500">
-            {categories.find((c) => c.name === selectedCategory)?.label}
+          ❌ No products in{" "}
+          <span className="font-bold text-green-900">
+            {categories.find((c) => c.name === selectedCategory)?.label}{" "}
+            Category
           </span>
         </p>
       )}
