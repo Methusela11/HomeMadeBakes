@@ -97,7 +97,7 @@ export default function BakeryLanding() {
             <img
               alt="chef"
               src={getrudeImage}
-              className=" w-[130px] sm:w-[160px] lg:w-[190px] rounded-2xl rotate-[-3deg] hover:scale-125 transition"
+              className=" w-[120px] sm:w-[160px] lg:w-[190px] rounded-2xl rotate-[-3deg] hover:scale-125 transition"
             />
             <img
               alt="chef"
@@ -107,14 +107,14 @@ export default function BakeryLanding() {
             <img
               alt="chef"
               src={getrude2Image}
-              className=" w-[130px] sm:w-[160px] lg:w-[190px] rounded-2xl rotate-[-3deg] hover:scale-125 transition"
+              className=" w-[120px] sm:w-[160px] lg:w-[190px] rounded-2xl rotate-[-3deg] hover:scale-125 transition"
             />
           </div>
         </div>
       </div>
 
       <div className="px-6 md:px-12 mt-10">
-        <h1 className="text-2xl md:text-3xl font-bold text-green-900 mb-10">
+        <h1 className="text-2xl md:text-3xl font-bold text-green-900 mb-0">
           Our Products Categories
         </h1>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
