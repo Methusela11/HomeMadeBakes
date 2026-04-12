@@ -24,9 +24,17 @@ export default function Whatsapp() {
         />
       </div>
 
+      {/* ✅ DARK OVERLAY */}
+      {isOpen && (
+        <div
+          onClick={toggleChat}
+          className="fixed inset-0 bg-black/80 z-[9998] transition-opacity duration-300 opacity-100"
+        />
+      )}
+
       {/* CHAT BOX */}
       {isOpen && (
-        <div className="fixed bottom-40 sm:bottom-32 right-2 sm:right-6 left-2 sm:left-auto w-auto sm:w-[340px] max-w-[95%] bg-black/90 rounded-xl shadow-2xl z-[9999] font-sans overflow-hidden">
+        <div className="fixed bottom-40 sm:bottom-40 right-2 sm:right-6 left-2 sm:left-auto w-auto sm:w-[340px] max-w-[95%] bg-white rounded-xl shadow-2xl z-[9999] font-sans overflow-hidden">
           {/* HEADER */}
           <div className="bg-orange-100 text-black p-4">
             <div className="flex items-center gap-2">
@@ -52,11 +60,7 @@ export default function Whatsapp() {
               rel="noopener noreferrer"
               className="flex items-center gap-3 bg-orange-50 p-3 rounded-lg hover:bg-orange-200 transition"
             >
-              <img
-                src={logo}
-                alt="agent"
-                className="w-10 h-10 rounded-full"
-              />
+              <img src={logo} alt="agent" className="w-10 h-10 rounded-full" />
 
               <div>
                 <strong className="block text-sm">Sales Agent Support</strong>

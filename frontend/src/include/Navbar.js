@@ -67,7 +67,7 @@ export default function Navbar() {
 
         <li>
           <NavLink to="/about" className={navLinkClass}>
-            About
+            About Us
           </NavLink>
         </li>
       </ul>
@@ -94,7 +94,7 @@ export default function Navbar() {
             { to: "/shop", label: "Shop", icon: <FaShoppingBag /> },
             { to: "/order", label: "Order", icon: <FaShoppingCart /> },
             { to: "/contact", label: "Contact", icon: <FaEnvelope /> },
-            { to: "/about", label: "About", icon: <FaInfoCircle /> },
+            { to: "/about", label: "About Us", icon: <FaInfoCircle /> },
           ].map((item, i) => (
             <li key={i} onClick={handleClose}>
               <NavLink to={item.to} end={item.end} className={navLinkClass}>
