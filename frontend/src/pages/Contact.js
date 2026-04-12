@@ -59,7 +59,7 @@ export default function Contact() {
         {/* FORM */}
         <form
           onSubmit={sendEmail}
-          className="bg-orange-50 p-6 rounded-xl shadow-md"
+          className="bg-orange-100 p-6 rounded-xl shadow-md"
         >
           <h2 className="text-xl font-bold mb-4 text-green-900">
             Fill in the Form.
@@ -122,7 +122,7 @@ export default function Contact() {
         </form>
 
         {/* CONTACT INFO */}
-        <div className="bg-orange-50 p-6 rounded-xl shadow-md">
+        <div className="bg-orange-100 p-6 rounded-xl shadow-md">
           <h2 className="text-xl font-bold mb-4 text-green-900">
             Get in Touch
           </h2>

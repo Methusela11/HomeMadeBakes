@@ -143,7 +143,6 @@ export default function BakeryLanding() {
         </div>
       </div>
 
-      {/* VIDEO MODAL */}
       {showVideo && (
         <div
           className="fixed inset-0 bg-black/90 flex items-center justify-center z-50 p-4"
@@ -153,15 +152,13 @@ export default function BakeryLanding() {
             className="relative w-full max-w-5xl"
             onClick={(e) => e.stopPropagation()}
           >
-            {/* CLOSE BUTTON */}
             <button
               onClick={() => setShowVideo(false)}
               className="absolute -top-12 right-0 bg-white text-black px-4 py-1 rounded-full shadow-md hover:bg-orange-600 hover:text-white transition font-bold"
             >
               ✕ Close
             </button>
-            <div className="bg-green-900 p-1 sm:p-1 rounded-2xl shadow-2xl">
-              {/* VIDEO CONTAINER (16:9 aspect ratio) */}
+            <div className="bg-orange-600 p-1 sm:p-1 rounded-2xl shadow-2xl">
               <div className="w-full aspect-video bg-black rounded-xl overflow-hidden shadow-2xl">
                 <iframe
                   className="w-full h-full"
