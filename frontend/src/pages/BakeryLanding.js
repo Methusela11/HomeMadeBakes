@@ -92,22 +92,75 @@ export default function BakeryLanding() {
           <h1 className="text-2xl md:text-3xl font-bold text-green-900 mb-2">
             Our Chefs
           </h1>
-          <div className=" bg-[#eee1d1] rounded-3xl p-4 flex justify-center items-center gap-4 w-full max-w-[1100px] h-[260px] sm:h-[320px] lg:h-[360px] mx-auto">
+          <div
+            className="
+    bg-[#eee1d1]
+    rounded-3xl
+    px-3
+    py-5
+    flex
+    justify-center
+    items-end
+    gap-3
+    sm:gap-6
+    md:gap-8
+    w-full
+    max-w-[1100px]
+    mx-auto
+    min-h-[200px]
+    sm:min-h-[280px]
+    lg:min-h-[340px]
+    overflow-hidden
+  "
+          >
             {" "}
             <img
               alt="chef"
               src={chef3Image}
-              className=" w-[90px] sm:w-[160px] lg:w-[190px] rounded-2xl rotate-[-3deg] hover:scale-125 transition"
+              className="
+    w-[70px]
+    sm:w-[130px]
+    md:w-[150px]
+    lg:w-[180px]
+    object-contain
+    rounded-2xl
+    rotate-[-4deg]
+    transition
+    duration-300
+    hover:scale-110
+  "
             />
             <img
               alt="chef"
               src={chef2Image}
-              className=" w-[130px] sm:w-[160px] lg:w-[190px] rounded-2xl rotate-[-3deg] hover:scale-125 transition"
+              className="
+    w-[100px]
+    sm:w-[150px]
+    md:w-[170px]
+    lg:w-[200px]
+    object-contain
+    rounded-2xl
+    scale-105
+    transition
+    duration-300
+    hover:scale-115
+  "
             />
             <img
               alt="chef"
               src={chef1Image}
-              className=" w-[90px] sm:w-[160px] lg:w-[190px] rounded-2xl rotate-[-3deg] hover:scale-125 transition"
+              className="
+    w-[70px]
+    sm:w-[130px]
+    md:w-[150px]
+    lg:w-[180px]
+    object-contain
+    rounded-2xl
+    rotate-[4deg]
+    transition
+    duration-300
+    hover:scale-110
+  "
             />
           </div>
         </div>
