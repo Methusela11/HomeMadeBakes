@@ -23,11 +23,11 @@ export default function Shop() {
   const API_URL = "http://10.106.0.4:8000/api/products/";
 
   const categories = [
-    { name: "Cakes", image: cakeImage, label: "Cakes" },
-    { name: "Cupcakes", image: cupCakeImage, label: "CupCakes" },
-    { name: "Cookies", image: cookiesImage, label: "Cookies" },
-    { name: "Bread", image: breadImage, label: "Breads" },
-    { name: "Chocolate", image: chocolatesImage, label: "Chocolates" },
+    { name: "cakes", image: cakeImage, label: "Cakes" },
+    { name: "cupcakes", image: cupCakeImage, label: "Cupcakes" },
+    { name: "cookies", image: cookiesImage, label: "Cookies" },
+    { name: "bread", image: breadImage, label: "Bread" },
+    { name: "chocolate", image: chocolatesImage, label: "Chocolates" },
     { name: "special", image: specialImage, label: "Special Products" },
   ];
 
@@ -66,7 +66,11 @@ export default function Shop() {
     <div className="min-h-screen pt-28 px-6 bg-gray-50">
       {/* TITLE */}
       <h1 className="text-3xl font-bold text-green-900 mb-6">
-        Explore Our Products via Categories
+        {selectedCategory
+          ? `Showing ${
+              categories.find((c) => c.name === selectedCategory)?.label
+            }`
+          : "Explore Our Products"}
       </h1>
 
       {/* CATEGORY SECTION */}
