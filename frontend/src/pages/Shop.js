@@ -8,6 +8,8 @@ import breadImage from "../assets/images/bread/11.png";
 import chocolatesImage from "../assets/images/chocolates/111.png";
 import specialImage from "../assets/images/special/11.png";
 
+const API_URL = "https://rmeks-bakery-backend.onrender.com/api/products/";
+
 export default function Shop() {
   const location = useLocation();
 
@@ -19,8 +21,6 @@ export default function Shop() {
 
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
-  const API_URL = `https://rmeks-bakery-backend.onrender.com/api/products/`;
 
   const categories = [
     { name: "cakes", image: cakeImage, label: "Cakes" },
@@ -83,7 +83,7 @@ export default function Shop() {
               <img
                 src={cat.image}
                 alt={cat.name}
-                className=" w-24 h-24 mx-auto object-cover rounded-full mb-2"
+                className="w-14 h-14 mx-auto object-cover rounded-full mb-1"
               />
             )}
             <p className="font-semibold text-green-900">{cat.label}</p>
@@ -151,11 +151,12 @@ export default function Shop() {
 
               <div className="flex justify-between items-center mt-3">
                 <div className="flex flex-col">
-                  {p.initial_price && p.initial_price > p.price && (
-                    <span className="text-green-900 line-through text-sm">
-                      Was KES {p.initial_price}
-                    </span>
-                  )}
+                  {p.initial_price &&
+                    Number(p.initial_price) > Number(p.price) && (
+                      <span className="text-green-900 line-through text-sm">
+                        Was KES {p.initial_price}
+                      </span>
+                    )}
 
                   <span className="text-orange-600 font-bold text-lg">
                     {p.initial_price ? "Now " : ""}KES {p.price}
