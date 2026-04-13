@@ -20,7 +20,7 @@ export default function Shop() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const API_URL = "http://10.106.0.4:8000/api/products/";
+  const API_URL = "http://10.105.0.42:8000/api/products/";
 
   const categories = [
     { name: "cakes", image: cakeImage, label: "Cakes" },
@@ -31,7 +31,7 @@ export default function Shop() {
     { name: "special", image: specialImage, label: "Special Products" },
   ];
 
-  // FETCH PRODUCTS
+
   useEffect(() => {
     const load = async () => {
       try {
@@ -53,7 +53,7 @@ export default function Shop() {
 
   useEffect(() => {
     if (!selectedCategory) {
-      setFiltered(products); // ✅ show all by default
+      setFiltered(products);
     } else {
       const filteredData = products.filter(
         (p) => p.category === selectedCategory,

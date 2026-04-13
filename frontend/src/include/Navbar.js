@@ -31,7 +31,7 @@ export default function Navbar() {
         <img
           src={logo}
           alt="Chef portrait"
-          className="w-[80px] md:w-[110px] rounded-2xl object-cover transition-transform duration-300 hover:scale-125"
+          className="w-[100px] md:w-[110px] rounded-2xl object-cover transition-transform duration-300 hover:scale-125"
         />
       </Link>
       <ul className="hidden md:flex gap-8 text-gray-700">
