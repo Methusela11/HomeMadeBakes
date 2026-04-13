@@ -72,7 +72,7 @@ export default function Shop() {
           : "Explore Our Products"}
       </h1>
 
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 mb-10">
+      <div className="grid grid-cols-4 sm:grid-cols-3 lg:grid-cols-6 gap-4 mb-10">
         {categories.map((cat, i) => (
           <div
             key={i}
