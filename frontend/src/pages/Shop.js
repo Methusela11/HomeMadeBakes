@@ -77,7 +77,7 @@ export default function Shop() {
           <div
             key={i}
             onClick={() => setSelectedCategory(cat.name)}
-            className={`cursor-pointer rounded-xl p-3 text-center shadow-sm border transition border-gray-300 hover:border-green-900 ${selectedCategory === cat.name ? "bg-orange-200 text-white" : "bg-white hover:shadow-md"}`}
+            className={`cursor-pointer rounded-xl p-2 text-center shadow-sm border transition border-gray-300 hover:border-green-900 ${selectedCategory === cat.name ? "bg-orange-200 text-white" : "bg-white hover:shadow-md"}`}
           >
             {cat.image && (
               <img
@@ -127,7 +127,7 @@ export default function Shop() {
         </p>
       )}
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6">
         {filtered.map((p) => (
           <div
             key={p.id}
@@ -136,7 +136,7 @@ export default function Shop() {
             <img
               src={p.image || "https://via.placeholder.com/300"}
               alt={p.name}
-              className="h-48 w-full object-cover"
+              className=" h-40 w-full object-cover"
               onError={(e) =>
                 (e.target.src = "https://via.placeholder.com/300")
               }
