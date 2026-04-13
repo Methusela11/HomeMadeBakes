@@ -31,7 +31,6 @@ export default function Shop() {
     { name: "special", image: specialImage, label: "Special Products" },
   ];
 
-
   useEffect(() => {
     const load = async () => {
       try {
@@ -64,7 +63,6 @@ export default function Shop() {
 
   return (
     <div className="min-h-screen pt-28 px-6 bg-white">
-      {/* TITLE */}
       {/* <h1 className="text-3xl font-bold text-green-900 mb-6">Shop</h1> */}
       <h1 className="text-2xl font-bold text-green-900 mb-6">
         {selectedCategory
@@ -74,7 +72,6 @@ export default function Shop() {
           : "Explore Our Products"}
       </h1>
 
-      {/* CATEGORY SECTION */}
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 mb-10">
         {categories.map((cat, i) => (
           <div
@@ -112,17 +109,14 @@ export default function Shop() {
           : "Explore All Our Products"}
       </h1>
 
-      {/* LOADING */}
       {loading && (
         <p className="text-green-900 font-semibold">Loading products...</p>
       )}
 
-      {/* ERROR */}
       {error && (
         <div className="bg-red-100 text-red-700 p-3 rounded mb-4">{error}</div>
       )}
 
-      {/* EMPTY STATE */}
       {!loading && !error && filtered.length === 0 && selectedCategory && (
         <p className="text-gray-500 text-lg">
           ❌ No products in{" "}
@@ -133,7 +127,6 @@ export default function Shop() {
         </p>
       )}
 
-      {/* PRODUCTS GRID */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {filtered.map((p) => (
           <div
@@ -157,7 +150,17 @@ export default function Shop() {
               </p>
 
               <div className="flex justify-between items-center mt-3">
-                <p className="text-orange-600 font-bold">KES {p.price}</p>
+                <div className="flex flex-col">
+                  {p.initial_price && p.initial_price > p.price && (
+                    <span className="text-green-900 line-through text-sm">
+                      Was KES {p.initial_price}
+                    </span>
+                  )}
+
+                  <span className="text-orange-600 font-bold text-lg">
+                    {p.initial_price ? "Now " : ""}KES {p.price}
+                  </span>
+                </div>
 
                 <button className="bg-green-900 text-white px-3 py-1 rounded-lg text-sm hover:bg-orange-500 transition">
                   Add

@@ -57,9 +57,9 @@ export default function BakeryLanding() {
 
   return (
     <div className="min-h-screen font-sans pt-20">
-      {/* HERO */}
+
       <div className="flex flex-col md:flex-row items-center gap-10 px-4 sm:px-6 md:px-12 mt-8">
-        {/* LEFT */}
+
         <div className="flex-1 text-center md:text-left">
           <h1 className="text-4xl md:text-5xl font-bold text-green-900 pt-0">
             We <span className="text-orange-500">Bake,</span> You Celebrate!
