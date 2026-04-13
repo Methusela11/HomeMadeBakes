@@ -20,7 +20,8 @@ export default function Shop() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const API_URL = "http://10.105.0.42:8000/api/products/";
+  const BASE_URL = "https://rmeks-bakery-backend.onrender.com";
+  const API_URL = `${BASE_URL}/api/products/`;
 
   const categories = [
     { name: "cakes", image: cakeImage, label: "Cakes" },
@@ -134,7 +135,11 @@ export default function Shop() {
             className="bg-white rounded-2xl shadow-md hover:shadow-lg transition overflow-hidden"
           >
             <img
-              src={p.image || "https://via.placeholder.com/300"}
+              src={
+                p.image
+                  ? `${BASE_URL}${p.image}`
+                  : "https://via.placeholder.com/300"
+              }
               alt={p.name}
               className="h-48 w-full object-cover"
               onError={(e) =>
