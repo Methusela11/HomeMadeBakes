@@ -20,7 +20,7 @@ export default function CartSidebar({ onClose }) {
       {/* HEADER */}
 
       <div className="bg-orange-600 text-white p-4 flex justify-between items-center">
-        <h2 className="text-2xl font-bold text-green-900">Cart</h2>
+        <h2 className="text-2xl font-bold text-black">Cart</h2>
         <button
           onClick={onClose}
           className="text-white hover:text-gray-900 text-2xl hover:scale-105"
@@ -47,7 +47,7 @@ export default function CartSidebar({ onClose }) {
               />
             </svg>
             <p className="text-gray-600">Your cart is empty</p>
-            <p className="text-sm mt-2 text-gray-500">
+            <p className="text-sm mt-2 text-gray-900">
               Add some delicious items to get started!
             </p>
 
@@ -74,7 +74,7 @@ export default function CartSidebar({ onClose }) {
 
                 {/* Product Details */}
                 <div className="flex-1">
-                  <h3 className="font-semibold text-gray-800">{item.name}</h3>
+                  <h3 className="font-semibold text-green-800">{item.name}</h3>
                   <p className="text-orange-600 font-bold text-sm">
                     {formatPrice(item.price)}
                   </p>
@@ -101,7 +101,7 @@ export default function CartSidebar({ onClose }) {
 
                 {/* Subtotal & Remove */}
                 <div className="text-right">
-                  <p className="text-sm font-semibold text-gray-800">
+                  <p className="text-sm font-semibold text-green-800">
                     {formatPrice(item.price * item.quantity)}
                   </p>
                   <button
@@ -121,20 +121,20 @@ export default function CartSidebar({ onClose }) {
       {cartItems.length > 0 && (
         <div className="border-t p-4 bg-gray-50">
           <div className="flex justify-between mb-4">
-            <span className="font-semibold">Total:</span>
+            <span className="font-semibold text-green-900">Total:</span>
             <span className="font-bold text-orange-600 text-lg">
               {formatPrice(getCartTotal())}
             </span>
           </div>
 
           <div className="space-y-2">
-            <button className="w-full bg-orange-600 text-white py-3 rounded-lg hover:bg-orange-700 transition font-semibold">
+            <button className="w-full bg-orange-600 text-white py-3 rounded-lg hover:text-green-900 hover:scale-105 transition font-semibold">
               Proceed to Checkout
             </button>
 
             <button
               onClick={clearCart}
-              className="w-full bg-gray-200 text-gray-700 py-2 rounded-lg hover:bg-gray-300 transition text-sm"
+              className=" border border-gray-400 w-full bg-white text-gray-700 py-2 rounded-lg hover:text-orange-600 hover:scale-105 hover:font-bold transition text-sm"
             >
               Clear Cart
             </button>
