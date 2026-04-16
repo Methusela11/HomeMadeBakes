@@ -134,7 +134,7 @@ export default function Shop() {
         {filtered.map((p) => (
           <div
             key={p.id}
-            className="bg-white rounded-xl shadow-sm hover:shadow-md transition overflow-hidden flex flex-col"
+            className="bg-white rounded-xl shadow-sm hover:shadow-md transition overflow-hidden flex flex-col hover:scale-110"
           >
             <img
               src={p.image || "https://via.placeholder.com/300"}
