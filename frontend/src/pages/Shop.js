@@ -69,7 +69,8 @@ export default function Shop() {
           ? `Showing ${
               categories.find((c) => c.name === selectedCategory)?.label
             }`
-          : "Explore Our Products"}
+          : "Explore Our Products"}{" "}
+        in Shop
       </h1>
 
       <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-4 mb-10">
@@ -133,18 +134,18 @@ export default function Shop() {
         {filtered.map((p) => (
           <div
             key={p.id}
-            className="bg-white rounded-2xl shadow-md hover:shadow-lg transition overflow-hidden"
+            className="bg-white rounded-xl shadow-sm hover:shadow-md transition overflow-hidden flex flex-col"
           >
             <img
               src={p.image || "https://via.placeholder.com/300"}
               alt={p.name}
-              className=" h-40 w-full object-cover"
+              className="h-28 sm:h-32 md:h-40 w-full object-cover"
               onError={(e) =>
                 (e.target.src = "https://via.placeholder.com/300")
               }
             />
 
-            <div className="p-4">
+            <div className="p-2 sm:p-3 md:p-4">
               <h2 className="font-bold text-green-900">{p.name}</h2>
 
               <p className="text-sm text-gray-600 line-clamp-2">
