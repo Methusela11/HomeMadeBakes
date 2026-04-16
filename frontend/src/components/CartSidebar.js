@@ -22,13 +22,13 @@ export default function CartSidebar({ onClose }) {
       {/* HEADER */}
 
       <div className="bg-orange-600 text-white p-4 flex justify-between items-center">
-        <Link to="/" className="text-2xl font-bold cursor-pointer">
+        {/* <Link to="/" className="text-2xl font-bold cursor-pointer">
           <img
             src={logo}
             alt="Chef portrait"
             className="w-[100px] md:w-[110px] rounded-2xl object-cover transition-transform duration-300 hover:scale-125"
           />
-        </Link>
+        </Link> */}
         <h2 className="text-2xl font-bold text-green-900">Cart</h2>
         <button
           onClick={onClose}
