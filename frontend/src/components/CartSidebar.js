@@ -12,7 +12,7 @@ export default function CartSidebar({ onClose }) {
     <div className="fixed top-0 right-0 h-full w-full sm:w-[400px] bg-white shadow-2xl z-[9999] flex flex-col">
       {/* HEADER */}
       <div className="bg-orange-600 text-white p-4 flex justify-between items-center">
-        <h2 className="text-xl font-bold">Your Cart</h2>
+        <h2 className="text-xl font-bold">Cart</h2>
         <button
           onClick={onClose}
           className="text-white hover:text-gray-200 text-2xl"
