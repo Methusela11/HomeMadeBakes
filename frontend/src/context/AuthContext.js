@@ -23,7 +23,8 @@ export const AuthProvider = ({ children }) => {
     }
 
     try {
-      const response = await fetch(`${API_URL}/auth/profile/`, {
+      const response = await fetch(`${API_URL}/auth/profile`, {
+        // Removed trailing slash
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -33,16 +34,12 @@ export const AuthProvider = ({ children }) => {
         const userData = await response.json();
         setUser(userData);
       } else {
-        // Token invalid
         localStorage.removeItem("token");
         setToken(null);
         setUser(null);
       }
     } catch (error) {
       console.error("Error fetching user:", error);
-      localStorage.removeItem("token");
-      setToken(null);
-      setUser(null);
     } finally {
       setLoading(false);
     }
@@ -54,20 +51,19 @@ export const AuthProvider = ({ children }) => {
 
   const register = async (userData) => {
     try {
-      console.log(
-        "Sending registration request to:",
-        `${API_URL}/auth/register/`,
-      );
-      console.log("Registration data:", userData);
+      console.log("Registering at:", `${API_URL}/auth/register`); // Removed trailing slash
 
-      const response = await fetch(`${API_URL}/auth/register/`, {
+      const response = await fetch(`${API_URL}/auth/register`, {
+        // Removed trailing slash
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
           username:
-            userData.email.split("@")[0] + Math.floor(Math.random() * 1000), // Make username unique
+            userData.email.split("@")[0] +
+            "_" +
+            Math.floor(Math.random() * 10000),
           email: userData.email,
           password: userData.password,
           password2: userData.password,
@@ -78,40 +74,33 @@ export const AuthProvider = ({ children }) => {
       });
 
       const data = await response.json();
-      console.log("Registration response status:", response.status);
-      console.log("Registration response data:", data);
+      console.log("Registration response:", response.status, data);
 
       if (response.status === 201) {
-        // Successfully registered
         localStorage.setItem("token", data.access);
         setToken(data.access);
         setUser(data.user);
         return { success: true };
       } else {
-        // Handle errors
         let errorMessage = "Registration failed";
-        if (data.password) {
-          errorMessage = data.password.join(", ");
-        } else if (data.username) {
-          errorMessage = data.username.join(", ");
-        } else if (data.email) {
-          errorMessage = data.email.join(", ");
-        } else if (data.error) {
-          errorMessage = data.error;
+        if (typeof data === "object") {
+          if (data.password) errorMessage = data.password[0];
+          else if (data.username) errorMessage = data.username[0];
+          else if (data.email) errorMessage = data.email[0];
+          else if (data.error) errorMessage = data.error;
         }
         return { success: false, error: errorMessage };
       }
     } catch (error) {
-      console.error("Registration error details:", error);
-      return { success: false, error: `Network error: ${error.message}` };
+      console.error("Registration error:", error);
+      return { success: false, error: error.message };
     }
   };
 
   const login = async (email, password) => {
     try {
-      console.log("Sending login request to:", `${API_URL}/auth/login/`);
-
-      const response = await fetch(`${API_URL}/auth/login/`, {
+      const response = await fetch(`${API_URL}/auth/login`, {
+        // Removed trailing slash
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -120,8 +109,6 @@ export const AuthProvider = ({ children }) => {
       });
 
       const data = await response.json();
-      console.log("Login response status:", response.status);
-      console.log("Login response data:", data);
 
       if (response.status === 200) {
         localStorage.setItem("token", data.access);
@@ -132,8 +119,8 @@ export const AuthProvider = ({ children }) => {
         return { success: false, error: data.error || "Login failed" };
       }
     } catch (error) {
-      console.error("Login error details:", error);
-      return { success: false, error: `Network error: ${error.message}` };
+      console.error("Login error:", error);
+      return { success: false, error: error.message };
     }
   };
 
@@ -145,7 +132,8 @@ export const AuthProvider = ({ children }) => {
 
   const updateProfile = async (userData) => {
     try {
-      const response = await fetch(`${API_URL}/auth/profile/`, {
+      const response = await fetch(`${API_URL}/auth/profile`, {
+        // Removed trailing slash
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -154,7 +142,6 @@ export const AuthProvider = ({ children }) => {
         body: JSON.stringify({
           first_name: userData.name?.split(" ")[0],
           last_name: userData.name?.split(" ")[1] || "",
-          email: userData.email,
           phone: userData.phone,
         }),
       });
@@ -169,7 +156,7 @@ export const AuthProvider = ({ children }) => {
       }
     } catch (error) {
       console.error("Update error:", error);
-      return { success: false, error: "Network error. Please try again." };
+      return { success: false, error: error.message };
     }
   };
 

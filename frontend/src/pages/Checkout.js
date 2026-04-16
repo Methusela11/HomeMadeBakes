@@ -59,7 +59,7 @@ export default function Checkout() {
     try {
       // Send order to backend (if you have an endpoint)
       const response = await fetch(
-        "https://rmeks-bakery-backend.onrender.com/api/orders/",
+        "https://rmeks-bakery-backend.onrender.com/api/orders",
         {
           method: "POST",
           headers: {
