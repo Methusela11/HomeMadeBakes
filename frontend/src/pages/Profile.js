@@ -1,13 +1,17 @@
 import { useState } from "react";
 import { useAuth } from "../context/AuthContext";
-import { FaUser, FaEnvelope, FaPhone } from "react-icons/fa";
+import { FaUser, FaPhone } from "react-icons/fa"; // Removed FaEnvelope
 
 export default function Profile() {
   const { user, updateProfile } = useAuth();
   const [isEditing, setIsEditing] = useState(false);
   const [formData, setFormData] = useState({
-    name: user?.name || "",
+    name:
+      user?.first_name && user?.last_name
+        ? `${user.first_name} ${user.last_name}`
+        : user?.username || "",
     phone: user?.phone || "",
+    email: user?.email || "",
   });
   const [message, setMessage] = useState("");
 
@@ -24,7 +28,7 @@ export default function Profile() {
       setIsEditing(false);
       setTimeout(() => setMessage(""), 3000);
     } else {
-      setMessage(result.error);
+      setMessage(result.error || "Update failed");
     }
   };
 
@@ -39,9 +43,14 @@ export default function Profile() {
                 <FaUser className="text-4xl text-orange-600" />
               </div>
               <div>
-                <h1 className="text-2xl font-bold">{user?.name}</h1>
+                <h1 className="text-2xl font-bold">
+                  {formData.name || user?.username}
+                </h1>
                 <p className="text-orange-100">
-                  Member since {new Date(user?.createdAt).getFullYear()}
+                  Member since{" "}
+                  {user?.date_joined
+                    ? new Date(user.date_joined).getFullYear()
+                    : "2024"}
                 </p>
               </div>
             </div>
@@ -61,7 +70,9 @@ export default function Profile() {
               <div className="space-y-4">
                 <div className="border-b pb-3">
                   <label className="text-sm text-gray-500">Full Name</label>
-                  <p className="text-gray-800 font-medium">{user?.name}</p>
+                  <p className="text-gray-800 font-medium">
+                    {formData.name || "Not provided"}
+                  </p>
                 </div>
                 <div className="border-b pb-3">
                   <label className="text-sm text-gray-500">Email Address</label>
@@ -103,6 +114,40 @@ export default function Profile() {
 
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Email Address
+                  </label>
+                  <div className="relative">
+                    <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                      <svg
+                        className="w-4 h-4 text-gray-400"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                        />
+                      </svg>
+                    </div>
+                    <input
+                      type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      className="w-full pl-10 pr-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
+                      disabled
+                    />
+                  </div>
+                  <p className="text-xs text-gray-500 mt-1">
+                    Email cannot be changed
+                  </p>
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
                     Phone Number
                   </label>
                   <div className="relative">
@@ -115,6 +160,7 @@ export default function Profile() {
                       value={formData.phone}
                       onChange={handleChange}
                       className="w-full pl-10 pr-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
+                      placeholder="Enter your phone number"
                     />
                   </div>
                 </div>
