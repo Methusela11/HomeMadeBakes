@@ -146,13 +146,16 @@ export default function Shop() {
             />
 
             <div className="p-2 sm:p-3 md:p-4">
-              <h2 className="font-bold text-green-900">{p.name}</h2>
+              <h2 className="font-semibold text-sm sm:text-base text-green-900 line-clamp-1">
+                {p.name}
+              </h2>
 
-              <p className="text-sm text-gray-600 line-clamp-2">
+              <p className="text-xs sm:text-sm text-gray-600 line-clamp-2">
                 {p.description || "No description"}
               </p>
 
-              <div className="flex justify-between items-center mt-3">
+              <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2 mt-2">
+                {" "}
                 <div className="flex flex-col">
                   {p.initial_price &&
                     Number(p.initial_price) > Number(p.price) && (
@@ -161,12 +164,11 @@ export default function Shop() {
                       </span>
                     )}
 
-                  <span className="text-orange-600 font-bold text-lg">
+                  <span className="text-orange-600 font-bold text-sm sm:text-base">
                     {p.initial_price ? "Now " : ""}KES {p.price}
                   </span>
                 </div>
-
-                <button className="bg-green-900 text-white px-3 py-1 rounded-lg text-sm hover:bg-orange-500 transition">
+                <button className="bg-green-900 text-white px-2 py-1 sm:px-3 sm:py-1 rounded-md text-xs sm:text-sm hover:bg-orange-500 transition">
                   Add
                 </button>
               </div>
