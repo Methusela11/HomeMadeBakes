@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
+import { useCart } from "../context/CartContext";
 
 import cakeImage from "../assets/images/cakes/1.png";
 import cupCakeImage from "../assets/images/cupcakes/1.png";
@@ -12,6 +13,7 @@ const API_URL = "https://rmeks-bakery-backend.onrender.com/api/products/";
 
 export default function Shop() {
   const location = useLocation();
+  const { addToCart } = useCart();
 
   const [products, setProducts] = useState([]);
   const [filtered, setFiltered] = useState([]);
@@ -21,6 +23,7 @@ export default function Shop() {
 
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [addedProductId, setAddedProductId] = useState(null);
 
   const categories = [
     { name: "cakes", image: cakeImage, label: "Cakes" },
@@ -61,9 +64,23 @@ export default function Shop() {
     }
   }, [selectedCategory, products]);
 
+  const handleAddToCart = (product) => {
+    addToCart({
+      id: product.id,
+      name: product.name,
+      price: product.price,
+      image: product.image,
+      description: product.description,
+      category: product.category,
+    });
+
+    // Show feedback animation
+    setAddedProductId(product.id);
+    setTimeout(() => setAddedProductId(null), 1000);
+  };
+
   return (
     <div className="min-h-screen pt-28 px-6 bg-white">
-      {/* <h1 className="text-3xl font-bold text-green-900 mb-6">Shop</h1> */}
       <h1 className="text-2xl font-bold text-green-900 mb-6">
         {selectedCategory
           ? `Showing ${
@@ -78,7 +95,11 @@ export default function Shop() {
           <div
             key={i}
             onClick={() => setSelectedCategory(cat.name)}
-            className={`cursor-pointer rounded-xl p-0 text-center shadow-sm border transition border-gray-300 hover:border-green-900 ${selectedCategory === cat.name ? "bg-orange-200 text-white" : "bg-white hover:shadow-md"}`}
+            className={`cursor-pointer rounded-xl p-0 text-center shadow-sm border transition border-gray-300 hover:border-green-900 ${
+              selectedCategory === cat.name
+                ? "bg-orange-200 text-white"
+                : "bg-white hover:shadow-md"
+            }`}
           >
             {cat.image && (
               <img
@@ -93,6 +114,7 @@ export default function Shop() {
           </div>
         ))}
       </div>
+
       {selectedCategory && (
         <div className="flex flex-col sm:flex-row gap-4 mt-6 justify-center md:justify-start">
           <button
@@ -134,8 +156,30 @@ export default function Shop() {
         {filtered.map((p) => (
           <div
             key={p.id}
-            className="bg-white rounded-xl shadow-sm hover:shadow-md transition overflow-hidden flex flex-col hover:scale-110"
+            className="bg-white rounded-xl shadow-sm hover:shadow-md transition overflow-hidden flex flex-col hover:scale-110 relative"
           >
+            {/* Added to Cart Animation Overlay */}
+            {addedProductId === p.id && (
+              <div className="absolute inset-0 bg-green-500 bg-opacity-80 flex items-center justify-center z-10 transition-all duration-300">
+                <div className="text-white text-center">
+                  <svg
+                    className="w-8 h-8 mx-auto mb-1"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                  <span className="text-sm font-bold">Added!</span>
+                </div>
+              </div>
+            )}
+
             <img
               src={p.image || "https://via.placeholder.com/300"}
               alt={p.name}
@@ -155,7 +199,6 @@ export default function Shop() {
               </p>
 
               <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2 mt-2">
-                {" "}
                 <div className="flex flex-col">
                   {p.initial_price &&
                     Number(p.initial_price) > Number(p.price) && (
@@ -168,8 +211,12 @@ export default function Shop() {
                     {p.initial_price ? "Now " : ""}KES {p.price}
                   </span>
                 </div>
-                <button className="bg-green-900 text-white px-2 py-1 sm:px-3 sm:py-1 rounded-md text-xs sm:text-sm hover:bg-orange-500 transition">
-                  Add
+
+                <button
+                  onClick={() => handleAddToCart(p)}
+                  className="bg-green-900 text-white px-2 py-1 sm:px-3 sm:py-1 rounded-md text-xs sm:text-sm hover:bg-orange-500 transition transform hover:scale-105"
+                >
+                  Add to Cart
                 </button>
               </div>
             </div>
