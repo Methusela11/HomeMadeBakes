@@ -15,7 +15,7 @@ export default function FloatingCart() {
       {/* FLOATING CART ICON */}
       <div
         onClick={toggleCart}
-        className="fixed bottom-32 sm:bottom-32 right-4 sm:right-6 w-16 h-16 bg-orange-600 rounded-full flex items-center justify-center cursor-pointer z-[9999] shadow-lg hover:bg-orange-700 transition-colors"
+        className="fixed bottom-28 sm:bottom-32 right-4 sm:right-6 w-16 h-16 bg-orange-600 rounded-full flex items-center justify-center cursor-pointer z-[9999] shadow-lg hover:scale-110 transition-colors"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"

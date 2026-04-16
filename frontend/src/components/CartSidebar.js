@@ -1,21 +1,38 @@
 import { useCart } from "../context/CartContext";
+import { useNavigate, Link } from "react-router-dom";
+
+import logo from "../assets/images/logo/RMB.png";
 
 export default function CartSidebar({ onClose }) {
   const { cartItems, removeFromCart, updateQuantity, getCartTotal, clearCart } =
     useCart();
+  const navigate = useNavigate();
 
   const formatPrice = (price) => {
     return `KES ${parseFloat(price).toLocaleString()}`;
   };
 
+  const handleShopNow = () => {
+    onClose(); // Close the cart sidebar
+    navigate("/shop"); // Navigate to shop page
+  };
+
   return (
-    <div className="fixed top-0 right-0 h-full w-full sm:w-[400px] bg-white shadow-2xl z-[9999] flex flex-col">
+    <div className="fixed top-0 right-0 h-full w-full sm:w-[400px] min-h-screen bg-white shadow-2xl z-[9999] flex flex-col">
       {/* HEADER */}
+
       <div className="bg-orange-600 text-white p-4 flex justify-between items-center">
-        <h2 className="text-xl font-bold">Cart</h2>
+        <Link to="/" className="text-2xl font-bold cursor-pointer">
+          <img
+            src={logo}
+            alt="Chef portrait"
+            className="w-[100px] md:w-[110px] rounded-2xl object-cover transition-transform duration-300 hover:scale-125"
+          />
+        </Link>
+        <h2 className="text-2xl font-bold text-green-900">Cart</h2>
         <button
           onClick={onClose}
-          className="text-white hover:text-gray-200 text-2xl"
+          className="text-white hover:text-gray-900 text-2xl hover:scale-105"
         >
           ✕
         </button>
@@ -38,10 +55,18 @@ export default function CartSidebar({ onClose }) {
                 d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
               />
             </svg>
-            <p>Your cart is empty</p>
-            <p className="text-sm mt-2">
+            <p className="text-gray-600">Your cart is empty</p>
+            <p className="text-sm mt-2 text-gray-500">
               Add some delicious items to get started!
             </p>
+
+            {/* Shop Now Button */}
+            <button
+              onClick={handleShopNow}
+              className="mt-6 bg-orange-600 text-white px-6 py-2 rounded-lg hover:text-green-900 transition font-semibold transform hover:scale-105"
+            >
+              Shop Now
+            </button>
           </div>
         ) : (
           <div className="space-y-4">

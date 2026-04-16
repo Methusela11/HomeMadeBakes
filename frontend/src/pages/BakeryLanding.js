@@ -188,6 +188,7 @@ export default function BakeryLanding() {
           </div>
         </div>
       )}
+      
     </div>
   );
 }
