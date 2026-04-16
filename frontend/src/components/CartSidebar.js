@@ -1,7 +1,5 @@
 import { useCart } from "../context/CartContext";
-import { useNavigate, Link } from "react-router-dom";
-
-import logo from "../assets/images/logo/RMB.png";
+import { useNavigate } from "react-router-dom";
 
 export default function CartSidebar({ onClose }) {
   const { cartItems, removeFromCart, updateQuantity, getCartTotal, clearCart } =
@@ -22,13 +20,6 @@ export default function CartSidebar({ onClose }) {
       {/* HEADER */}
 
       <div className="bg-orange-600 text-white p-4 flex justify-between items-center">
-        {/* <Link to="/" className="text-2xl font-bold cursor-pointer">
-          <img
-            src={logo}
-            alt="Chef portrait"
-            className="w-[100px] md:w-[110px] rounded-2xl object-cover transition-transform duration-300 hover:scale-125"
-          />
-        </Link> */}
         <h2 className="text-2xl font-bold text-green-900">Cart</h2>
         <button
           onClick={onClose}
