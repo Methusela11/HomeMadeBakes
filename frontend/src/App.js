@@ -12,6 +12,9 @@ import Menu from "./pages/Menu";
 import Shop from "./pages/Shop";
 import Order from "./pages/Order";
 import Contact from "./pages/Contact";
+import Checkout from "./pages/Checkout";
+import OrderSuccess from "./pages/OrderSuccess";
+
 
 export default function App() {
   const location = useLocation();
@@ -34,6 +37,8 @@ export default function App() {
             <Route path="/shop" element={<Shop />} />
             <Route path="/order" element={<Order />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/checkout" element={<Checkout />} />
+            <Route path="/order-success" element={<OrderSuccess />} />
           </Routes>
         </main>
 

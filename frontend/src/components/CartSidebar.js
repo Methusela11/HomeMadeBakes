@@ -128,7 +128,13 @@ export default function CartSidebar({ onClose }) {
           </div>
 
           <div className="space-y-2">
-            <button className="w-full bg-orange-600 text-white py-3 rounded-lg hover:text-green-900 hover:scale-105 transition font-semibold">
+            <button
+              onClick={() => {
+                onClose();
+                navigate("/checkout");
+              }}
+              className="w-full bg-orange-600 text-white py-3 rounded-lg hover:text-green-900 hover:scale-105 transition font-semibold"
+            >
               Proceed to Checkout
             </button>
 
