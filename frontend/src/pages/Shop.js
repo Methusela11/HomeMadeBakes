@@ -77,7 +77,7 @@ export default function Shop() {
           <div
             key={i}
             onClick={() => setSelectedCategory(cat.name)}
-            className={`cursor-pointer rounded-xl p-2 text-center shadow-sm border transition border-gray-300 hover:border-green-900 ${selectedCategory === cat.name ? "bg-orange-200 text-white" : "bg-white hover:shadow-md"}`}
+            className={`cursor-pointer rounded-xl p-0 text-center shadow-sm border transition border-gray-300 hover:border-green-900 ${selectedCategory === cat.name ? "bg-orange-200 text-white" : "bg-white hover:shadow-md"}`}
           >
             {cat.image && (
               <img
@@ -86,7 +86,9 @@ export default function Shop() {
                 className="w-14 h-14 mx-auto object-cover rounded-full mb-1"
               />
             )}
-            <p className="font-semibold text-green-900">{cat.label}</p>
+            <p className="text-xs sm:text-sm font-semibold text-green-900">
+              {cat.label}
+            </p>
           </div>
         ))}
       </div>
@@ -127,7 +129,7 @@ export default function Shop() {
         </p>
       )}
 
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6">
+      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         {filtered.map((p) => (
           <div
             key={p.id}
