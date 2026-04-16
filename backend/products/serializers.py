@@ -1,10 +1,8 @@
 from rest_framework import serializers
 from django.contrib.auth.models import User
 from django.contrib.auth.password_validation import validate_password
-from .models import Product
-from .models import UserProfile  # If you created this model
+from .models import Product, UserProfile
 
-# Product Serializer (your existing one)
 class ProductSerializer(serializers.ModelSerializer):
     image = serializers.SerializerMethodField()
 
@@ -18,18 +16,12 @@ class ProductSerializer(serializers.ModelSerializer):
             return request.build_absolute_uri(obj.image.url)
         return None
 
-# User Serializers (add these for authentication)
 class UserSerializer(serializers.ModelSerializer):
-    phone = serializers.SerializerMethodField()
+    phone = serializers.CharField(source='profile.phone', required=False, allow_blank=True)
     
     class Meta:
         model = User
         fields = ('id', 'username', 'email', 'first_name', 'last_name', 'phone')
-    
-    def get_phone(self, obj):
-        if hasattr(obj, 'profile') and obj.profile:
-            return obj.profile.phone
-        return ''
 
 class RegisterSerializer(serializers.ModelSerializer):
     password = serializers.CharField(write_only=True, required=True, validators=[validate_password])
@@ -46,27 +38,14 @@ class RegisterSerializer(serializers.ModelSerializer):
         return attrs
 
     def create(self, validated_data):
-        # Remove phone and password2 from validated_data
         phone = validated_data.pop('phone', '')
         validated_data.pop('password2')
-        password = validated_data.pop('password')
         
-        # Create user
-        user = User.objects.create(
-            username=validated_data['username'],
-            email=validated_data['email'],
-            first_name=validated_data.get('first_name', ''),
-            last_name=validated_data.get('last_name', ''),
-        )
-        user.set_password(password)
-        user.save()
+        user = User.objects.create_user(**validated_data)
         
-        # Create user profile with phone number (if UserProfile model exists)
-        try:
-            from .models import UserProfile
-            UserProfile.objects.create(user=user, phone=phone)
-        except ImportError:
-            # If UserProfile doesn't exist, just save phone as an attribute
-            pass
+        # Update profile with phone number (profile is auto-created by signal)
+        if phone:
+            user.profile.phone = phone
+            user.profile.save()
         
         return user

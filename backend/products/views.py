@@ -28,42 +28,61 @@ class RegisterView(APIView):
     permission_classes = [AllowAny]
     
     def post(self, request):
+        print("=" * 50)
+        print("Registration request received:")
+        print("Data:", request.data)
+        print("=" * 50)
+        
         serializer = RegisterSerializer(data=request.data)
         if serializer.is_valid():
             user = serializer.save()
             refresh = RefreshToken.for_user(user)
-            return Response({
+            
+            response_data = {
                 'user': UserSerializer(user).data,
                 'refresh': str(refresh),
                 'access': str(refresh.access_token),
                 'token': str(refresh.access_token),
-            }, status=status.HTTP_201_CREATED)
+            }
+            print("Registration successful!")
+            return Response(response_data, status=status.HTTP_201_CREATED)
+        
+        print("Registration failed - Errors:", serializer.errors)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class LoginView(APIView):
     permission_classes = [AllowAny]
     
     def post(self, request):
-        username = request.data.get('email')
+        print("=" * 50)
+        print("Login request received:")
+        print("Data:", request.data)
+        print("=" * 50)
+        
+        email = request.data.get('email')
         password = request.data.get('password')
         
         # Try to get user by email
         try:
-            user_obj = User.objects.get(email=username)
+            user_obj = User.objects.get(email=email)
             username = user_obj.username
         except User.DoesNotExist:
-            pass
+            username = email
         
         user = authenticate(username=username, password=password)
         
         if user:
             refresh = RefreshToken.for_user(user)
-            return Response({
+            response_data = {
                 'user': UserSerializer(user).data,
                 'refresh': str(refresh),
                 'access': str(refresh.access_token),
                 'token': str(refresh.access_token),
-            })
+            }
+            print("Login successful!")
+            return Response(response_data)
+        
+        print("Login failed - Invalid credentials")
         return Response({'error': 'Invalid credentials'}, status=status.HTTP_401_UNAUTHORIZED)
 
 class ProfileView(APIView):
@@ -79,6 +98,13 @@ class ProfileView(APIView):
         user.last_name = request.data.get('last_name', user.last_name)
         user.email = request.data.get('email', user.email)
         user.save()
+        
+        # Update phone if provided
+        phone = request.data.get('phone')
+        if phone:
+            user.profile.phone = phone
+            user.profile.save()
+        
         serializer = UserSerializer(user)
         return Response(serializer.data)
 
