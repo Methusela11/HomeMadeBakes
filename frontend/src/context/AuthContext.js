@@ -1,6 +1,7 @@
 import React, { createContext, useState, useContext, useEffect } from "react";
 
 const AuthContext = createContext();
+const API_URL = "https://rmeks-bakery-backend.onrender.com/api";
 
 export const useAuth = () => useContext(AuthContext);
 
@@ -10,7 +11,6 @@ export const AuthProvider = ({ children }) => {
   const [token, setToken] = useState(localStorage.getItem("token"));
 
   useEffect(() => {
-    // Check if user is logged in on mount
     if (token) {
       fetchUserProfile();
     } else {
@@ -20,20 +20,16 @@ export const AuthProvider = ({ children }) => {
 
   const fetchUserProfile = async () => {
     try {
-      const response = await fetch(
-        "https://rmeks-bakery-backend.onrender.com/api/auth/profile",
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
+      const response = await fetch(`${API_URL}/auth/profile/`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
         },
-      );
+      });
 
       if (response.ok) {
         const userData = await response.json();
         setUser(userData);
       } else {
-        // Token invalid
         logout();
       }
     } catch (error) {
@@ -46,26 +42,31 @@ export const AuthProvider = ({ children }) => {
 
   const register = async (userData) => {
     try {
-      const response = await fetch(
-        "https://rmeks-bakery-backend.onrender.com/api/auth/register",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(userData),
+      const response = await fetch(`${API_URL}/auth/register/`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
         },
-      );
+        body: JSON.stringify({
+          username: userData.email.split("@")[0], // Create username from email
+          email: userData.email,
+          password: userData.password,
+          password2: userData.password,
+          first_name: userData.name.split(" ")[0],
+          last_name: userData.name.split(" ")[1] || "",
+          phone: userData.phone || "",
+        }),
+      });
 
       const data = await response.json();
 
       if (response.ok) {
-        localStorage.setItem("token", data.token);
-        setToken(data.token);
+        localStorage.setItem("token", data.access);
+        setToken(data.access);
         setUser(data.user);
         return { success: true };
       } else {
-        return { success: false, error: data.message || "Registration failed" };
+        return { success: false, error: Object.values(data).join(", ") };
       }
     } catch (error) {
       console.error("Registration error:", error);
@@ -75,26 +76,23 @@ export const AuthProvider = ({ children }) => {
 
   const login = async (email, password) => {
     try {
-      const response = await fetch(
-        "https://rmeks-bakery-backend.onrender.com/api/auth/login",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ email, password }),
+      const response = await fetch(`${API_URL}/auth/login/`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
         },
-      );
+        body: JSON.stringify({ email, password }),
+      });
 
       const data = await response.json();
 
       if (response.ok) {
-        localStorage.setItem("token", data.token);
-        setToken(data.token);
+        localStorage.setItem("token", data.access);
+        setToken(data.access);
         setUser(data.user);
         return { success: true };
       } else {
-        return { success: false, error: data.message || "Login failed" };
+        return { success: false, error: data.error || "Login failed" };
       }
     } catch (error) {
       console.error("Login error:", error);
@@ -110,25 +108,27 @@ export const AuthProvider = ({ children }) => {
 
   const updateProfile = async (userData) => {
     try {
-      const response = await fetch(
-        "https://rmeks-bakery-backend.onrender.com/api/auth/profile",
-        {
-          method: "PUT",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-          body: JSON.stringify(userData),
+      const response = await fetch(`${API_URL}/auth/profile/`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
         },
-      );
+        body: JSON.stringify({
+          first_name: userData.name?.split(" ")[0],
+          last_name: userData.name?.split(" ")[1] || "",
+          email: userData.email,
+          phone: userData.phone,
+        }),
+      });
 
       const data = await response.json();
 
       if (response.ok) {
-        setUser(data.user);
+        setUser(data);
         return { success: true };
       } else {
-        return { success: false, error: data.message || "Update failed" };
+        return { success: false, error: "Update failed" };
       }
     } catch (error) {
       console.error("Update error:", error);
