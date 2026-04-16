@@ -17,52 +17,37 @@ class ProductListView(generics.ListAPIView):
     def get_queryset(self):
         queryset = Product.objects.all()
         category = self.request.query_params.get('category')
-
         if category:
             queryset = queryset.filter(category=category)
-
         return queryset
 
-# Authentication Views
+# Add these authentication views
 class RegisterView(APIView):
     permission_classes = [AllowAny]
     
     def post(self, request):
-        print("=" * 50)
-        print("Registration request received:")
-        print("Data:", request.data)
-        print("=" * 50)
-        
+        print("Registration request:", request.data)
         serializer = RegisterSerializer(data=request.data)
         if serializer.is_valid():
             user = serializer.save()
             refresh = RefreshToken.for_user(user)
-            
-            response_data = {
+            return Response({
                 'user': UserSerializer(user).data,
                 'refresh': str(refresh),
                 'access': str(refresh.access_token),
                 'token': str(refresh.access_token),
-            }
-            print("Registration successful!")
-            return Response(response_data, status=status.HTTP_201_CREATED)
-        
-        print("Registration failed - Errors:", serializer.errors)
+            }, status=status.HTTP_201_CREATED)
+        print("Registration errors:", serializer.errors)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class LoginView(APIView):
     permission_classes = [AllowAny]
     
     def post(self, request):
-        print("=" * 50)
-        print("Login request received:")
-        print("Data:", request.data)
-        print("=" * 50)
-        
+        print("Login request:", request.data)
         email = request.data.get('email')
         password = request.data.get('password')
         
-        # Try to get user by email
         try:
             user_obj = User.objects.get(email=email)
             username = user_obj.username
@@ -73,16 +58,12 @@ class LoginView(APIView):
         
         if user:
             refresh = RefreshToken.for_user(user)
-            response_data = {
+            return Response({
                 'user': UserSerializer(user).data,
                 'refresh': str(refresh),
                 'access': str(refresh.access_token),
                 'token': str(refresh.access_token),
-            }
-            print("Login successful!")
-            return Response(response_data)
-        
-        print("Login failed - Invalid credentials")
+            })
         return Response({'error': 'Invalid credentials'}, status=status.HTTP_401_UNAUTHORIZED)
 
 class ProfileView(APIView):
@@ -99,9 +80,8 @@ class ProfileView(APIView):
         user.email = request.data.get('email', user.email)
         user.save()
         
-        # Update phone if provided
         phone = request.data.get('phone')
-        if phone:
+        if phone and hasattr(user, 'profile'):
             user.profile.phone = phone
             user.profile.save()
         

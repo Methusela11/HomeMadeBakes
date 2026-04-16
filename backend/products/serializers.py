@@ -40,11 +40,12 @@ class RegisterSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         phone = validated_data.pop('phone', '')
         validated_data.pop('password2')
-        
         user = User.objects.create_user(**validated_data)
         
-        # Update profile with phone number (profile is auto-created by signal)
-        if phone:
+        # Create profile if it doesn't exist
+        if not hasattr(user, 'profile'):
+            UserProfile.objects.create(user=user, phone=phone)
+        elif phone:
             user.profile.phone = phone
             user.profile.save()
         
