@@ -17,11 +17,16 @@ class ProductSerializer(serializers.ModelSerializer):
         return None
 
 class UserSerializer(serializers.ModelSerializer):
-    phone = serializers.CharField(source='profile.phone', required=False, allow_blank=True)
+    phone = serializers.SerializerMethodField()
     
     class Meta:
         model = User
         fields = ('id', 'username', 'email', 'first_name', 'last_name', 'phone')
+    
+    def get_phone(self, obj):
+        if hasattr(obj, 'profile') and obj.profile:
+            return obj.profile.phone
+        return ''
 
 class RegisterSerializer(serializers.ModelSerializer):
     password = serializers.CharField(write_only=True, required=True, validators=[validate_password])
@@ -40,13 +45,13 @@ class RegisterSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         phone = validated_data.pop('phone', '')
         validated_data.pop('password2')
+        
         user = User.objects.create_user(**validated_data)
         
-        # Create profile if it doesn't exist
-        if not hasattr(user, 'profile'):
-            UserProfile.objects.create(user=user, phone=phone)
-        elif phone:
-            user.profile.phone = phone
-            user.profile.save()
+        # Create or get profile and update phone
+        profile, created = UserProfile.objects.get_or_create(user=user)
+        if phone:
+            profile.phone = phone
+            profile.save()
         
         return user

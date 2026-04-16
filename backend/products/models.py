@@ -56,14 +56,13 @@ class UserProfile(models.Model):
     def __str__(self):
         return f"{self.user.username}'s profile"
 
-# Signals to automatically create/update UserProfile when User is created/updated
+# Signals to automatically create UserProfile when User is created
 @receiver(post_save, sender=User)
 def create_user_profile(sender, instance, created, **kwargs):
-    """Create a UserProfile when a new User is created"""
     if created:
-        UserProfile.objects.create(user=instance)
+        UserProfile.objects.get_or_create(user=instance)
 
 @receiver(post_save, sender=User)
 def save_user_profile(sender, instance, **kwargs):
-    """Save the UserProfile when User is saved"""
-    instance.profile.save()
+    if hasattr(instance, 'profile'):
+        instance.profile.save()
