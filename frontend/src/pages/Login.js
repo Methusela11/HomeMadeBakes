@@ -43,16 +43,20 @@ export default function Login() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-white relative overflow-hidden">
+    <div className="min-h-screen flex items-center justify-center bg-orange-50 relative overflow-hidden">
       {/* ORANGE SHAPES */}
       <div className="absolute top-0 right-0 w-72 h-72 bg-white rounded-full translate-x-20 -translate-y-20"></div>
       <div className="absolute bottom-0 left-0 w-72 h-72 bg-white rounded-full -translate-x-20 translate-y-20"></div>
 
       {/* CARD */}
-      <div className="relative z-10 bg-orange-50 w-full max-w-md mx-4 rounded-3xl shadow-xl p-8">
+      <div className="relative z-10 bg-white w-full max-w-md mx-4 rounded-3xl shadow-xl p-8">
         {/* LOGO */}
         <div className="flex justify-center mb-4">
-          <img src={logo} alt="logo" className="w-28 h-28 object-contain hover:scale-125" />
+          <img
+            src={logo}
+            alt="logo"
+            className="w-28 h-28 object-contain hover:scale-125"
+          />
         </div>
 
         {/* TITLE */}
