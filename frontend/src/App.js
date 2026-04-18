@@ -23,10 +23,9 @@ import Profile from "./pages/Profile";
 export default function App() {
   const location = useLocation();
 
-  const hideLayoutRoutes = ["/login", "/register", "/"];
+  const hideLayoutRoutes = ["/login", "/register"];
   const hideLayout = hideLayoutRoutes.includes(location.pathname);
 
-  // 🛒 Show cart only on specific pages
   const showCart =
     location.pathname === "/shop" || location.pathname === "/order";
 
@@ -34,7 +33,7 @@ export default function App() {
     <AuthProvider>
       <CartProvider>
         <div className="min-h-screen flex flex-col overflow-x-hidden">
-          {/* NAVBAR */}
+        
           {!hideLayout && <Navbar />}
 
           {/* MAIN CONTENT */}
@@ -79,15 +78,12 @@ export default function App() {
             </Routes>
           </main>
 
-          {/* FOOTER */}
           {!hideLayout && <Footer />}
 
-          {/* WhatsApp (only homepage) */}
           {(location.pathname === "/" || location.pathname === "/contact") && (
             <Whatsapp />
           )}
 
-          {/* Floating Cart */}
           {showCart && <FloatingCart />}
         </div>
       </CartProvider>
