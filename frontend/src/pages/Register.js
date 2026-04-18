@@ -10,9 +10,12 @@ import {
   FaEyeSlash,
 } from "react-icons/fa";
 
+import logo from "../assets/images/logo/RMB.png";
+
 export default function Register() {
   const navigate = useNavigate();
   const { register } = useAuth();
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -20,28 +23,28 @@ export default function Register() {
     password: "",
     confirmPassword: "",
   });
+
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
+    setFormData((prev) => ({
+      ...prev,
+      [e.target.name]: e.target.value,
+    }));
     setError("");
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Validation
     if (formData.password !== formData.confirmPassword) {
-      setError("Passwords do not match");
-      return;
+      return setError("Passwords do not match");
     }
 
     if (formData.password.length < 6) {
-      setError("Password must be at least 6 characters");
-      return;
+      return setError("Password must be at least 6 characters");
     }
 
     setLoading(true);
@@ -57,167 +60,150 @@ export default function Register() {
     if (result.success) {
       navigate("/");
     } else {
-      setError(result.error || "Registration failed. Please try again.");
+      setError(result.error || "Registration failed");
     }
 
     setLoading(false);
   };
 
   return (
-    <div className="min-h-screen pt-28 px-6 bg-gradient-to-br from-orange-50 to-white flex items-center justify-center">
-      <div className="max-w-md w-full">
-        <div className="bg-white rounded-2xl shadow-xl p-8">
-          {/* Header */}
-          <div className="text-center mb-8">
-            <h1 className="text-3xl font-bold text-green-900 mb-2">
-              Create Account
-            </h1>
-            <p className="text-gray-600">
-              Join RMEKS Bakery for exclusive offers!
-            </p>
+    <div className="min-h-screen flex items-center justify-center bg-orange-50 relative overflow-hidden">
+      <div className="absolute top-0 right-0 w-72 h-72 bg-white rounded-full translate-x-20 -translate-y-20"></div>
+      <div className="absolute bottom-0 left-0 w-72 h-72 bg-white rounded-full -translate-x-20 translate-y-20"></div>
+
+      {/* CARD */}
+      <div className="relative z-10 bg-white w-full max-w-md mx-4 rounded-3xl shadow-xl p-8">
+        {/* LOGO */}
+        <div className="flex justify-center mb-4">
+          <img
+            src={logo}
+            alt="logo"
+            className="w-28 h-28 object-contain hover:scale-125"
+          />
+        </div>
+
+        {/* TITLE */}
+        <h2 className="text-center text-2xl font-bold text-green-900 mb-6">
+          Create Account
+        </h2>
+
+        {/* ERROR */}
+        {error && (
+          <div className="text-red-600 text-sm text-center mb-4">{error}</div>
+        )}
+
+        {/* FORM */}
+        <form onSubmit={handleSubmit} className="space-y-5">
+          {/* NAME */}
+          <div className="border-b border-gray-400 flex items-center gap-3 py-2">
+            <FaUser className="text-green-900" />
+            <input
+              type="text"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              placeholder="Full Name"
+              className="w-full bg-transparent outline-none placeholder-gray-500"
+              required
+            />
           </div>
 
-          {/* Error Message */}
-          {error && (
-            <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-lg mb-6">
-              {error}
-            </div>
-          )}
+          {/* EMAIL */}
+          <div className="border-b border-gray-400 flex items-center gap-3 py-2">
+            <FaEnvelope className="text-green-900" />
+            <input
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              placeholder="Email Address"
+              className="w-full bg-transparent outline-none placeholder-gray-500"
+              required
+            />
+          </div>
 
-          {/* Registration Form */}
-          <form onSubmit={handleSubmit} className="space-y-4">
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                Full Name *
-              </label>
-              <div className="relative">
-                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                  <FaUser className="text-gray-400" />
-                </div>
-                <input
-                  type="text"
-                  name="name"
-                  required
-                  value={formData.name}
-                  onChange={handleChange}
-                  className="w-full pl-10 pr-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
-                  placeholder="John Doe"
-                />
-              </div>
-            </div>
+          {/* PHONE */}
+          <div className="border-b border-gray-400 flex items-center gap-3 py-2">
+            <FaPhone className="text-green-900" />
+            <input
+              type="tel"
+              name="phone"
+              value={formData.phone}
+              onChange={handleChange}
+              placeholder="Phone Number"
+              className="w-full bg-transparent outline-none placeholder-gray-500"
+              required
+            />
+          </div>
 
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                Email Address *
-              </label>
-              <div className="relative">
-                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                  <FaEnvelope className="text-gray-400" />
-                </div>
-                <input
-                  type="email"
-                  name="email"
-                  required
-                  value={formData.email}
-                  onChange={handleChange}
-                  className="w-full pl-10 pr-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
-                  placeholder="you@example.com"
-                />
-              </div>
-            </div>
-
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                Phone Number *
-              </label>
-              <div className="relative">
-                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                  <FaPhone className="text-gray-400" />
-                </div>
-                <input
-                  type="tel"
-                  name="phone"
-                  required
-                  value={formData.phone}
-                  onChange={handleChange}
-                  className="w-full pl-10 pr-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
-                  placeholder="0712345678"
-                />
-              </div>
-            </div>
-
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                Password *
-              </label>
-              <div className="relative">
-                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                  <FaLock className="text-gray-400" />
-                </div>
-                <input
-                  type={showPassword ? "text" : "password"}
-                  name="password"
-                  required
-                  value={formData.password}
-                  onChange={handleChange}
-                  className="w-full pl-10 pr-10 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
-                  placeholder="••••••••"
-                />
-                <button
-                  type="button"
-                  onClick={() => setShowPassword(!showPassword)}
-                  className="absolute inset-y-0 right-0 pr-3 flex items-center"
-                >
-                  {showPassword ? (
-                    <FaEyeSlash className="text-gray-400" />
-                  ) : (
-                    <FaEye className="text-gray-400" />
-                  )}
-                </button>
-              </div>
-            </div>
-
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                Confirm Password *
-              </label>
-              <div className="relative">
-                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                  <FaLock className="text-gray-400" />
-                </div>
-                <input
-                  type={showPassword ? "text" : "password"}
-                  name="confirmPassword"
-                  required
-                  value={formData.confirmPassword}
-                  onChange={handleChange}
-                  className="w-full pl-10 pr-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
-                  placeholder="••••••••"
-                />
-              </div>
-            </div>
+          {/* PASSWORD */}
+          <div className="border-b border-gray-400 flex items-center gap-3 py-2">
+            <FaLock className="text-green-900" />
+            <input
+              type={showPassword ? "text" : "password"}
+              name="password"
+              value={formData.password}
+              onChange={handleChange}
+              placeholder="Password"
+              className="w-full bg-transparent outline-none placeholder-gray-500"
+              required
+            />
 
             <button
-              type="submit"
-              disabled={loading}
-              className="w-full bg-orange-600 text-white py-2 rounded-lg hover:bg-orange-700 transition font-semibold disabled:opacity-50"
+              type="button"
+              onClick={() => setShowPassword(!showPassword)}
             >
-              {loading ? "Creating Account..." : "Sign Up"}
+              {showPassword ? (
+                <FaEyeSlash className="text-gray-500" />
+              ) : (
+                <FaEye className="text-gray-500" />
+              )}
             </button>
-          </form>
-
-          {/* Login Link */}
-          <div className="mt-6 text-center">
-            <p className="text-gray-600">
-              Already have an account?{" "}
-              <Link
-                to="/login"
-                className="text-orange-600 hover:text-orange-700 font-semibold"
-              >
-                Login
-              </Link>
-            </p>
           </div>
+
+          {/* CONFIRM PASSWORD */}
+          <div className="border-b border-gray-400 flex items-center gap-3 py-2">
+            <FaLock className="text-green-900" />
+            <input
+              type={showPassword ? "text" : "password"}
+              name="confirmPassword"
+              value={formData.confirmPassword}
+              onChange={handleChange}
+              placeholder="Confirm Password"
+              className="w-full bg-transparent outline-none placeholder-gray-500"
+              required
+            />
+
+            <button
+              type="button"
+              onClick={() => setShowPassword(!showPassword)}
+            >
+              {showPassword ? (
+                <FaEyeSlash className="text-gray-500" />
+              ) : (
+                <FaEye className="text-gray-500" />
+              )}
+            </button>
+          </div>
+
+          {/* BUTTON */}
+          <button
+            type="submit"
+            disabled={loading}
+            className="w-full bg-orange-500 text-white py-3 rounded-xl font-bold text-lg shadow-md hover:bg-orange-600 transition"
+          >
+            {loading ? "Creating..." : "SIGN UP"}
+          </button>
+        </form>
+
+        {/* LOGIN LINK */}
+        <div className="text-center mt-6">
+          <p className="text-gray-600">
+            Already have an account?{" "}
+            <Link to="/login" className="text-green-900 font-bold">
+              LOGIN
+            </Link>
+          </p>
         </div>
       </div>
     </div>

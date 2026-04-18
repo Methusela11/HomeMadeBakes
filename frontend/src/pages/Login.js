@@ -44,7 +44,6 @@ export default function Login() {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-orange-50 relative overflow-hidden">
-      {/* ORANGE SHAPES */}
       <div className="absolute top-0 right-0 w-72 h-72 bg-white rounded-full translate-x-20 -translate-y-20"></div>
       <div className="absolute bottom-0 left-0 w-72 h-72 bg-white rounded-full -translate-x-20 translate-y-20"></div>
 
