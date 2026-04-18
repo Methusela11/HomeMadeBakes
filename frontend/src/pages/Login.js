@@ -3,7 +3,7 @@ import { useNavigate, Link } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import { FaUser, FaLock, FaEye, FaEyeSlash } from "react-icons/fa";
 
-import logo from "../assets/images/logo/RB.png";
+import logo from "../assets/images/logo/RMB.png";
 
 export default function Login() {
   const navigate = useNavigate();
