@@ -23,7 +23,10 @@ import Profile from "./pages/Profile";
 export default function App() {
   const location = useLocation();
 
-  // Define pages where cart should be visible
+  const hideLayoutRoutes = ["/login", "/register", "/"];
+  const hideLayout = hideLayoutRoutes.includes(location.pathname);
+
+  // 🛒 Show cart only on specific pages
   const showCart =
     location.pathname === "/shop" || location.pathname === "/order";
 
@@ -32,9 +35,9 @@ export default function App() {
       <CartProvider>
         <div className="min-h-screen flex flex-col overflow-x-hidden">
           {/* NAVBAR */}
-          <Navbar />
+          {!hideLayout && <Navbar />}
 
-          {/* MAIN CONTENT PUSHES FOOTER DOWN */}
+          {/* MAIN CONTENT */}
           <main className="flex-1">
             <Routes>
               <Route path="/" element={<BakeryLanding />} />
@@ -43,8 +46,12 @@ export default function App() {
               <Route path="/shop" element={<Shop />} />
               <Route path="/order" element={<Order />} />
               <Route path="/contact" element={<Contact />} />
+
+              {/* AUTH */}
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
+
+              {/* PROTECTED ROUTES */}
               <Route
                 path="/checkout"
                 element={
@@ -72,13 +79,15 @@ export default function App() {
             </Routes>
           </main>
 
-          {/* FOOTER ALWAYS AT BOTTOM */}
-          <Footer />
+          {/* FOOTER */}
+          {!hideLayout && <Footer />}
 
-          {/* ✅ WhatsApp only on homepage */}
-          {location.pathname === "/" && <Whatsapp />}
+          {/* WhatsApp (only homepage) */}
+          {(location.pathname === "/" || location.pathname === "/contact") && (
+            <Whatsapp />
+          )}
 
-          {/* 🛒 Floating Cart - only on shop and order pages */}
+          {/* Floating Cart */}
           {showCart && <FloatingCart />}
         </div>
       </CartProvider>
