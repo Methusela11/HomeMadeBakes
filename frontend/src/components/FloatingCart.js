@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useCart } from "../context/CartContext";
-import CartSidebar from "./CartSidebar";
+import CartSidebar from "../include/CartSidebar";
 
 export default function FloatingCart() {
   const { cartCount } = useCart();
