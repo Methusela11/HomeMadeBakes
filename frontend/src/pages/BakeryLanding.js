@@ -186,6 +186,18 @@ export default function BakeryLanding() {
           </div>
         </div>
       )}
+      <section className="text-center pt-14 px-6 pb-16">
+        <h3 className="text-2xl font-bold text-green-900 mb-4">
+          Ready to taste the magic?
+        </h3>
+
+        <Link
+          to="/shop"
+          className="bg-orange-500 text-white px-6 py-3 rounded-lg font-bold hover:scale-105 transition hover:text-green-900"
+        >
+          Explore Our Products
+        </Link>
+      </section>
     </div>
   );
 }

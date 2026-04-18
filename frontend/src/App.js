@@ -23,8 +23,11 @@ import Profile from "./pages/Profile";
 export default function App() {
   const location = useLocation();
 
-  const hideLayoutRoutes = ["/login", "/register"];
-  const hideLayout = hideLayoutRoutes.includes(location.pathname);
+const hideNavbarFooterRoutes = ["/login", "/register"];
+const hideFooterRoutes = ["/"];
+
+const hideLayout = hideNavbarFooterRoutes.includes(location.pathname);
+const hideFooter = hideFooterRoutes.includes(location.pathname);
 
   const showCart =
     location.pathname === "/shop" || location.pathname === "/order";
@@ -33,7 +36,6 @@ export default function App() {
     <AuthProvider>
       <CartProvider>
         <div className="min-h-screen flex flex-col overflow-x-hidden">
-        
           {!hideLayout && <Navbar />}
 
           {/* MAIN CONTENT */}
@@ -78,7 +80,7 @@ export default function App() {
             </Routes>
           </main>
 
-          {!hideLayout && <Footer />}
+          {!hideLayout && !hideFooter && <Footer />}
 
           {(location.pathname === "/" || location.pathname === "/contact") && (
             <Whatsapp />

@@ -59,7 +59,7 @@ export default function Login() {
         </div>
 
         {/* TITLE */}
-        <h2 className="text-center text-2xl font-bold text-green-700 mb-8">
+        <h2 className="text-center text-2xl font-bold text-green-900 mb-8">
           Welcome Back!
         </h2>
 
@@ -72,7 +72,7 @@ export default function Login() {
         <form onSubmit={handleSubmit} className="space-y-6">
           {/* EMAIL */}
           <div className="border-b border-gray-400 flex items-center gap-3 py-2">
-            <FaUser className="text-green-800" />
+            <FaUser className="text-green-900" />
             <input
               type="text"
               name="email"
@@ -86,7 +86,7 @@ export default function Login() {
 
           {/* PASSWORD */}
           <div className="border-b border-gray-400 flex items-center gap-3 py-2">
-            <FaLock className="text-green-800" />
+            <FaLock className="text-green-900" />
             <input
               type={showPassword ? "text" : "password"}
               name="password"
@@ -111,8 +111,12 @@ export default function Login() {
 
           {/* FORGOT PASSWORD */}
           <div className="text-right">
-            <Link to="/forgot-password" className="text-sm text-black">
+            <Link
+              to="/forgot-password"
+              className="text-sm text-black relative group"
+            >
               Forgot Password?
+              <span className="absolute left-0 -bottom-0.5 w-0 h-[2px] bg-black transition-all duration-300 group-hover:w-full"></span>
             </Link>
           </div>
 
@@ -120,7 +124,7 @@ export default function Login() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-orange-500 text-white py-3 rounded-xl font-bold text-lg shadow-md hover:bg-orange-600 transition"
+            className="w-full bg-orange-600 text-white py-3 rounded-xl font-bold text-lg shadow-md hover:text-black hover:scale-105 transition"
           >
             {loading ? "Logging in..." : "LOGIN"}
           </button>
@@ -130,7 +134,7 @@ export default function Login() {
         <div className="text-center mt-6">
           <p className="text-gray-600">
             Don't have an account?{" "}
-            <Link to="/register" className="text-green-700 font-bold">
+            <Link to="/register" className="text-green-900 font-bold">
               SIGN UP
             </Link>
           </p>
