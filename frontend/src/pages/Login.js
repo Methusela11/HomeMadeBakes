@@ -1,22 +1,42 @@
-import { useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useNavigate, Link, useLocation } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
-import { FaUser, FaLock, FaEye, FaEyeSlash } from "react-icons/fa";
+import {
+  FaUser,
+  FaLock,
+  FaEye,
+  FaEyeSlash,
+  FaCheckCircle,
+} from "react-icons/fa";
 
 import logo from "../assets/images/logo/RMB.png";
 
 export default function Login() {
   const navigate = useNavigate();
+  const location = useLocation();
   const { login } = useAuth();
 
   const [formData, setFormData] = useState({
-    email: "",
+    email: location.state?.email || "",
     password: "",
   });
 
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+  const [welcomeMessage, setWelcomeMessage] = useState(
+    location.state?.welcomeMessage || "",
+  );
+
+  // Clear welcome message after 5 seconds
+  useEffect(() => {
+    if (welcomeMessage) {
+      const timer = setTimeout(() => {
+        setWelcomeMessage("");
+      }, 5000);
+      return () => clearTimeout(timer);
+    }
+  }, [welcomeMessage]);
 
   const handleChange = (e) => {
     setFormData((prev) => ({
@@ -37,9 +57,8 @@ export default function Login() {
       navigate("/");
     } else {
       setError(result.error || "Invalid credentials");
+      setLoading(false);
     }
-
-    setLoading(false);
   };
 
   return (
@@ -54,7 +73,7 @@ export default function Login() {
           <img
             src={logo}
             alt="logo"
-            className="w-28 h-28 object-contain hover:scale-125"
+            className="w-28 h-28 object-contain hover:scale-125 transition-transform"
           />
         </div>
 
@@ -63,9 +82,19 @@ export default function Login() {
           Welcome Back!
         </h2>
 
+        {/* WELCOME MESSAGE */}
+        {welcomeMessage && (
+          <div className="mb-4 p-3 bg-green-50 border border-green-200 rounded-lg flex items-center gap-2">
+            <FaCheckCircle className="text-green-500 flex-shrink-0" />
+            <p className="text-green-700 text-sm">{welcomeMessage}</p>
+          </div>
+        )}
+
         {/* ERROR */}
         {error && (
-          <div className="text-red-600 text-sm text-center mb-4">{error}</div>
+          <div className="text-red-600 text-sm text-center mb-4 p-2 bg-red-50 rounded">
+            {error}
+          </div>
         )}
 
         {/* FORM */}
@@ -78,7 +107,7 @@ export default function Login() {
               name="email"
               value={formData.email}
               onChange={handleChange}
-              placeholder="Email or Username"
+              placeholder="Email"
               className="w-full bg-transparent outline-none placeholder-gray-500"
               required
             />
@@ -96,10 +125,10 @@ export default function Login() {
               className="w-full bg-transparent outline-none placeholder-gray-500"
               required
             />
-
             <button
               type="button"
               onClick={() => setShowPassword(!showPassword)}
+              className="focus:outline-none"
             >
               {showPassword ? (
                 <FaEyeSlash className="text-gray-500" />
@@ -124,7 +153,7 @@ export default function Login() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-orange-600 text-white py-3 rounded-xl font-bold text-lg shadow-md hover:text-black hover:scale-105 transition"
+            className="w-full bg-orange-600 text-white py-3 rounded-xl font-bold text-lg shadow-md hover:bg-orange-700 hover:scale-105 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {loading ? "Logging in..." : "LOGIN"}
           </button>
@@ -134,7 +163,10 @@ export default function Login() {
         <div className="text-center mt-6">
           <p className="text-gray-600">
             Don't have an account?{" "}
-            <Link to="/register" className="text-green-900 font-bold">
+            <Link
+              to="/register"
+              className="text-green-900 font-bold hover:underline"
+            >
               SIGN UP
             </Link>
           </p>

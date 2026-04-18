@@ -8,6 +8,7 @@ import {
   FaPhone,
   FaEye,
   FaEyeSlash,
+  FaCheckCircle,
 } from "react-icons/fa";
 
 import logo from "../assets/images/logo/RMB.png";
@@ -27,6 +28,7 @@ export default function Register() {
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(false);
 
   const handleChange = (e) => {
     setFormData((prev) => ({
@@ -47,6 +49,18 @@ export default function Register() {
       return setError("Password must be at least 6 characters");
     }
 
+    if (!formData.name.trim()) {
+      return setError("Full name is required");
+    }
+
+    if (!formData.email.trim()) {
+      return setError("Email is required");
+    }
+
+    if (!formData.phone.trim()) {
+      return setError("Phone number is required");
+    }
+
     setLoading(true);
     setError("");
 
@@ -58,13 +72,45 @@ export default function Register() {
     });
 
     if (result.success) {
-      navigate("/");
+      setShowSuccess(true);
+      // Redirect to login after 2 seconds with welcome message
+      setTimeout(() => {
+        navigate("/login", {
+          state: {
+            welcomeMessage:
+              "Account created successfully! Please login with your credentials.",
+            email: formData.email,
+          },
+        });
+      }, 2000);
     } else {
       setError(result.error || "Registration failed");
+      setLoading(false);
     }
-
-    setLoading(false);
   };
+
+  if (showSuccess) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-orange-50">
+        <div className="bg-white rounded-3xl shadow-xl p-8 max-w-md text-center">
+          <FaCheckCircle className="text-green-500 text-6xl mx-auto mb-4" />
+          <h2 className="text-2xl font-bold text-green-900 mb-2">
+            Registration Successful!
+          </h2>
+          <p className="text-gray-600 mb-4">
+            Your account has been created successfully.
+          </p>
+          <p className="text-gray-500 text-sm">Redirecting to login page...</p>
+          <div className="mt-4 w-full bg-orange-100 rounded-full h-2 overflow-hidden">
+            <div
+              className="bg-orange-600 h-2 rounded-full animate-pulse"
+              style={{ width: "100%" }}
+            ></div>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-orange-50 relative overflow-hidden">
@@ -78,7 +124,7 @@ export default function Register() {
           <img
             src={logo}
             alt="logo"
-            className="w-28 h-28 object-contain hover:scale-125"
+            className="w-28 h-28 object-contain hover:scale-125 transition-transform"
           />
         </div>
 
@@ -89,7 +135,9 @@ export default function Register() {
 
         {/* ERROR */}
         {error && (
-          <div className="text-red-600 text-sm text-center mb-4">{error}</div>
+          <div className="text-red-600 text-sm text-center mb-4 p-2 bg-red-50 rounded">
+            {error}
+          </div>
         )}
 
         {/* FORM */}
@@ -148,10 +196,10 @@ export default function Register() {
               className="w-full bg-transparent outline-none placeholder-gray-500"
               required
             />
-
             <button
               type="button"
               onClick={() => setShowPassword(!showPassword)}
+              className="focus:outline-none"
             >
               {showPassword ? (
                 <FaEyeSlash className="text-gray-500" />
@@ -173,26 +221,15 @@ export default function Register() {
               className="w-full bg-transparent outline-none placeholder-gray-500"
               required
             />
-
-            <button
-              type="button"
-              onClick={() => setShowPassword(!showPassword)}
-            >
-              {showPassword ? (
-                <FaEyeSlash className="text-gray-500" />
-              ) : (
-                <FaEye className="text-gray-500" />
-              )}
-            </button>
           </div>
 
           {/* BUTTON */}
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-orange-600 text-white py-3 rounded-xl font-bold text-lg shadow-md hover:text-black hover:scale-105 transition"
+            className="w-full bg-orange-600 text-white py-3 rounded-xl font-bold text-lg shadow-md hover:bg-orange-700 hover:scale-105 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            {loading ? "Creating..." : "SIGN UP"}
+            {loading ? "Creating Account..." : "SIGN UP"}
           </button>
         </form>
 
@@ -200,7 +237,10 @@ export default function Register() {
         <div className="text-center mt-6">
           <p className="text-gray-600">
             Already have an account?{" "}
-            <Link to="/login" className="text-green-900 font-bold">
+            <Link
+              to="/login"
+              className="text-green-900 font-bold hover:underline"
+            >
               LOGIN
             </Link>
           </p>
