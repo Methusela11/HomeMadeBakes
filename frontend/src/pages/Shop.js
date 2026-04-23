@@ -145,7 +145,7 @@ export default function Shop() {
       {!loading && !error && filtered.length === 0 && selectedCategory && (
         <p className="text-gray-500 text-lg">
           ❌ No products in{" "}
-          <span className="font-bold text-green-900">
+          <span className="font-bold text-gray-500">
             {categories.find((c) => c.name === selectedCategory)?.label}{" "}
             Category
           </span>

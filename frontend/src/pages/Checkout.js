@@ -45,7 +45,6 @@ export default function Checkout() {
 
     setIsSubmitting(true);
 
-    // Prepare order data
     const orderData = {
       customer: formData,
       items: cartItems,
@@ -57,7 +56,6 @@ export default function Checkout() {
     };
 
     try {
-      // Send order to backend (if you have an endpoint)
       const response = await fetch(
         "https://rmeks-bakery-backend.onrender.com/api/orders",
         {
@@ -73,7 +71,6 @@ export default function Checkout() {
         setOrderSuccess(true);
         clearCart();
 
-        // Send WhatsApp message with order details
         sendWhatsAppOrderConfirmation(orderData);
 
         setTimeout(() => {
