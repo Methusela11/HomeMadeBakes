@@ -17,7 +17,7 @@ export default function About() {
         </div>
 
         <p className="text-gray-600 mt-4 max-w-xl mx-auto">
-          We bake with passion, delivering fresh cakes, breads, cookies, and
+          We bake with passion, delivering fresh cakes, breads, cookies and
           chocolates made to bring joy to every celebration.
         </p>
       </section>
