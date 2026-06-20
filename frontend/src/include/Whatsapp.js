@@ -53,7 +53,7 @@ export default function Whatsapp() {
           {/* BODY */}
           <div className="p-4">
             <small className="text-gray-500 text-xs block mb-3">
-              Our Agent typically replies instantly 24/7.
+              Our Agent responds instantly 24/7.
             </small>
 
             <a
