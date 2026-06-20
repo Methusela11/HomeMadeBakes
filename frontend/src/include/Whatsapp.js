@@ -69,7 +69,7 @@ export default function Whatsapp() {
                   RMEKS Bakery Support Agent
                 </strong>
                 <span className="text-xs text-gray-700">
-                  Cake & delivery help? Chat with us!
+                  Order & delivery help? Chat with us!
                 </span>
               </div>
             </a>
