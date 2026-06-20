@@ -17,8 +17,8 @@ export default function About() {
         </div>
 
         <p className="text-gray-600 mt-4 max-w-xl mx-auto">
-          We bake with passion, delivering fresh cakes, breads, cookies and
-          chocolates made to bring joy to every celebration.
+          RMEKS Bakery offers professional baking, cake customization, event catering,
+          and reliable delivery services to make every occasion memorable.
         </p>
       </section>
 
@@ -40,11 +40,11 @@ export default function About() {
 
           <div className="p-6 text-center">
             <h3 className="font-semibold text-lg text-green-900">
-              Passionate Bakers
+              Baking
             </h3>
             <p className="text-gray-500 text-sm mt-2">
-              Our team of expert bakers crafts every product with love, using
-              only the finest ingredients.
+              Enjoy fresh bakery products delivered directly to your doorstep. We ensure
+  timely and safe delivery for every order.
             </p>
           </div>
         </div>
@@ -65,11 +65,11 @@ export default function About() {
 
           <div className="p-6 text-center">
             <h3 className="font-semibold text-lg text-green-900">
-              Custom Creations
+              Home Delivery
             </h3>
             <p className="text-gray-500 text-sm mt-2">
-              From birthdays to weddings, we design cakes tailored to your dream
-              celebration.
+              Enjoy fresh bakery products delivered directly to your doorstep. We ensure
+  timely and safe delivery for every order.
             </p>
           </div>
         </div>
@@ -90,11 +90,11 @@ export default function About() {
 
           <div className="p-6 text-center">
             <h3 className="font-semibold text-lg text-green-900">
-              Fresh Everyday
+              Event Catering
             </h3>
             <p className="text-gray-500 text-sm mt-2">
-              We bake fresh daily to ensure every bite is soft, flavorful, and
-              unforgettable.
+              We provide bakery supplies for weddings, corporate events, parties, and
+  celebrations, ensuring delicious treats for all your guests.
             </p>
           </div>
         </div>
@@ -103,7 +103,7 @@ export default function About() {
       {/* CTA */}
       <section className="text-center pb-20 px-6">
         <h3 className="text-2xl font-bold text-green-900 mb-4">
-          Ready to taste the magic?
+          Let us bake something special for you.
         </h3>
 
         <Link
