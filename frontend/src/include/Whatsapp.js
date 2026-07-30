@@ -14,7 +14,7 @@ export default function Whatsapp() {
 
   return (
     <>
-      {/* FLOATING ICON */}
+      
       <div
         onClick={toggleChat}
         className="fixed bottom-20 sm:bottom-20 right-4 sm:right-6 w-16 h-16 bg-white rounded-full flex items-center justify-center cursor-pointer z-[9999] shadow-lg"
@@ -26,7 +26,6 @@ export default function Whatsapp() {
         />
       </div>
 
-      {/* ✅ DARK OVERLAY */}
       {isOpen && (
         <div
           onClick={toggleChat}
