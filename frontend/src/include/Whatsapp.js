@@ -34,10 +34,9 @@ export default function Whatsapp() {
         />
       )}
 
-      {/* CHAT BOX */}
       {isOpen && (
         <div className="fixed bottom-40 sm:bottom-40 right-2 sm:right-6 left-2 sm:left-auto w-auto sm:w-[340px] max-w-[95%] bg-white rounded-xl shadow-2xl z-[9999] font-sans overflow-hidden">
-          {/* HEADER */}
+
           <div className="bg-orange-100 text-black p-4">
             <div className="flex items-center gap-2">
               <img src={whatsappIcon} alt="icon" className=" w-8 h-8" />
@@ -50,7 +49,6 @@ export default function Whatsapp() {
             </p>
           </div>
 
-          {/* BODY */}
           <div className="p-4">
             <small className="text-gray-500 text-xs block mb-3">
               Our Agent responds instantly 24/7.
