@@ -81,9 +81,8 @@ export default function Navbar() {
         </li>
       </ul>
 
-      {/* RIGHT SIDE */}
       <div className="flex items-center gap-4">
-        {/* Authentication Section */}
+
         <div className="relative">
           {isAuthenticated ? (
             <>
@@ -97,7 +96,6 @@ export default function Navbar() {
                 </span>
               </button>
 
-              {/* Dropdown Menu */}
               {isDropdownOpen && (
                 <>
                   <div
@@ -156,7 +154,6 @@ export default function Navbar() {
         </button>
       </div>
 
-      {/* Mobile Menu */}
       {isOpen && (
         <ul className="absolute top-16 md:top-20 left-0 w-full bg-white shadow-lg flex flex-col items-center gap-4 py-5 md:hidden text-gray-800 z-50">
           {[
@@ -177,7 +174,6 @@ export default function Navbar() {
             </li>
           ))}
 
-          {/* Mobile Auth Section */}
           {isAuthenticated ? (
             <>
               <li className="flex items-center gap-2 cursor-pointer">
