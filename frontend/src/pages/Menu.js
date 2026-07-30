@@ -6,7 +6,7 @@ import getrude2Image from "../assets/images/chefs/chef1.png";
 export default function About() {
   return (
     <div className="min-h-screen bg-white pt-38 font-sans">
-      {/* HERO */}
+
       <section className="pt-32 text-center px-6">
         <div className="text-green-900">
           <h1 className="text-4xl font-bold">Services</h1>
@@ -22,9 +22,8 @@ export default function About() {
         </p>
       </section>
 
-      {/* TEAM / STORY */}
       <section className="grid md:grid-cols-3 gap-8 px-6 md:px-12 mt-16 pb-20">
-        {/* CARD 1 */}
+
         <div className="bg-white rounded-2xl shadow-sm overflow-hidden hover:shadow-lg transition">
           <div className="bg-[#f3e8dc] h-64 flex items-center justify-center">
             <img
@@ -49,7 +48,6 @@ export default function About() {
           </div>
         </div>
 
-        {/* CARD 2 */}
         <div className="bg-white rounded-2xl shadow-sm overflow-hidden hover:shadow-lg transition">
           <div className="bg-[#f3e8dc] h-64 flex items-center justify-center">
             <img
@@ -74,7 +72,6 @@ export default function About() {
           </div>
         </div>
 
-        {/* CARD 3 */}
         <div className="bg-white rounded-2xl shadow-sm overflow-hidden hover:shadow-lg transition">
           <div className="bg-[#f3e8dc] h-64 flex items-center justify-center">
             <img
@@ -100,7 +97,7 @@ export default function About() {
         </div>
       </section>
 
-      {/* CTA */}
+
       <section className="text-center pb-20 px-6">
         <h3 className="text-2xl font-bold text-green-900 mb-4">
           Let us bake something special for you.

@@ -36,7 +36,7 @@ export default function Profile() {
     <div className="min-h-screen pt-28 px-6 bg-gray-50">
       <div className="max-w-2xl mx-auto">
         <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
-          {/* Header */}
+
           <div className="bg-orange-600 px-6 py-8 text-white">
             <div className="flex items-center gap-4">
               <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center">
@@ -56,7 +56,6 @@ export default function Profile() {
             </div>
           </div>
 
-          {/* Content */}
           <div className="p-6">
             {message && (
               <div

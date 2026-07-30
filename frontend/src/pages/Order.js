@@ -74,7 +74,6 @@ export default function Shop() {
       category: product.category,
     });
 
-    // Show feedback animation
     setAddedProductId(product.id);
     setTimeout(() => setAddedProductId(null), 1000);
   };
@@ -158,7 +157,7 @@ export default function Shop() {
             key={p.id}
             className="bg-white rounded-xl shadow-sm hover:shadow-md transition overflow-hidden flex flex-col hover:scale-110 relative"
           >
-            {/* Added to Cart Animation Overlay */}
+
             {addedProductId === p.id && (
               <div className="absolute inset-0 bg-green-500 bg-opacity-80 flex items-center justify-center z-10 transition-all duration-300">
                 <div className="text-white text-center">
