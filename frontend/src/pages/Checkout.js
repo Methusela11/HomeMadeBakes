@@ -239,7 +239,6 @@ Special Instructions: ${orderData.customer.specialInstructions || "None"}`;
             </div>
           </div>
 
-          {/* Checkout Form */}
           <div className="lg:col-span-2">
             <form
               onSubmit={handleSubmit}

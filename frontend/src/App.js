@@ -38,7 +38,6 @@ const hideFooter = hideFooterRoutes.includes(location.pathname);
         <div className="min-h-screen flex flex-col overflow-x-hidden">
           {!hideLayout && <Navbar />}
 
-          {/* MAIN CONTENT */}
           <main className="flex-1">
             <Routes>
               <Route path="/" element={<BakeryLanding />} />
