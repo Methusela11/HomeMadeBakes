@@ -6,10 +6,9 @@ import getrude2Image from "../assets/images/chefs/chef1.png";
 export default function About() {
   return (
     <div className="min-h-screen bg-white pt-38 font-sans">
-
       <section className="pt-32 text-center px-6">
         <div className="text-green-900">
-          <h1 className="text-4xl font-bold">About Us</h1>
+          {/* <h1 className="text-4xl font-bold">About Us</h1> */}
 
           <h2 className="text-3xl md:text-3xl font-bold leading-tight max-w-3xl mx-auto pt-2">
             The heart behind every delicious bite.
@@ -17,13 +16,13 @@ export default function About() {
         </div>
 
         <p className="text-gray-600 mt-4 max-w-xl mx-auto">
-          We bake with passion, delivering fresh cakes, breads, cookies and
-          chocolates made to bring joy to every celebration.
+          We bake with passion delivering fresh Cakes, Breads, Cookies,
+          Chocolates and Special products made to bring joy to every
+          celebration.
         </p>
       </section>
 
       <section className="grid md:grid-cols-3 gap-8 px-6 md:px-12 mt-16 pb-20">
-
         <div className="bg-white rounded-2xl shadow-sm overflow-hidden hover:shadow-lg transition">
           <div className="bg-[#f3e8dc] h-64 flex items-center justify-center">
             <img
