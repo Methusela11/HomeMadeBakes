@@ -174,7 +174,7 @@ export default function Navbar() {
             </li>
           ))}
 
-          {isAuthenticated ? (
+           {isAuthenticated ? (
             <>
               <li className="flex items-center gap-2 cursor-pointer">
                 <FaUserCircle className="text-xl" />

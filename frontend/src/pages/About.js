@@ -90,7 +90,7 @@ export default function About() {
               Fresh Everyday
             </h3>
             <p className="text-gray-500 text-sm mt-2">
-              We bake fresh daily to ensure every bite is soft, flavorful, and
+              We bake fresh daily to ensure every bite is soft, flavorful and
               unforgettable.
             </p>
           </div>
